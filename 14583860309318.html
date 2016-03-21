@@ -1,0 +1,532 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Creating a Navigation Drawer - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        <li id="menu_item_index"><a href="index.html">HOME</a></li>
+        <li id="menu_item_archives"><a href="archives.html">Archives</a></li>
+        <li id="menu_item_about"><a href="about.html">ABOUT</a></li>
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" action="http://google.com/search" method="get">
+    <input type="hidden" name="q" value="site:" />
+    <input tabindex="1" type="search" name="q"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Android%E5%BC%80%E5%8F%91.html">Android开发</a></li>
+        
+            <li><a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html">产品想法</a></li>
+        
+            <li><a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html">吉它学习🎸</a></li>
+        
+            <li><a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html">书籍电影</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Creating a Navigation Drawer</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/3/19</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">表现</h2>
+
+<p>Navigation Drawer <br/>
+<img src="media/14583860309318/14583864312339.jpg" alt=""/></p>
+
+<p>手指从屏幕左边右滑，打开的这个像 Menu 一样的的页面就被称为 NavigationDrawer。<br/>
+谷歌在 MD 规范中详细说明了它的设计规范，在开始设计你的应用时请务必阅读作为参考。<br/>
+<a href="http://developer.android.com/design/patterns/navigation-drawer.html">Navigation Drawer</a></p>
+
+<h2 id="toc_1">实现思路</h2>
+
+<p>分析一下，很容易看出来，基本是分为两层。上层的这个 Drawer 层(包含你看到的这个 View 和可能被忽略的覆盖下层的阴影)，下层的包含了页面本身的内容层(ActionBar TabLayout 其它内容)。</p>
+
+<h2 id="toc_2">使用方式</h2>
+
+<p>所以，使用也很符合思考模式：以 DrawerLayout 为根 View 包含两层子 View。</p>
+
+<h3 id="toc_3">1. XML 文件</h3>
+
+<pre><code class="language-&lt;android.support.v4.widget.DrawerLayout">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/drawer_layout&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+    &lt;!-- The main content view --&gt;
+    &lt;FrameLayout
+        android:id=&quot;@+id/content_frame&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot; /&gt;
+    &lt;!-- The navigation drawer --&gt;
+    &lt;ListView android:id=&quot;@+id/left_drawer&quot;
+        android:layout_width=&quot;240dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:layout_gravity=&quot;start&quot;
+        android:choiceMode=&quot;singleChoice&quot;
+        android:divider=&quot;@android:color/transparent&quot;
+        android:dividerHeight=&quot;0dp&quot;
+        android:background=&quot;#111&quot;/&gt;
+&lt;/android.support.v4.widget.DrawerLayout&gt;
+</code></pre>
+
+<p><strong>注意的点</strong><br/>
+*  内容层必须是DrawerLayout 的第一个子 View。因为 XML 以 View 的顺序决定 Z 的次序。<br/>
+*  drawer 层必须设定 android:layout<u>gravity 属性。用来支持 right-to-left 语言。注意用 <q>start</q> 代替 <q>left</q>。<br/>
+*  drawer 层的宽度小于320dp，这样展开时也能看到下方的内容。高度 match</u>parent。</p>
+
+<h3 id="toc_4">2. 代码对内容进行配置</h3>
+
+<pre><code>public class MainActivity extends Activity {
+    private String[] mPlanetTitles;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    ...
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        // Set the adapter for the list view
+        mDrawerList.setAdapter(new ArrayAdapter&lt;String&gt;(this,
+                R.layout.drawer_list_item, mPlanetTitles));
+        // Set the list&#39;s click listener
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        ...
+    }
+}
+</code></pre>
+
+<h3 id="toc_5">3. 处理其它问题</h3>
+
+<h4 id="toc_6">3.1 处理点击事件导航</h4>
+
+<p>给 Drawer 的 ListView 设置 OnItemClickListener 就行。<br/>
+<strong>示例代码</strong><br/>
+```<br/>
+private class DrawerItemClickListener implements ListView.OnItemClickListener {<br/>
+    @Override<br/>
+    public void onItemClick(AdapterView parent, View view, int position, long id) {<br/>
+        selectItem(position);<br/>
+    }<br/>
+}</p>
+
+<p>/** Swaps fragments in the main content view */<br/>
+private void selectItem(int position) {<br/>
+    // Create a new fragment and specify the planet to show based on position<br/>
+    Fragment fragment = new PlanetFragment();<br/>
+    Bundle args = new Bundle();<br/>
+    args.putInt(PlanetFragment.ARG<u>PLANET</u>NUMBER, position);<br/>
+    fragment.setArguments(args);</p>
+
+<pre><code>// Insert the fragment by replacing any existing fragment
+FragmentManager fragmentManager = getFragmentManager();
+fragmentManager.beginTransaction()
+               .replace(R.id.content_frame, fragment)
+               .commit();
+
+// Highlight the selected item, update the title, and close the drawer
+mDrawerList.setItemChecked(position, true);
+setTitle(mPlanetTitles[position]);
+mDrawerLayout.closeDrawer(mDrawerList);
+</code></pre>
+
+<p>}</p>
+
+<p>@Override<br/>
+public void setTitle(CharSequence title) {<br/>
+    mTitle = title;<br/>
+    getActionBar().setTitle(mTitle);<br/>
+}<br/>
+```</p>
+
+<h4 id="toc_7">监听 Drawer 展开、关闭事件</h4>
+
+<p>调用 DrawerLayout.setDrawerListener() 方法，传递一个 DrawerLayout.DrawerListener 接口的实现。<br/>
+实现这个接口有两种方式。<br/>
+1. 直接实现 DrawerListener.<br/>
+2. 写一个继承 ActionBarDrawerToggle 的子类，这个类实现了这个接口，你可以在子类中重写 DrawerListener 接口函数。</p>
+
+<p><strong>示例代码</strong><br/>
+```<br/>
+public class MainActivity extends Activity {<br/>
+    private DrawerLayout mDrawerLayout;<br/>
+    private ActionBarDrawerToggle mDrawerToggle;<br/>
+    private CharSequence mDrawerTitle;<br/>
+    private CharSequence mTitle;<br/>
+    ...</p>
+
+<pre><code>@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    ...
+
+    mTitle = mDrawerTitle = getTitle();
+    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+            R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
+
+        /** Called when a drawer has settled in a completely closed state. */
+        public void onDrawerClosed(View view) {
+            super.onDrawerClosed(view);
+            getActionBar().setTitle(mTitle);
+            invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+        }
+
+        /** Called when a drawer has settled in a completely open state. */
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+            getActionBar().setTitle(mDrawerTitle);
+            invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+        }
+    };
+
+    // Set the drawer toggle as the DrawerListener
+    mDrawerLayout.setDrawerListener(mDrawerToggle);
+}
+
+/* Called whenever we call invalidateOptionsMenu() */
+@Override
+public boolean onPrepareOptionsMenu(Menu menu) {
+    // If the nav drawer is open, hide action items related to the content view
+    boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+    menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+    return super.onPrepareOptionsMenu(menu);
+}
+</code></pre>
+
+<p>}<br/>
+```</p>
+
+<h4 id="toc_8">通过 App Icon 打开、关闭 Drawer</h4>
+
+<p>通过使用 ActionBarDrawerToggle 类，可以控制这些行为。<br/>
+* 点击控制 Drawer 行为<br/>
+* 指定展开时的 icon</p>
+
+<p>标准的导航 Icon 图标在 (Download the Action Bar Icon Pack)[<a href="http://developer.android.com/downloads/design/Android_Design_Icons_20130926.zip">http://developer.android.com/downloads/design/Android_Design_Icons_20130926.zip</a>]</p>
+
+<p>最后你需要在 Activity 的生命周期中使用 ActionBarDrawerToggle 的这些方法。<br/>
+<strong>示例代码</strong><br/>
+```<br/>
+public class MainActivity extends Activity {<br/>
+    private DrawerLayout mDrawerLayout;<br/>
+    private ActionBarDrawerToggle mDrawerToggle;<br/>
+    ...</p>
+
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+    ...
+
+    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    mDrawerToggle = new ActionBarDrawerToggle(
+            this,                  /* host Activity */
+            mDrawerLayout,         /* DrawerLayout object */
+            R.drawable.ic_drawer,  /* nav drawer icon to replace &#39;Up&#39; caret */
+            R.string.drawer_open,  /* &quot;open drawer&quot; description */
+            R.string.drawer_close  /* &quot;close drawer&quot; description */
+            ) {
+
+        /** Called when a drawer has settled in a completely closed state. */
+        public void onDrawerClosed(View view) {
+            super.onDrawerClosed(view);
+            getActionBar().setTitle(mTitle);
+        }
+
+        /** Called when a drawer has settled in a completely open state. */
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+            getActionBar().setTitle(mDrawerTitle);
+        }
+    };
+
+    // Set the drawer toggle as the DrawerListener
+    mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+    getActionBar().setDisplayHomeAsUpEnabled(true);
+    getActionBar().setHomeButtonEnabled(true);
+}
+
+@Override
+protected void onPostCreate(Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
+    // Sync the toggle state after onRestoreInstanceState has occurred.
+    mDrawerToggle.syncState();
+}
+
+@Override
+public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    mDrawerToggle.onConfigurationChanged(newConfig);
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Pass the event to ActionBarDrawerToggle, if it returns
+    // true, then it has handled the app icon touch event
+    if (mDrawerToggle.onOptionsItemSelected(item)) {
+      return true;
+    }
+    // Handle your other action bar items...
+
+    return super.onOptionsItemSelected(item);
+}
+...
+</code></pre>
+
+<p>}<br/>
+```</p>
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14539061256073.html" 
+          title="Next Post: Smartoo 开发中遇到的问题和解决">Smartoo 开发中遇到的问题和解决 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Android%E5%BC%80%E5%8F%91.html"><strong>Android开发</strong></a>
+        
+            <a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html"><strong>产品想法</strong></a>
+        
+            <a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html"><strong>吉它学习🎸</strong></a>
+        
+            <a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html"><strong>书籍电影</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14583860309318.html">Creating a Navigation Drawer</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14530335489771.html">风の诗(风之诗 Wind Song)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14488126785387.html">下町火箭</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14478587837704.html">父亲</a>
+			      </li>
+		     
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>
