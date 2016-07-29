@@ -47,6 +47,8 @@
         <li><label>生活日常</label></li>
 
           
+            <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
+          
             <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
           
             <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
@@ -108,6 +110,8 @@
                     
                       <li class="side-title"><span>生活日常</span></li>
                         
+                          <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
+                        
                           <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
                         
                           <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
@@ -156,184 +160,112 @@
 
 	
 		<div class="markdown-body">
-		<h1>使用Github的Webhooks进行网站的自动化部署</h1>
+		<h1>谈谈爬虫-模拟登录思路</h1>
 
-		<p>使用mWeb做自己的博客，服务器没有直接使用github的gh-pages功能，而是部署到了自己的服务器上。<br/>
-从此更新博客变成了三步走：1. 使用mWeb生成静态网页 2. push 到github 3. 登录服务器拉取最新内容。</p>
+		<p>最近在做的sideproject，需要网络上的文章数据。于是顺便学习了下爬虫技术，也算是有些心得体会。写下来分享给刚入坑的新人。</p>
 
-<p>昨天想到，能不能再简化一些步骤，让我的文章push到github后，让服务器自动拉取文章，部署新内容。说干就干，实施想法。</p>
+<h2 id="toc_0">怎么理解模拟登录？</h2>
 
-<h2 id="toc_0">1. 目标</h2>
+<p>怎么理解模拟登录？<br/>
+把这句话补全就是： 怎么(让机器)模拟(人在浏览器上的行为)登录(指定的网站)。<br/>
+那么这个问题实际上问的是： 人通过浏览器登录网站时，浏览器为我们做了哪些事情。<br/>
+那么我们需要做的只有：写一个脚本，让这个脚本模拟浏览器的行为，做我们希望它做的事情。</p>
 
-<p>服务器自动拉取push到github上的新文章。</p>
+<p>有兴趣参考:<br/>
+ <a href="https://www.zhihu.com/question/34873227">当在浏览器地址栏输入一个URL后回车，将会发生的事情？</a></p>
 
-<h2 id="toc_1">2. 想法</h2>
+<p><strong>那么</strong>，<br/>
+人类在登录时做了哪些事情呢，很简单：<br/>
+1. 打开登录页面<br/>
+2. 输入用户名密码，有时可能还有验证码，各种各样的验证码<br/>
+3. 点击登录<br/>
+4. 等待浏览器自动跳转</p>
 
-<p>想法一: 定时检查置顶repo的提交，有更新，则启动部署流程。（主动查询方式）<br/>
-想法二: github是否支持事件提醒或者第三方有无支持。(被动唤醒方式)(相当于消息推送)</p>
+<p>只要你稍微懂一点html语言，就应该能分析个八九不离十。<br/>
+机器人怎么做呢：<br/>
+两种方式：</p>
 
-<h2 id="toc_2">3. 思考</h2>
+<p><strong>方式一</strong>：<br/>
+需要使用虚拟的浏览器引擎。<br/>
+优点: 适合几乎所有的网站登录，可以人为输入验证码<br/>
+缺点: 速度较慢<br/>
+1. 请求登录页面的url，比如微博的(<a href="https://passport.weibo.cn/signin/login">https://passport.weibo.cn/signin/login</a>)<br/>
+2. 分析html中的表单数据<br/>
+2.1 找到输入用户名、密码的输入框<br/>
+2.2 把输入框的text域替换成自己的用户名密码<br/>
+3. 模拟点击提交按钮</p>
 
-<p>主动查询，耗费cpu时间及流量，并且必然会和github产生同步间隔。<br/>
-被动唤醒，不会消耗不必要的资源，若是支持必然是第一选项。</p>
+<p><strong>方式二</strong>：<br/>
+分析登录信息提交方式，一般就是表单<br/>
+优点: 轻量，速度快<br/>
+缺点: 局限性大，对技术要求高，对验证码机制需要做针对的破解<br/>
+1. 使用浏览器的调试模式查看网页<br/>
+2. 检查是否使用表单提交<br/>
+3. 点击登录按钮，查看发送的请求数据。主要查看参数有无加密验证或其它隐藏信息。<br/>
+4. 使用分析结果进行请求操作</p>
 
-<h2 id="toc_3">4. 查阅资料(可行性分析)</h2>
+<p>对于一般用户，所有的非特殊性需求都可以使用方式一进行完成。<br/>
+若非是为了学习，推荐方式一。</p>
 
-<p>github支持Webhooks及大量的第三方服务，可以很好得对repo的push等操作做出反应。</p>
+<p>技术资料请参考:<br/>
+<a href="http://cuiqingcai.com/1052.html">Python爬虫学习系列教程</a>(推荐)<br/>
+<a href="http://www.voidcn.com/blog/eastmount/article/p-5954929.html">[Python爬虫] Selenium爬取新浪微博移动端热点话题及评论 (下)</a></p>
 
-<p><strong>Webhooks做了什么?</strong><br/>
-当github收到repo的操作行为时，会向指定的url发送一个带有描述操作内容的post请求。</p>
+<h2 id="toc_1">如何让脚本的行为看起来像人？</h2>
 
-<h2 id="toc_4">5. 实现思路(总结)</h2>
+<p><strong>为什么要像人</strong><br/>
+因为很多服务器会使用一些反爬技术拒绝爬虫软件访问。</p>
 
-<p>对指定repo注册webhooks，指向我的服务器上的接口，服务器解析数据，若操作是push，则进行部署行为。</p>
+<p><strong>哪些东西让你看起来像人，哪些不像人</strong><br/>
+像人，其实可以分为两点。<br/>
+一类是看请求数据，是否符合是浏览器发出的正常数据，比如header内容。<br/>
+一类是看行为模式，发送请求对象的行为更像人类还是机器人，比如请求的频率。</p>
 
-<h2 id="toc_5">6. 实现</h2>
+<p>不像人，和上面对应。<br/>
+从请求数据上看，你没说明user-agent,我就可以认为你是非法侵入。你没有带着我之前给你的饼干(cookie)来，我也可以拒绝你。<br/>
+从行为模式上，同一个ip访问的频率过高，短时间内流量异常，都可以作为非人类处理。</p>
 
-<h4 id="toc_6">6.1 部署脚本：</h4>
+<h2 id="toc_2">结合反爬技术</h2>
 
-<p><strong>deploy.sh</strong></p>
+<ol>
+<li>需要登录用cookie</li>
+<li>ip限制加代理</li>
+<li>用user-agent告诉对方你是浏览器</li>
+<li>服务器限制访问频率，加延迟</li>
+<li>ajax异步加载，使用js引擎或者人工分析</li>
+<li>redirect，最简单的方式虚拟内核＋延迟</li>
+<li>验证码，虚拟内核</li>
+</ol>
 
-<pre><code>#!/bin/bash
+<h2 id="toc_3">如何找切入点？</h2>
 
-LOG_FILE=&quot;/var/log/blog_deploy.log&quot;
+<p>什么是好的登录页面？<br/>
+没有验证码，非ajax异步加载。<br/>
+不一定局限于pc端网页，app端、移动端一般做的反爬策略比较少，可以从这里入手，寻找适合的站点。</p>
 
-date &gt;&gt; &quot;$LOG_FILE&quot;
-echo &quot;Start deployment&quot; &gt;&gt;&quot;$LOG_FILE&quot;
-cd /Path/need/be/deployed/
-echo &quot;pulling source code...&quot; &gt;&gt; &quot;$LOG_FILE&quot;
-git checkout origin gh-pages
-git pull origin gh-pages
-echo &quot;Finished.&quot; &gt;&gt;&quot;$LOG_FILE&quot;
-echo &gt;&gt; $LOG_FILE
-</code></pre>
+<p>理解自己要做什么，如何伪装成人类。仔细思考访问流程，针对性的有哪些反爬手段。把这些想通了，爬虫之路会好走很多。</p>
 
-<p>每当接收到带push的post请求时，执行上面的脚本。</p>
+<p>转载请注明：<a href="http://lixindong.top">未命名的博客</a></p>
 
-<h4 id="toc_7">6.2 处理post请求</h4>
+<h2 id="toc_4">相关文章和资料</h2>
 
-<p>注：以下nodejs内容摘自<a href="http://www.lovelucy.info/auto-deploy-website-by-webhooks-of-github-and-gitlab.html">曾曦前辈博客－尘埃落定</a></p>
+<p>技术语言资料请自行google。</p>
 
-<blockquote>
-<p>然后我们就要写一个脚本在 <a href="http://dev.lovelucy.info/incoming">http://dev.lovelucy.info/incoming</a> 这里接受 POST 请求了。因为本人机器上跑的是 node，俺就找了个 nodejs 的中间件 github-webhook-handler 。如果你要部署的是 PHP 网站，那你应该找一个世界上最好的语言 PHP 的版本，或者自己写一个，只需要接收 $_POST 嘛，好简单的，不多废话啦。么么哒 ( • ̀ω•́ )</p>
-</blockquote>
-
-<pre><code>$ npm install -g github-webhook-handler
-</code></pre>
-
-<blockquote>
-<p>鉴于在天朝的服务器上 npm 拉 repo 比拉屎还难的状况，我们可以 选用 阿里的镜像，据说 10 分钟和官方同步一次。_(:3 」∠ )_</p>
-</blockquote>
-
-<pre><code>$ npm install -g cnpm --registry=http://r.cnpmjs.org
-$ cnpm install -g github-webhook-handler
-</code></pre>
-
-<blockquote>
-<p>好了，万事俱备，下面是 NodeJS 的监听程序 deploy.js</p>
-</blockquote>
-
-<pre><code>var http = require(&#39;http&#39;)
-var createHandler = require(&#39;github-webhook-handler&#39;)
-var handler = createHandler({ path: &#39;/incoming&#39;, secret: &#39;myHashSecret&#39; }) 
-// 上面的 secret 保持和 GitHub 后台设置的一致
- 
-function run_cmd(cmd, args, callback) {
-  var spawn = require(&#39;child_process&#39;).spawn;
-  var child = spawn(cmd, args);
-  var resp = &quot;&quot;;
- 
-  child.stdout.on(&#39;data&#39;, function(buffer) { resp += buffer.toString(); });
-  child.stdout.on(&#39;end&#39;, function() { callback (resp) });
-}
- 
-http.createServer(function (req, res) {
-  handler(req, res, function (err) {
-    res.statusCode = 404
-    res.end(&#39;no such location&#39;)
-  })
-}).listen(7777)
- 
-handler.on(&#39;error&#39;, function (err) {
-  console.error(&#39;Error:&#39;, err.message)
-})
- 
-handler.on(&#39;push&#39;, function (event) {
-  console.log(&#39;Received a push event for %s to %s&#39;,
-    event.payload.repository.name,
-    event.payload.ref);
-  run_cmd(&#39;sh&#39;, [&#39;./deploy.sh&#39;], function(text){ console.log(text) });
-})
- 
-/*
-handler.on(&#39;issues&#39;, function (event) {
-  console.log(&#39;Received an issue event for % action=%s: #%d %s&#39;,
-    event.payload.repository.name,
-    event.payload.action,
-    event.payload.issue.number,
-    event.payload.issue.title)
-})
-*/
-</code></pre>
-
-<p>之后把服务器跑起来就可以了。</p>
-
-<pre><code>$ nodejs deploy.js
-</code></pre>
-
-<p>为了防止服务挂掉，我们有很多方式可以处理。我选择了用系统自带的nohup。</p>
-
-<pre><code>$ nohup nodejs deply.js &amp;
-</code></pre>
-
-<p>曾曦前辈使用的是 NodeJs的forever，也可以使用python的supervisor。<br/>
-<a href="http://www.lovelucy.info/auto-deploy-website-by-webhooks-of-github-and-gitlab.html">曾曦前辈博客－尘埃落定</a>有相关介绍。</p>
-
-<h4 id="toc_8">6.3 配置Webhooks监听</h4>
-
-<p>将Payload URL指向自己服务器的接口<br/>
-<img src="media/14691078063823/14691103881759.jpg" alt=""/></p>
-
-<pre><code>var handler = createHandler({ path: &#39;/incoming&#39;, secret: &#39;myHashSecret&#39; })
-
-http.createServer(function (req, res) {
-  handler(req, res, function (err) {
-    res.statusCode = 404
-    res.end(&#39;no such location&#39;)
-  })
-}).listen(7777)
-</code></pre>
-
-<p>这是deploy.js 的关键代码。<br/>
-listen(7777)，表明服务器监听的是7777端口<br/>
-path:&#39;/incoming&#39;，表示在 ip:7777/incoming 接收POST请求<br/>
-secret: &#39;myHashSecret&#39;, 要求和上图的Secret字段一样，不然服务器会因为不匹配，拒绝接收到的请求。主要为了防止第三方向这个端口发送请求。</p>
-
-<h2 id="toc_9">7. 最后梳理一下</h2>
-
-<p><strong>6.3 那里知道什么时候有人提交文章了，然后告诉6.2 有人push</strong><br/>
-<strong>6.2 从6.3 得到消息，看下你的密码(secret)和我的一样不，如果一样，我就把这个消息告诉6.1</strong><br/>
-<strong>6.1 开始跑到github数据库拉取最新的数据，部署完成</strong></p>
-
-<h2 id="toc_10">澄清</h2>
-
-<p>有朋友告诉我，复制粘贴的部分比较多。即便加了转载说明，也不是很好。<br/>
-在这里澄清一下：<br/>
-网络上技术文章特点：<strong>多</strong>，<strong>杂</strong>，<strong>全</strong><br/>
-可用的经典实例: <strong>少</strong><br/>
-自生产实例的成本: <strong>费时</strong><br/>
-一篇<strong>全原创</strong>的优质文章需要：<strong>思考</strong>＋<strong>原创实例</strong>＋<strong>码字</strong>＋<strong>重复前三项</strong> 。<br/>
-而对于学习者而言，<strong>思想＋实例＋思路</strong>已经满足80%。<br/>
-所以我认为，一篇能学到东西的技术文章，并不需要<strong>全原创</strong>。<br/>
-清晰的思路＋前人提供的经典实例＋个人思考，传达到位即可。</p>
-
-<p><strong>前人都总结好了，你再发一遍，不是制造网络垃圾吗？</strong><br/>
-打造一个以思路清晰著称的博客，专注于技术文章整理、重成文是本博客存在的意义。我不是垃圾的生产者，我是大自然的清道夫。</p>
-
-<p>欢迎关注个人微博<a href="http://weibo.com/2293237681">斯科特</a>，进行技术、非技术交流。</p>
+<ol>
+<li><a href="https://www.zhihu.com/question/28168585">如何应对网站反爬虫策略？如何高效地爬大量数据?</a></li>
+<li><a href="https://www.zhihu.com/question/27621722">能利用爬虫技术做到哪些很酷很有趣很有用的事情?</a>(很有意思)</li>
+<li><a href="http://cuiqingcai.com/1052.html">Python爬虫学习系列教程</a>(推荐)</li>
+<li><a href="http://www.voidcn.com/blog/eastmount/article/p-5954929.html">[Python爬虫] Selenium爬取新浪微博移动端热点话题及评论 (下)</a></li>
+</ol>
 
 
 		</div>
+	
+
+ 
+	
+
+ 
 	
 
  
