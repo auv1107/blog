@@ -4,7 +4,7 @@
   <title><![CDATA[博客未命名]]></title>
   <link href="lixindong.top/atom.xml" rel="self"/>
   <link href="lixindong.top/"/>
-  <updated>2016-07-30T00:20:21+08:00</updated>
+  <updated>2016-08-02T23:46:48+08:00</updated>
   <id>lixindong.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://www.mweb.im">MWeb</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android应用横竖屏切换的两种方式，从表现上看最大的区别]]></title>
+    <link href="lixindong.top/14701507519730.html"/>
+    <updated>2016-08-02T23:12:31+08:00</updated>
+    <id>lixindong.top/14701507519730.html</id>
+    <content type="html"><![CDATA[
+<p>我们知道android应用更改屏幕方向有两种方式，对应两种过程，一是销毁重建，二是设置onConfigurationChanged。在其中做改变方向的处理。</p>
+
+<p>很久前我们的测试同学给计算器应用报了一个bug，说应用旋转到横屏后锁屏，再解锁。此时应用会先回到竖屏，再转换到横屏(图一)。正确的表现应该和浏览器的表现一样(图二),解锁后直接进入横屏。<br/>
+<img src="http://i.imgur.com/m9kqNuh.gif" alt="图一，表现错误，使用销毁重建的方式"/><br/>
+<img src="http://i.imgur.com/jsswjwK.gif" alt="图二，表现正确，使用onConfigurationChanged"/></p>
+
+<p>百思不得其解。<br/>
+后来解一个性能相关的bug，很巧地把原来销毁重建的方式，改成了onConfigurationChanged处理。无意间解了这个搁置很久的问题。</p>
+
+<p>根据systrace的结果，推测可能的原因如下。<br/>
+1. 销毁重建，其间会进行目标activity的销毁、重建以及其它系统调用。这一系列动作不能在一帧内完成，导致解锁时能看到竖屏切换到横屏的动作。<br/>
+2. onConfigurationChanged，横竖屏切换其间只执行这一个函数，其中只有layout的MLD操作，这一系列动作在短时间内完成，因此我们看到的也就直接进入和横屏。<br/>
+3. 可能有其它activity管理之间的原因，暂不清楚。知道的请不吝赐教。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[谈谈爬虫-模拟登录思路]]></title>
