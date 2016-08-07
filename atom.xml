@@ -4,7 +4,7 @@
   <title><![CDATA[博客未命名]]></title>
   <link href="lixindong.top/atom.xml" rel="self"/>
   <link href="lixindong.top/"/>
-  <updated>2016-08-02T23:46:48+08:00</updated>
+  <updated>2016-08-08T01:19:51+08:00</updated>
   <id>lixindong.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,190 @@
   </author>
   <generator uri="http://www.mweb.im">MWeb</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[微博自动发贴，简单却不容易被注意到的反爬方式]]></title>
+    <link href="lixindong.top/14705728845498.html"/>
+    <updated>2016-08-07T20:28:04+08:00</updated>
+    <id>lixindong.top/14705728845498.html</id>
+    <content type="html"><![CDATA[
+<p>移动端登录后移步 <a href="http://m.weibo.cn/mblog">http://m.weibo.cn/mblog</a> 页面发贴，正常思路是：填写消息-&gt;其它选项-&gt;点击发送。</p>
+
+<pre><code>tv_msg.send_keys(&quot;msg&quot;)
+btn_send.click()
+</code></pre>
+
+<p>仔细看下细节，会发现，发送按钮一开始是disable的，输入消息后才会变成enable。<br/>
+所以按理说，代码确实没有问题。可是执行结果是最终停留在这个页面，而且send按钮<strong>并没有</strong>变成可用的橙色。</p>
+
+<p>测试最后发现，msg输入后，send并不会立即改变状态，而是有一个很小的延迟时间。而因为机器的执行速度极快，导致在send状态改变前，已经执行了click动作。所以发送动作没有如期进行。</p>
+
+<p>在其中加入一点delay解决问题。</p>
+
+<pre><code>tv_msg.send_keys(&quot;msg&quot;)
+time.sleep(0.1)
+btn_send.click()
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)]]></title>
+    <link href="lixindong.top/14705395849188.html"/>
+    <updated>2016-08-07T11:13:04+08:00</updated>
+    <id>lixindong.top/14705395849188.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">对WebElement截图</h2>
+
+<p>WebDriver.Chrome自带的方法只能对当前窗口截屏，且不能指定特定元素。若是需要截取特定元素或是窗口超过了一屏，就只能另辟蹊径了。<br/>
+WebDriver.PhantomJS自带的方法支持对整个网页截屏。<br/>
+下面提供几种思路。</p>
+
+<h4 id="toc_1">方式一</h4>
+
+<blockquote>
+<p>针对WebDriver.Chrome</p>
+</blockquote>
+
+<p>通过WebDriver的js脚本注入功能，曲线救国。<br/>
+1. 注入第三方html转canvas的js库(见下方推荐)<br/>
+2. 获取元素html源码<br/>
+3. 将html转换为canvas<br/>
+4. 下载canvas</p>
+
+<p><strong>优点</strong>: 截取长图容易实现<br/>
+<strong>缺点</strong>: 加载第三方库耗费时间，转换原理请参考这篇文章:<br/>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></p>
+
+<h4 id="toc_2">方式二</h4>
+
+<blockquote>
+<p>针对WebDriver.Chrome</p>
+</blockquote>
+
+<p>截取全图，自行裁剪、拼接<br/>
+1. 获取元素位置、大小<br/>
+2. 获取窗口大小<br/>
+3. 截取包含元素的窗口<br/>
+4. 进行相应的裁剪和拼接。</p>
+
+<p>具体算法思路很清晰，但需要注意的细节较多。这里就不在赘述。示例代码请移步: <br/>
+<a href="https://github.com/auv1107/PythonSpiderLibs">[Github]PythonSpiderLibs</a></p>
+
+<p><strong>优点</strong>: 不需太多js工作，python+少量js代码即可完成<br/>
+<strong>缺点</strong>: 拼接等工作会被WebDriver的实现差异、图片加载速度等因素影响，需多加注意。 在保证截图质量的情况下，速度较慢</p>
+
+<h4 id="toc_3">方式三</h4>
+
+<blockquote>
+<p>针对WebDriver.PhantomJS<br/>
+由于接口实现的差异，PhantomJS相比于Chrome，可以截取到整个网页。所以获取指定元素的截图也就简单很多</p>
+</blockquote>
+
+<ol>
+<li>截取网页全图</li>
+<li>裁剪指定元素</li>
+</ol>
+
+<pre><code>driver = webdriver.Chrome()
+driver.get(&#39;http://stackoverflow.com/&#39;)
+driver.save_screenshot(&#39;screenshot.png&#39;)
+
+left = element.location[&#39;x&#39;]
+top = element.location[&#39;y&#39;]
+right = element.location[&#39;x&#39;] + element.size[&#39;width&#39;]
+bottom = element.location[&#39;y&#39;] + element.size[&#39;height&#39;]
+
+im = Image.open(&#39;screenshot.png&#39;) 
+im = im.crop((left, top, right, bottom))
+im.save(&#39;screenshot.png&#39;)
+</code></pre>
+
+<p><strong>优点</strong>: 实现简单<br/>
+<strong>缺点</strong>: 对于高度太高的页面会导致文件过大，处理会有问题，我测试的最大图片尺寸是12.8M。</p>
+
+<h4 id="toc_4">解决图片加载不完整的问题</h4>
+
+<p>参考: <a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></p>
+
+<p>我们先在首页上执行一段 JavaScript 脚本，将页面的滚动条拖到最下方，然后再拖回顶部，最后才截图。这样可以解决像上面那种按需加载图片的情况。</p>
+
+<pre><code>from selenium import webdriver
+import time
+
+
+def take_screenshot(url, save_fn=&quot;capture.png&quot;):
+    browser = webdriver.Firefox() # Get local session of firefox
+    browser.set_window_size(1200, 900)
+    browser.get(url) # Load page
+    browser.execute_script(&quot;&quot;&quot;
+        (function () {
+            var y = 0;
+            var step = 100;
+            window.scroll(0, 0);
+
+            function f() {
+                if (y &lt; document.body.scrollHeight) {
+                    y += step;
+                    window.scroll(0, y);
+                    setTimeout(f, 100);
+                } else {
+                    window.scroll(0, 0);
+                    document.title += &quot;scroll-done&quot;;
+                }
+            }
+
+            setTimeout(f, 1000);
+        })();
+    &quot;&quot;&quot;)
+
+    for i in xrange(30):
+        if &quot;scroll-done&quot; in browser.title:
+            break
+        time.sleep(10)
+
+    browser.save_screenshot(save_fn)
+    browser.close()
+
+
+if __name__ == &quot;__main__&quot;:
+
+    take_screenshot(&quot;http://codingpy.com&quot;)
+
+</code></pre>
+
+<h2 id="toc_5">不同wewbdriver对某些方法的实现不同</h2>
+
+<p>Chrome和PhantomJS 的接口差异<br/>
+抓知乎时的坑，<br/>
+1. Chrome用<code>WebElement.text</code>可以正常得到值，用PhantomJS只能用 <code>WebElement.get_attribute(&#39;innerHTML&#39;)</code><br/>
+2. WebDriver.<br/>
+其它还有一些坑等待发现</p>
+
+<h2 id="toc_6">推荐</h2>
+
+<ol>
+<li><a href="http://html2canvas.hertzen.com/documentation.html">html2canvas库</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></li>
+<li><a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[技术资料]]></title>
+    <link href="lixindong.top/14705318101263.html"/>
+    <updated>2016-08-07T09:03:30+08:00</updated>
+    <id>lixindong.top/14705318101263.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">文档</h2>
+
+<p><a href="https://pillow.readthedocs.io/en/3.3.x/">Pillow(PIL Fork)</a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android应用横竖屏切换的两种方式，从表现上看最大的区别]]></title>

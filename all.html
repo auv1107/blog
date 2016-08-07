@@ -47,6 +47,10 @@
         <li><label>生活日常</label></li>
 
           
+            <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
+          
+            <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
+          
             <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
           
             <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
@@ -110,6 +114,10 @@
                     
                       <li class="side-title"><span>生活日常</span></li>
                         
+                          <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
+                        
+                          <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
+                        
                           <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
                         
                           <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
@@ -160,24 +168,37 @@
 
 	
 		<div class="markdown-body">
-		<h1>Android应用横竖屏切换的两种方式，从表现上看最大的区别</h1>
+		<h1>微博自动发贴，简单却不容易被注意到的反爬方式</h1>
 
-		<p>我们知道android应用更改屏幕方向有两种方式，对应两种过程，一是销毁重建，二是设置onConfigurationChanged。在其中做改变方向的处理。</p>
+		<p>移动端登录后移步 <a href="http://m.weibo.cn/mblog">http://m.weibo.cn/mblog</a> 页面发贴，正常思路是：填写消息-&gt;其它选项-&gt;点击发送。</p>
 
-<p>很久前我们的测试同学给计算器应用报了一个bug，说应用旋转到横屏后锁屏，再解锁。此时应用会先回到竖屏，再转换到横屏(图一)。正确的表现应该和浏览器的表现一样(图二),解锁后直接进入横屏。<br/>
-<img src="http://i.imgur.com/m9kqNuh.gif" alt="图一，表现错误，使用销毁重建的方式"/><br/>
-<img src="http://i.imgur.com/jsswjwK.gif" alt="图二，表现正确，使用onConfigurationChanged"/></p>
+<pre><code>tv_msg.send_keys(&quot;msg&quot;)
+btn_send.click()
+</code></pre>
 
-<p>百思不得其解。<br/>
-后来解一个性能相关的bug，很巧地把原来销毁重建的方式，改成了onConfigurationChanged处理。无意间解了这个搁置很久的问题。</p>
+<p>仔细看下细节，会发现，发送按钮一开始是disable的，输入消息后才会变成enable。<br/>
+所以按理说，代码确实没有问题。可是执行结果是最终停留在这个页面，而且send按钮<strong>并没有</strong>变成可用的橙色。</p>
 
-<p>根据systrace的结果，推测可能的原因如下。<br/>
-1. 销毁重建，其间会进行目标activity的销毁、重建以及其它系统调用。这一系列动作不能在一帧内完成，导致解锁时能看到竖屏切换到横屏的动作。<br/>
-2. onConfigurationChanged，横竖屏切换其间只执行这一个函数，其中只有layout的MLD操作，这一系列动作在短时间内完成，因此我们看到的也就直接进入和横屏。<br/>
-3. 可能有其它activity管理之间的原因，暂不清楚。知道的请不吝赐教。</p>
+<p>测试最后发现，msg输入后，send并不会立即改变状态，而是有一个很小的延迟时间。而因为机器的执行速度极快，导致在send状态改变前，已经执行了click动作。所以发送动作没有如期进行。</p>
+
+<p>在其中加入一点delay解决问题。</p>
+
+<pre><code>tv_msg.send_keys(&quot;msg&quot;)
+time.sleep(0.1)
+btn_send.click()
+</code></pre>
 
 
 		</div>
+	
+
+ 
+	
+
+ 
+	
+
+ 
 	
 
  
