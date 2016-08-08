@@ -4,7 +4,7 @@
   <title><![CDATA[博客未命名]]></title>
   <link href="lixindong.top/atom.xml" rel="self"/>
   <link href="lixindong.top/"/>
-  <updated>2016-08-08T01:19:51+08:00</updated>
+  <updated>2016-08-08T01:20:08+08:00</updated>
   <id>lixindong.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -170,8 +170,9 @@ if __name__ == &quot;__main__&quot;:
 <p>Chrome和PhantomJS 的接口差异<br/>
 抓知乎时的坑，<br/>
 1. Chrome用<code>WebElement.text</code>可以正常得到值，用PhantomJS只能用 <code>WebElement.get_attribute(&#39;innerHTML&#39;)</code><br/>
-2. WebDriver.<br/>
-其它还有一些坑等待发现</p>
+2. WebDriver.Chrome截图只能截当前屏幕区域。WebDriver.PhantomJS截图可以获取整个页面的长图。</p>
+
+<p>其它还有一些坑等待发现</p>
 
 <h2 id="toc_6">推荐</h2>
 
