@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素) - 博客未命名
+  
+  </title>
+ <meta name="description" content="专注于重成文思路清晰的技术文章。">
+ <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+<div id="header">
+    <h1><a href="index.html">博客未命名</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 博客未命名</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>生活日常</label></li>
+
+          
+            <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
+          
+            <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
+          
+            <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
+          
+            <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
+          
+            <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Android开发</label></li>
+
+          
+            <li><a title="Android应用横竖屏切换的两种方式，从表现上看最大的区别" href="14701507519730.html">Android应用横竖屏切换的两种方式，从表现上看最大的区别</a></li>
+          
+            <li><a title="PokemonGo破解" href="14685051740290.html">PokemonGo破解</a></li>
+          
+            <li><a title="Creating a Navigation Drawer" href="14583860309318.html">Creating a Navigation Drawer</a></li>
+          
+            <li><a title="Smartoo 开发中遇到的问题和解决" href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>产品想法</label></li>
+
+          
+            <li><a title="app 我有一个问题" href="14464734385012.html">app 我有一个问题</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>吉它学习🎸</label></li>
+
+          
+            <li><a title="风の诗(风之诗 Wind Song)" href="14530335489771.html">风の诗(风之诗 Wind Song)</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>书籍电影</label></li>
+
+          
+            <li><a title="下町火箭" href="14488126785387.html">下町火箭</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>生活日常</span></li>
+                        
+                          <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
+                        
+                          <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
+                        
+                          <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
+                        
+                          <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
+                        
+                          <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Android开发</span></li>
+                        
+                          <li><a title="Android应用横竖屏切换的两种方式，从表现上看最大的区别" href="14701507519730.html">Android应用横竖屏切换的两种方式，从表现上看最大的区别</a></li>
+                        
+                          <li><a title="PokemonGo破解" href="14685051740290.html">PokemonGo破解</a></li>
+                        
+                          <li><a title="Creating a Navigation Drawer" href="14583860309318.html">Creating a Navigation Drawer</a></li>
+                        
+                          <li><a title="Smartoo 开发中遇到的问题和解决" href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>产品想法</span></li>
+                        
+                          <li><a title="app 我有一个问题" href="14464734385012.html">app 我有一个问题</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>吉它学习🎸</span></li>
+                        
+                          <li><a title="风の诗(风之诗 Wind Song)" href="14530335489771.html">风の诗(风之诗 Wind Song)</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>书籍电影</span></li>
+                        
+                          <li><a title="下町火箭" href="14488126785387.html">下町火箭</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ <div class="markdown-body">
+<h1>利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</h1>
+
+<h2 id="toc_0">对WebElement截图</h2>
+
+<p>WebDriver.Chrome自带的方法只能对当前窗口截屏，且不能指定特定元素。若是需要截取特定元素或是窗口超过了一屏，就只能另辟蹊径了。<br/>
+WebDriver.PhantomJS自带的方法支持对整个网页截屏。<br/>
+下面提供几种思路。</p>
+
+<h4 id="toc_1">方式一</h4>
+
+<blockquote>
+<p>针对WebDriver.Chrome</p>
+</blockquote>
+
+<p>通过WebDriver的js脚本注入功能，曲线救国。<br/>
+1. 注入第三方html转canvas的js库(见下方推荐)<br/>
+2. 获取元素html源码<br/>
+3. 将html转换为canvas<br/>
+4. 下载canvas</p>
+
+<p><strong>优点</strong>: 截取长图容易实现<br/>
+<strong>缺点</strong>: 加载第三方库耗费时间，转换原理请参考这篇文章:<br/>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></p>
+
+<h4 id="toc_2">方式二</h4>
+
+<blockquote>
+<p>针对WebDriver.Chrome</p>
+</blockquote>
+
+<p>截取全图，自行裁剪、拼接<br/>
+1. 获取元素位置、大小<br/>
+2. 获取窗口大小<br/>
+3. 截取包含元素的窗口<br/>
+4. 进行相应的裁剪和拼接。</p>
+
+<p>具体算法思路很清晰，但需要注意的细节较多。这里就不在赘述。示例代码请移步: <br/>
+<a href="https://github.com/auv1107/PythonSpiderLibs">[Github]PythonSpiderLibs</a></p>
+
+<p><strong>优点</strong>: 不需太多js工作，python+少量js代码即可完成<br/>
+<strong>缺点</strong>: 拼接等工作会被WebDriver的实现差异、图片加载速度等因素影响，需多加注意。 在保证截图质量的情况下，速度较慢</p>
+
+<h4 id="toc_3">方式三</h4>
+
+<blockquote>
+<p>针对WebDriver.PhantomJS<br/>
+由于接口实现的差异，PhantomJS相比于Chrome，可以截取到整个网页。所以获取指定元素的截图也就简单很多</p>
+</blockquote>
+
+<ol>
+<li>截取网页全图</li>
+<li>裁剪指定元素</li>
+</ol>
+
+<pre><code>driver = webdriver.Chrome()
+driver.get(&#39;http://stackoverflow.com/&#39;)
+driver.save_screenshot(&#39;screenshot.png&#39;)
+
+left = element.location[&#39;x&#39;]
+top = element.location[&#39;y&#39;]
+right = element.location[&#39;x&#39;] + element.size[&#39;width&#39;]
+bottom = element.location[&#39;y&#39;] + element.size[&#39;height&#39;]
+
+im = Image.open(&#39;screenshot.png&#39;) 
+im = im.crop((left, top, right, bottom))
+im.save(&#39;screenshot.png&#39;)
+</code></pre>
+
+<p><strong>优点</strong>: 实现简单<br/>
+<strong>缺点</strong>: 对于高度太高的页面会导致文件过大，处理会有问题，我测试的最大图片尺寸是12.8M。</p>
+
+<h4 id="toc_4">解决图片加载不完整的问题</h4>
+
+<p>参考: <a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></p>
+
+<p>我们先在首页上执行一段 JavaScript 脚本，将页面的滚动条拖到最下方，然后再拖回顶部，最后才截图。这样可以解决像上面那种按需加载图片的情况。</p>
+
+<pre><code>from selenium import webdriver
+import time
+
+
+def take_screenshot(url, save_fn=&quot;capture.png&quot;):
+    browser = webdriver.Firefox() # Get local session of firefox
+    browser.set_window_size(1200, 900)
+    browser.get(url) # Load page
+    browser.execute_script(&quot;&quot;&quot;
+        (function () {
+            var y = 0;
+            var step = 100;
+            window.scroll(0, 0);
+
+            function f() {
+                if (y &lt; document.body.scrollHeight) {
+                    y += step;
+                    window.scroll(0, y);
+                    setTimeout(f, 100);
+                } else {
+                    window.scroll(0, 0);
+                    document.title += &quot;scroll-done&quot;;
+                }
+            }
+
+            setTimeout(f, 1000);
+        })();
+    &quot;&quot;&quot;)
+
+    for i in xrange(30):
+        if &quot;scroll-done&quot; in browser.title:
+            break
+        time.sleep(10)
+
+    browser.save_screenshot(save_fn)
+    browser.close()
+
+
+if __name__ == &quot;__main__&quot;:
+
+    take_screenshot(&quot;http://codingpy.com&quot;)
+
+</code></pre>
+
+<h2 id="toc_5">不同wewbdriver对某些方法的实现不同</h2>
+
+<p>Chrome和PhantomJS 的接口差异<br/>
+抓知乎时的坑，<br/>
+1. Chrome用<code>WebElement.text</code>可以正常得到值，用PhantomJS只能用 <code>WebElement.get_attribute(&#39;innerHTML&#39;)</code><br/>
+2. WebDriver.<br/>
+其它还有一些坑等待发现</p>
+
+<h2 id="toc_6">推荐</h2>
+
+<ol>
+<li><a href="http://html2canvas.hertzen.com/documentation.html">html2canvas库</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></li>
+<li><a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></li>
+</ol>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="14705728845498.html"  title="Previous Post: 微博自动发贴，简单却不容易被注意到的反爬方式">&laquo; 微博自动发贴，简单却不容易被注意到的反爬方式</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="14705318101263.html" 
+	        title="Next Post: 技术资料">技术资料 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5790edd7f65e05aa"></script><div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//lixindongtop.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    <script id="dsq-count-scr" src="//lixindongtop.disqus.com/count.js" async></script>
+    
+    
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '14705395849188.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+    
+    <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?84fca9a2f5023159ce7f5a699c8bf2d0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </body>
+</html>
