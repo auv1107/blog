@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  app 我有一个问题 - 博客未命名
+  Android GPS定位欺骗(模拟定位)的两种方式 - 博客未命名
   
   </title>
  <meta name="description" content="专注于重成文思路清晰的技术文章。">
@@ -176,107 +176,74 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-<h1>app 我有一个问题</h1>
+<h1>Android GPS定位欺骗(模拟定位)的两种方式</h1>
+
+<p>前段时间发布的手游PokemonGo相信大家都有耳闻，而因为这个游戏在国内的坐标遭到了封锁，很多科学游戏方法也陆续涌现。好不热闹。<br/>
+那其实，PokemonGo最初的版本，在大陆是可以通过简单的vpn+gps欺骗进行游戏的。<br/>
+不过很快地，在新的版本更新中就封锁了这一方式。</p>
+
+<p>而对Android系统使用GPS欺骗，应用场景也绝不只是这一个游戏而已。所以我今天来简单介绍一下可使用的几种方式。</p>
 
 <blockquote>
-<p>这个app不是问答式的社区</p>
+<p>控制噪声的方式有三种：防止噪声产生，阻断噪声传播和防止噪声进入耳朵</p>
 </blockquote>
 
-<h2 id="toc_0">疑问</h2>
-
-<p>人每天都会产生疑问，但每天也有疑问被搁置下来，没有解答<br/>
-想想，如果这些问题全部或者大部分都能被解决并记录。那么一年以后的自己将会变得多么博学</p>
-
-<h2 id="toc_1">想想，这些问题被搁置的原因</h2>
-
-<ul>
-<li><strong>时间</strong>:   “我在做其它事情，分不开时间”</li>
-<li><strong>优先级</strong>:  “其实问题也不是那么重要”</li>
-<li><strong>复杂性</strong>:  “这可能不是一会儿能了解的”</li>
-<li><strong>领域</strong>:   “无从下手”</li>
-<li><strong>人真是复杂慵懒的动物</strong>:   “想之后解决，然后就忘记了，或者想起来也没兴趣了”</li>
-<li><strong>比干货更简洁</strong>:   “我只想知道个大概，可网上的答案总不能让我满意。要么太全面，要么没讲到点”</li>
-</ul>
+<p>相对应的，</p>
 
 <blockquote>
-<p>没能在产生疑问的<strong>时间</strong>，找到合适的<strong>资料</strong>,和那个能一句话讲到点的<strong>人</strong>。</p>
+<p>修改GPS定位结果的三种途径： 编译时修改NLP结果，运行时修改LocationManager结果，从应用获取到的结果修改。</p>
 </blockquote>
 
-<h2 id="toc_2">因此，我们需要什么</h2>
+<h3 id="toc_0">1. 编译时修改NLP结果</h3>
 
-<p>正式点讲 <strong>最简洁，最get到point的回答</strong><br/>
-不正式点 <strong>最右神回复</strong></p>
+<p>难度系数：五颗星<br/>
+建议：想都别想<br/>
+大概思路：修改nlp部分源码，重编系统</p>
+
+<h3 id="toc_1">2. 运行时修改LocationManager结果</h3>
+
+<p>这个分两类：</p>
 
 <blockquote>
-<p>然而提供内容并不是我们要做的</p>
-
-<p>人从心底总是自私的<br/>
-即便在<em>知乎</em>这类为他人服务的平台上，人们也总是倾向于回答自己感兴趣的提问</p>
+<p><strong>一类</strong>： 使用android自带的调试api，模拟gps provider的结果。</p>
 </blockquote>
 
-<h2 id="toc_3">如何做</h2>
+<pre><code>LocationManager.setTestProviderLocation(Provider, Location);
+</code></pre>
 
-<p>因此，<br/>
-我们只是提供给用户一个私人的<strong>记录平台</strong>, 个人的问题<strong>管理平台</strong></p>
+<p>优点：简单，无需root<br/>
+缺点：不稳定，特征明显，容易按特征嗅探到（有反作弊机制的游戏基本都能查出来），需要打开开发者的允许模拟位置选项</p>
 
-<h4 id="toc_4">定位：</h4>
+<blockquote>
+<p><strong>第二类</strong>: 使用xposed,传说中的android神器，用它对app_process进行注入。</p>
+</blockquote>
 
-<ul>
-<li>个人手账类的记事本</li>
-<li>将公开内容聚合的知识库</li>
-<li>社区</li>
-</ul>
+<p>有什么用呢，就是你可以放个钩子，英文名叫hook。这个钩子能知道你系统里的每个应用什么时候调用了哪个函数，还能修改对应的这个函数。<br/>
+说到这就懂了吧。比如你猜测对应app会使用LocationManager.getLastKnownLocation的结果。然后你用xposed把内存里的这个函数返回值改成 <code>纬度 N 39.832670° 东经 E116.460370°</code>，然后调用这个函数的程序看到的记过就是你修改之后的结果。<br/>
+具体代码看这里吧（非本人repo，只是找了个简单易懂的demo）<br/>
+<a href="https://github.com/YiuChoi/FakeGps/tree/master/app/src/main/java/name/caiyao/fakegps/hook">FakeGPS demo</a></p>
 
-<h4 id="toc_5">功能</h4>
+<p>优点：稳定，难以被反查<br/>
+缺点：需要root</p>
 
-<ul>
-<li>随时定义新概念：有时为了讲解方便，需要用一个词代替一个概念。在当下没有相应的概念时，一个新的概念词诞生是被允许和值得推荐的。我们也有机制推荐其中优秀和广为传播的新概念。</li>
-<li>随时记录新疑问</li>
-<li>对于未填补答案的问题
+<h3 id="toc_2">3. 对想欺骗的app反编译，修改结果</h3>
 
-<ul>
-<li>自动归档到todo</li>
-<li>手动填补答案</li>
-<li>查看知识库中推荐的已有答案</li>
-<li>公开征求答案</li>
-<li>选择合适的答案mark到自己的手账中</li>
-</ul></li>
-<li>对于已填补的问题
+<p>该怎么做看标题就明白了。<br/>
+步骤就是<br/>
+1. 反编译<br/>
+2. 找到所有使用了定位结果的位置<br/>
+3. 修改结果<br/>
+4. 重新打包</p>
 
-<ul>
-<li>根据艾宾浩斯记忆法，进行复习</li>
-<li>知识库中有相关问题的优解，推荐</li>
-<li>在知识库中作为备选答案，接受其它用户浏览、评分</li>
-</ul></li>
-<li>知识库的答案全部由运营商或其它用户提供</li>
-<li>打赏功能：对于很好地解决了自己问题的<strong>优质</strong>答案，用户可选择进行打赏</li>
-<li>专题功能：专家级的用户可以创建自己的专题，专题内容通过一定的标准（质与量），可以将其电子版内容打包出售</li>
-<li>发烧圈子：可由专题、小组组成。是人的圈子，也是内容的圈子。一个内容可以在某个圈子发表，圈子内可见。一个用户可以在圈子中被推荐。</li>
-<li>热门的分类社区：howto类，购物类，等</li>
-</ul>
+<p>这个方式的优缺点也很明显。<br/>
+优点： 无需root，稳定性强（前提是找准入口）<br/>
+缺点： 技术水平要求高。根据应用复杂程度、混淆、安全策略等不同，难度差异较大。难易程度包括很多内容，包括混淆部分、入口寻找、签名验证等。 我也不熟啊，感兴趣的同学请自行深入学习吧。</p>
 
-<h4 id="toc_6">用户群体</h4>
+<p>————————</p>
 
-<ul>
-<li>文青</li>
-<li>动手达人</li>
-<li>领域专家</li>
-<li>爱思考的人</li>
-<li>拖延症患者</li>
-<li>除上面以外的其他人</li>
-</ul>
+<p>3类4种欺骗方式，各位看官收好。</p>
 
-<h4 id="toc_7">盈利模式</h4>
-
-<p>这是我的一个问题。期待社区帮我解答。</p>
-
-<h2 id="toc_8">最后</h2>
-
-<p><strong>我们希望并渴求精炼的一句话答案</strong> <br/>
-帮助大多数人瞬间开窍</p>
-
-<p><strong>我们也渴望专业级别的教科书</strong><br/>
-提升你自己的同时，带给世界更优质的内容</p>
+<p>以上。</p>
 
 
 </div>
@@ -288,13 +255,14 @@
   <div class="large-6 columns">
 	<div class="text-left" style="padding:15px 0px;">
 		
-	        <a href="14488126785387.html"  title="Previous Post: 下町火箭">&laquo; 下町火箭</a>
-	    
 	</div>
   </div>
   <div class="large-6 columns">
 	<div class="text-right" style="padding:15px 0px;">
 		
+	        <a href="14720509627845.html" 
+	        title="Next Post: android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？">android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？ &raquo;</a>
+	    
 	</div>
   </div>
 </div>
@@ -330,7 +298,7 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		var currentURL = '14464734385012.html';
+		var currentURL = '14720509840810.html';
 		$('#side-nav a').each(function(){
 			if($(this).attr('href') == currentURL){
 				$(this).parent().addClass('active');

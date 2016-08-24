@@ -4,7 +4,7 @@
   <title><![CDATA[博客未命名]]></title>
   <link href="lixindong.top/atom.xml" rel="self"/>
   <link href="lixindong.top/"/>
-  <updated>2016-08-08T01:20:08+08:00</updated>
+  <updated>2016-08-24T23:03:28+08:00</updated>
   <id>lixindong.top/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,211 @@
   </author>
   <generator uri="http://www.mweb.im">MWeb</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android GPS定位欺骗(模拟定位)的两种方式]]></title>
+    <link href="lixindong.top/14720509840810.html"/>
+    <updated>2016-08-24T23:03:04+08:00</updated>
+    <id>lixindong.top/14720509840810.html</id>
+    <content type="html"><![CDATA[
+<p>前段时间发布的手游PokemonGo相信大家都有耳闻，而因为这个游戏在国内的坐标遭到了封锁，很多科学游戏方法也陆续涌现。好不热闹。<br/>
+那其实，PokemonGo最初的版本，在大陆是可以通过简单的vpn+gps欺骗进行游戏的。<br/>
+不过很快地，在新的版本更新中就封锁了这一方式。</p>
+
+<p>而对Android系统使用GPS欺骗，应用场景也绝不只是这一个游戏而已。所以我今天来简单介绍一下可使用的几种方式。</p>
+
+<blockquote>
+<p>控制噪声的方式有三种：防止噪声产生，阻断噪声传播和防止噪声进入耳朵</p>
+</blockquote>
+
+<p>相对应的，</p>
+
+<blockquote>
+<p>修改GPS定位结果的三种途径： 编译时修改NLP结果，运行时修改LocationManager结果，从应用获取到的结果修改。</p>
+</blockquote>
+
+<h3 id="toc_0">1. 编译时修改NLP结果</h3>
+
+<p>难度系数：五颗星<br/>
+建议：想都别想<br/>
+大概思路：修改nlp部分源码，重编系统</p>
+
+<h3 id="toc_1">2. 运行时修改LocationManager结果</h3>
+
+<p>这个分两类：</p>
+
+<blockquote>
+<p><strong>一类</strong>： 使用android自带的调试api，模拟gps provider的结果。</p>
+</blockquote>
+
+<pre><code>LocationManager.setTestProviderLocation(Provider, Location);
+</code></pre>
+
+<p>优点：简单，无需root<br/>
+缺点：不稳定，特征明显，容易按特征嗅探到（有反作弊机制的游戏基本都能查出来），需要打开开发者的允许模拟位置选项</p>
+
+<blockquote>
+<p><strong>第二类</strong>: 使用xposed,传说中的android神器，用它对app_process进行注入。</p>
+</blockquote>
+
+<p>有什么用呢，就是你可以放个钩子，英文名叫hook。这个钩子能知道你系统里的每个应用什么时候调用了哪个函数，还能修改对应的这个函数。<br/>
+说到这就懂了吧。比如你猜测对应app会使用LocationManager.getLastKnownLocation的结果。然后你用xposed把内存里的这个函数返回值改成 <code>纬度 N 39.832670° 东经 E116.460370°</code>，然后调用这个函数的程序看到的记过就是你修改之后的结果。<br/>
+具体代码看这里吧（非本人repo，只是找了个简单易懂的demo）<br/>
+<a href="https://github.com/YiuChoi/FakeGps/tree/master/app/src/main/java/name/caiyao/fakegps/hook">FakeGPS demo</a></p>
+
+<p>优点：稳定，难以被反查<br/>
+缺点：需要root</p>
+
+<h3 id="toc_2">3. 对想欺骗的app反编译，修改结果</h3>
+
+<p>该怎么做看标题就明白了。<br/>
+步骤就是<br/>
+1. 反编译<br/>
+2. 找到所有使用了定位结果的位置<br/>
+3. 修改结果<br/>
+4. 重新打包</p>
+
+<p>这个方式的优缺点也很明显。<br/>
+优点： 无需root，稳定性强（前提是找准入口）<br/>
+缺点： 技术水平要求高。根据应用复杂程度、混淆、安全策略等不同，难度差异较大。难易程度包括很多内容，包括混淆部分、入口寻找、签名验证等。 我也不熟啊，感兴趣的同学请自行深入学习吧。</p>
+
+<p>————————</p>
+
+<p>3类4种欺骗方式，各位看官收好。</p>
+
+<p>以上。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？]]></title>
+    <link href="lixindong.top/14720509627845.html"/>
+    <updated>2016-08-24T23:02:42+08:00</updated>
+    <id>lixindong.top/14720509627845.html</id>
+    <content type="html"><![CDATA[
+<p>很多初接触android的同学在布局时都会有这样一个疑问：</p>
+
+<blockquote>
+<p>这个布局的父亲用LinearLayout和RelativeLayout都可以，我用哪个更合适呢？</p>
+</blockquote>
+
+<p>有些同学可能就开始权量了，RelativeLayout更灵活，用这个吧。但是感觉LinearLayout更方便啊，自动帮我把这几个View分布开了，不会一开始就挤在一块。</p>
+
+<p>其实呢，随着项目的进展，布局会发生调整，这是再自然不过的事情。</p>
+
+<blockquote>
+<p>不要让自己这些『主观』的思考拖慢进度。</p>
+</blockquote>
+
+<p>今天我从数据上来说下在面临这种情况（两者都可选择）时，应如何选择。</p>
+
+<p><strong>注: 当然，很多情况会有其它更好的选择，我这里仅就这两者进行对比。</strong></p>
+
+<blockquote>
+<p>从效率的角度考虑，选取渲染速度更快的那个。</p>
+</blockquote>
+
+<p>我们知道一个View的绘制包括三个步骤：<br/>
+1. 测量 measure<br/>
+2. 布局 layout<br/>
+3. 绘制 draw</p>
+
+<p>这三个哪个拖后腿都会影响渲染效率，我们就来看看使用不同的布局时，这三者之间的差距。</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>子View</th>
+<th>父View</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>父View使用LinearLayout</td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-ad4a99485588a741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linear_child.png"/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-c2a9998a2d24bc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linear_parent.png"/></td>
+</tr>
+<tr>
+<td>父View使用RelativeLayout</td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-0d2ff6157d6133e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_child.png"/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-4c1f5807cd35172d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_parent.png"/></td>
+</tr>
+</tbody>
+</table>
+
+<p>这里我们主要关注 <strong>Measure</strong> 时间。<br/>
+通过对比我们可以看到，父View使用LinearLayout时，父亲和孩子的Measure时间是相差无几的。<br/>
+而父View使用RelativeLayout时，父亲几乎是孩子的两倍。</p>
+
+<blockquote>
+<p>RelativeLayout 的子View经常会被measure两次。</p>
+</blockquote>
+
+<h3 id="toc_0">结论</h3>
+
+<ol>
+<li>两者都可使用，并且层数不受影响的前提下，尽量使用LinearLayout.</li>
+<li>若是层数受影响，优先考虑层数少的。(这点会在以后的文章中谈到)</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[带阴影的TextView 淡入淡出动画异常，显示多余的阴影]]></title>
+    <link href="lixindong.top/14720508913010.html"/>
+    <updated>2016-08-24T23:01:31+08:00</updated>
+    <id>lixindong.top/14720508913010.html</id>
+    <content type="html"><![CDATA[
+<h4 id="toc_0">1. 问题</h4>
+
+<p>带阴影的TextView 淡入淡出动画异常，有多余的阴影</p>
+
+<h4 id="toc_1">2. 复现步骤</h4>
+
+<ol>
+<li>TextView 设置阴影</li>
+<li>对TextView设置的alpha值设置 ObjectAnimator</li>
+<li>观察</li>
+</ol>
+
+<h4 id="toc_2">3. 上图</h4>
+
+<table>
+<thead>
+<tr>
+<th>TextView底部有多余阴影</th>
+<th>动画正常</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-6ba639edeab70edb.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-57053d376b7c5fd8.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_3">4. 原因</h4>
+
+<ol>
+<li>硬件加速并非对所有2D图形的支持都很好，处理alpha相关的事件时需尤为注意。</li>
+<li>并非所有方法都有做应对处理。</li>
+</ol>
+
+<h4 id="toc_4">5. 解决方案</h4>
+
+<ol>
+<li>对相应的View或Activity或Application关闭硬件加速。</li>
+<li>使用其他替代方法实现动画。这就要看具体方法的实现了。</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[微博自动发贴，简单却不容易被注意到的反爬方式]]></title>

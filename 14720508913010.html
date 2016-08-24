@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  app 我有一个问题 - 博客未命名
+  带阴影的TextView 淡入淡出动画异常，显示多余的阴影 - 博客未命名
   
   </title>
  <meta name="description" content="专注于重成文思路清晰的技术文章。">
@@ -176,107 +176,51 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-<h1>app 我有一个问题</h1>
+<h1>带阴影的TextView 淡入淡出动画异常，显示多余的阴影</h1>
 
-<blockquote>
-<p>这个app不是问答式的社区</p>
-</blockquote>
+<h4 id="toc_0">1. 问题</h4>
 
-<h2 id="toc_0">疑问</h2>
+<p>带阴影的TextView 淡入淡出动画异常，有多余的阴影</p>
 
-<p>人每天都会产生疑问，但每天也有疑问被搁置下来，没有解答<br/>
-想想，如果这些问题全部或者大部分都能被解决并记录。那么一年以后的自己将会变得多么博学</p>
+<h4 id="toc_1">2. 复现步骤</h4>
 
-<h2 id="toc_1">想想，这些问题被搁置的原因</h2>
+<ol>
+<li>TextView 设置阴影</li>
+<li>对TextView设置的alpha值设置 ObjectAnimator</li>
+<li>观察</li>
+</ol>
 
-<ul>
-<li><strong>时间</strong>:   “我在做其它事情，分不开时间”</li>
-<li><strong>优先级</strong>:  “其实问题也不是那么重要”</li>
-<li><strong>复杂性</strong>:  “这可能不是一会儿能了解的”</li>
-<li><strong>领域</strong>:   “无从下手”</li>
-<li><strong>人真是复杂慵懒的动物</strong>:   “想之后解决，然后就忘记了，或者想起来也没兴趣了”</li>
-<li><strong>比干货更简洁</strong>:   “我只想知道个大概，可网上的答案总不能让我满意。要么太全面，要么没讲到点”</li>
-</ul>
+<h4 id="toc_2">3. 上图</h4>
 
-<blockquote>
-<p>没能在产生疑问的<strong>时间</strong>，找到合适的<strong>资料</strong>,和那个能一句话讲到点的<strong>人</strong>。</p>
-</blockquote>
+<table>
+<thead>
+<tr>
+<th>TextView底部有多余阴影</th>
+<th>动画正常</th>
+</tr>
+</thead>
 
-<h2 id="toc_2">因此，我们需要什么</h2>
+<tbody>
+<tr>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-6ba639edeab70edb.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-57053d376b7c5fd8.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
+</tr>
+</tbody>
+</table>
 
-<p>正式点讲 <strong>最简洁，最get到point的回答</strong><br/>
-不正式点 <strong>最右神回复</strong></p>
+<h4 id="toc_3">4. 原因</h4>
 
-<blockquote>
-<p>然而提供内容并不是我们要做的</p>
+<ol>
+<li>硬件加速并非对所有2D图形的支持都很好，处理alpha相关的事件时需尤为注意。</li>
+<li>并非所有方法都有做应对处理。</li>
+</ol>
 
-<p>人从心底总是自私的<br/>
-即便在<em>知乎</em>这类为他人服务的平台上，人们也总是倾向于回答自己感兴趣的提问</p>
-</blockquote>
+<h4 id="toc_4">5. 解决方案</h4>
 
-<h2 id="toc_3">如何做</h2>
-
-<p>因此，<br/>
-我们只是提供给用户一个私人的<strong>记录平台</strong>, 个人的问题<strong>管理平台</strong></p>
-
-<h4 id="toc_4">定位：</h4>
-
-<ul>
-<li>个人手账类的记事本</li>
-<li>将公开内容聚合的知识库</li>
-<li>社区</li>
-</ul>
-
-<h4 id="toc_5">功能</h4>
-
-<ul>
-<li>随时定义新概念：有时为了讲解方便，需要用一个词代替一个概念。在当下没有相应的概念时，一个新的概念词诞生是被允许和值得推荐的。我们也有机制推荐其中优秀和广为传播的新概念。</li>
-<li>随时记录新疑问</li>
-<li>对于未填补答案的问题
-
-<ul>
-<li>自动归档到todo</li>
-<li>手动填补答案</li>
-<li>查看知识库中推荐的已有答案</li>
-<li>公开征求答案</li>
-<li>选择合适的答案mark到自己的手账中</li>
-</ul></li>
-<li>对于已填补的问题
-
-<ul>
-<li>根据艾宾浩斯记忆法，进行复习</li>
-<li>知识库中有相关问题的优解，推荐</li>
-<li>在知识库中作为备选答案，接受其它用户浏览、评分</li>
-</ul></li>
-<li>知识库的答案全部由运营商或其它用户提供</li>
-<li>打赏功能：对于很好地解决了自己问题的<strong>优质</strong>答案，用户可选择进行打赏</li>
-<li>专题功能：专家级的用户可以创建自己的专题，专题内容通过一定的标准（质与量），可以将其电子版内容打包出售</li>
-<li>发烧圈子：可由专题、小组组成。是人的圈子，也是内容的圈子。一个内容可以在某个圈子发表，圈子内可见。一个用户可以在圈子中被推荐。</li>
-<li>热门的分类社区：howto类，购物类，等</li>
-</ul>
-
-<h4 id="toc_6">用户群体</h4>
-
-<ul>
-<li>文青</li>
-<li>动手达人</li>
-<li>领域专家</li>
-<li>爱思考的人</li>
-<li>拖延症患者</li>
-<li>除上面以外的其他人</li>
-</ul>
-
-<h4 id="toc_7">盈利模式</h4>
-
-<p>这是我的一个问题。期待社区帮我解答。</p>
-
-<h2 id="toc_8">最后</h2>
-
-<p><strong>我们希望并渴求精炼的一句话答案</strong> <br/>
-帮助大多数人瞬间开窍</p>
-
-<p><strong>我们也渴望专业级别的教科书</strong><br/>
-提升你自己的同时，带给世界更优质的内容</p>
+<ol>
+<li>对相应的View或Activity或Application关闭硬件加速。</li>
+<li>使用其他替代方法实现动画。这就要看具体方法的实现了。</li>
+</ol>
 
 
 </div>
@@ -288,13 +232,16 @@
   <div class="large-6 columns">
 	<div class="text-left" style="padding:15px 0px;">
 		
-	        <a href="14488126785387.html"  title="Previous Post: 下町火箭">&laquo; 下町火箭</a>
+	        <a href="14720509627845.html"  title="Previous Post: android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？">&laquo; android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a>
 	    
 	</div>
   </div>
   <div class="large-6 columns">
 	<div class="text-right" style="padding:15px 0px;">
 		
+	        <a href="14705728845498.html" 
+	        title="Next Post: 微博自动发贴，简单却不容易被注意到的反爬方式">微博自动发贴，简单却不容易被注意到的反爬方式 &raquo;</a>
+	    
 	</div>
   </div>
 </div>
@@ -330,7 +277,7 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		var currentURL = '14464734385012.html';
+		var currentURL = '14720508913010.html';
 		$('#side-nav a').each(function(){
 			if($(this).attr('href') == currentURL){
 				$(this).parent().addClass('active');
