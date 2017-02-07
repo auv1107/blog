@@ -1,0 +1,569 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  使用LeanCloud服务做一站式Chrome插件开发——Favorite Image - 博客未命名
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:lixindong.top ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 博客未命名</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html">生活日常</a></li>
+        
+            <li><a href="Android%E5%BC%80%E5%8F%91.html">Android开发</a></li>
+        
+            <li><a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html">产品想法</a></li>
+        
+            <li><a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html">吉它学习🎸</a></li>
+        
+            <li><a href="web%E5%BC%80%E5%8F%91.html">web开发</a></li>
+        
+            <li><a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html">书籍电影</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/2/7</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='web%E5%BC%80%E5%8F%91.html'>web开发</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">0. 目录</h2>
+
+<ol>
+<li>要开发的是什么项目
+1.1 想法开端
+1.2 应该有什么功能?</li>
+<li>开发需要解决的核心问题</li>
+<li>具体解决方案
+3.1 帐号系统
+3.2 存储服务
+3.3 使用<code>LeanEngine</code>做反防盗链中转接口
+3.4 Chrome 插件实现</li>
+<li>对去后端化的看法</li>
+</ol>
+
+<h2 id="toc_1">1. 要开发的是什么项目?</h2>
+
+<p>一个Chrome插件，用来保存浏览网页时看到的喜欢的图片。</p>
+
+<h3 id="toc_2">1.1 想法开端</h3>
+
+<p>在 pixiv 翻图时看到一些喜欢的插画，看完就随手翻过去了，没有保存。为什么呢？ 因为以我对自己的了解，图片下载下来，就相当于放进了垃圾桶。 并不是因为本地的文件管理有多乱，而是因为，几乎没有用鼠标打开文件管理器的习惯。</p>
+
+<p>现在我获取信息的流量入口最常用的只有两个：1. 终端 2. 浏览器</p>
+
+<p>于是乎，一个想法油然而生：</p>
+
+<blockquote>
+<p>把插画存到浏览器吧！</p>
+</blockquote>
+
+<p>于是就立刻构思，动手写了这款插件。</p>
+
+<h3 id="toc_3">1.2 应该有什么功能?</h3>
+
+<p>功能很简单，<br/>
+<strong>保存操作</strong>：1. 对图片点击右键 2. 选择&quot;保存到浏览器..&quot; 之类的选项<br/>
+<strong>查看操作</strong>：1. 点击插件图标 查看保存过的图片。<br/>
+<strong>其它</strong>：1. 图片同步到云端，也可保存到浏览器本地。2. 既然要保存到云端，自然需要账号系统</p>
+
+<h2 id="toc_4">2. 开发需要解决的核心问题</h2>
+
+<blockquote>
+<p>核心问题有两个，一个是数据云存储问题，一个是图片防盗链问题。</p>
+</blockquote>
+
+<p><strong>云存储问题，帐号系统，多端同步</strong><br/>
+最开始只想做浏览器本地的存储，使用<code>Chrome</code>提供的<code>localStorage</code>存在本地就。<br/>
+后来因为<code>localStorage</code>并不支持数据库语法查询，有很多不便。使用过程中又发现多端同步在体验上的优越性，决定要把存储放到云上。</p>
+
+<p><strong>图片防盗链问题</strong><br/>
+看了些资料，解决方式基本可以分为两种。</p>
+
+<p>一类使用前端js嵌入<code>iframe</code>解决，优点是解决方式简单，问题是<code>Chrome</code>插件不支持页面嵌入式的<code>js</code>脚本。所以这个方案pass。</p>
+
+<p>第二类使用后台服务器做反防盗链措施，作为中转给前端使用。优点是不受<code>chrome</code>插件的各种安全机制的限制，缺点是需要后台支持，增加工作量和资源成本。<br/>
+使用第二类完成。</p>
+
+<h2 id="toc_5">3. 具体解决方案</h2>
+
+<blockquote>
+<p>云存储及帐号系统使用<code>LeanCloud</code>提供的<code>存储服务</code>解决。<br/>
+反防盗链接口使用<code>LeanCloud</code>提供的<code>云引擎</code>搭建<code>NodeJs</code>后台。</p>
+</blockquote>
+
+<p>啰嗦一句，为什么要使用<code>LeanCloud</code>? <br/>
+一是对我的需求可以做到完全免费，二是它们的文档实在是太xx的好用了。</p>
+
+<h3 id="toc_6">3.1 帐号系统</h3>
+
+<p>参照：<a href="https://leancloud.cn/docs/leanstorage-started-js.html">数据存储入门教程 · JavaScript</a></p>
+
+<p>实现过程基本照抄这个教程的代码。后台账号系统包括对账号的重复检测、密码加密、session等都已经实现。</p>
+
+<blockquote>
+<p>我们要做的，就是调用前端的这几个<strong>关键方法</strong>，实现简单的注册、登陆、退出:</p>
+</blockquote>
+
+<pre><code>  // LeanCloud - 注册
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#注册
+  var user = new AV.User();
+  user.setUsername(username);
+  user.setPassword(password);
+  user.setEmail(email);
+  user.signUp().then(function (loginedUser) {
+    // 注册成功
+  }, (function (error) {
+      alert(JSON.stringify(error));
+  }));
+
+
+  // LeanCloud - 登录
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#用户名和密码登录
+  AV.User.logIn(username, password).then(function (loginedUser) {
+    // 登录成功
+  }, function (error) {
+    alert(JSON.stringify(error));
+  });
+
+
+  // LeanCloud - 当前用户信息
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#当前用户
+  var currentUser = AV.User.current();
+
+
+  // 退出登陆
+  AV.User.logOut();
+
+</code></pre>
+
+<h3 id="toc_7">3.2 存储服务</h3>
+
+<blockquote>
+<p>使用账号系统为每个用户添加身份信息后，存储部分就只需要把<code>数据</code> + <code>用户身份信息</code>一同上传或下载就可以了。</p>
+</blockquote>
+
+<p>照样只贴关键方法</p>
+
+<pre><code>// 初始化类(在数据库中表现为数据表`ImageRepo`)和实例(数据库中表现为一条数据)
+this.ImageRepo = AV.Object.extend(&#39;ImageRepo&#39;);
+var repo = new this.ImageRepo();
+// 填充数据
+repo.put(&#39;username&#39;, &#39;xxx&#39;);
+// 上传数据
+repo.save().then(function (repo) {
+    }, function (error) {
+    });
+
+// 下载数据
+// 初始化对&#39;ImageRepo&#39;表的查询
+var query = new AV.Query(&#39;ImageRepo&#39;);
+// 查询条件为 username字段等于&#39;xxx&#39;
+query.equalTo(&#39;username&#39;, &#39;xxx&#39;);
+// 查询
+query.find().then(function(results) {
+    // 遍历results
+    // 在页面添加解决防盗链问题后的图片
+}, function(error) {
+});
+</code></pre>
+
+<h3 id="toc_8">3.3 使用<code>LeanEngine</code>做反防盗链中转接口</h3>
+
+<p><strong>要实现的效果是:</strong><br/>
+1. 我有一个防盗链图片连接<code>abc.com/xxx.png</code>。<br/>
+2. 我的接口url是<code>http://codeli.leanapp.cn/image?url=xxx</code>。<br/>
+3. 访问<code>http://codeli.leanapp.cn/image?url=abc.com/xxx.png</code>可访问原图，不受防盗链措施限制。</p>
+
+<blockquote>
+<p>主要原理很简单，后台处理图片请求时更改<code>header</code>中的<code>referer</code>字段，将结果作为<code>response</code>返回。</p>
+</blockquote>
+
+<p>关于这部分的实现，欢迎阅读我的另一篇文章，就不再赘述：<br/>
+<a href="http://www.jianshu.com/p/7b9f7cd6dce5">服务器作防盗链图片中转，nodejs 上手项目简明教程</a></p>
+
+<blockquote>
+<p>关于<code>LeanEngin</code>的使用，文档如下，使用方法非常简单。<br/>
+<a href="https://leancloud.cn/docs/leanengine_quickstart.html">云引擎快速入门</a></p>
+
+<p>云引擎支持<code>NodeJS</code> <code>Python</code> <code>PHP</code> <code>JAVA</code> <br/>
+只需要下载云引擎命令行工具<code>lean</code>，然后输入几行命令就可以建立一个你熟悉的web框架。<br/>
+然后，使用你熟悉的语言编写反防盗链实现就行了。</p>
+</blockquote>
+
+<h3 id="toc_9">3.4 Chrome 插件实现</h3>
+
+<blockquote>
+<p>有了 3.1~3.3 的实现，这部分就是简单的插件部署和业务逻辑了。</p>
+</blockquote>
+
+<p>Chrome 插件结构如图：<br/>
+<img src="http://7xrnu9.com1.z0.glb.clouddn.com/chrome%E6%8F%92%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="图片来自 蒋国纲的技术博客"/></p>
+
+<p><strong>主要业务：</strong><br/>
+1. 在<code>popup</code>窗口中添加<code>注册</code> <code>登陆</code> <code>退出</code> 等业务。<br/>
+2. 打开<code>popup</code> 窗口时从云端获取指定账号下保存的图片信息，并展示。若未登陆，则从浏览器<code>localStorage</code>获取并展示。<br/>
+3. <code>background script</code> 中添加右键菜单项: 当目标是图片时，显示<code>Keep image in browser</code>。<br/>
+4. 点击<code>Keep image in browser</code>, 执行保存业务逻辑: 若登陆了，保存到云端。若未登录，保存到浏览器<code>localStorage</code>。</p>
+
+<blockquote>
+<p>具体实现见我的github项目:  <a href="https://github.com/auv1107/KeepImageInBrowser">KeepImageInBrowser</a><br/>
+插件Web Store地址： <a href="https://chrome.google.com/webstore/detail/favorite-image/dboialkignkpkbggkomglilgdhkgijfp">Favorite Image</a></p>
+</blockquote>
+
+<h2 id="toc_10">4. 最后，对去后端化的看法</h2>
+
+<p>前段时间在知乎上看到了一个问题,我也顺便说下自己的看法。</p>
+
+<blockquote>
+<p>web后端会不会变得越来越不需要?</p>
+</blockquote>
+
+<p>像bmob和leancloud这类后台云服务的流行有一段日子了，使用这些服务使一些web、app的开发周期大大缩减。这对于小团队和初创公司尤为方便。</p>
+
+<p>但这并不意味着不再需要自己开发后台。不是因为他们提供的服务不够全面(相反，我倒认为这类服务将向着全面、便捷、快速发展)，而是因为很多公司和产品，为了保持服务的质量和稳定，突出自己产品的特性，需要自己定制自己的后台，有针对性的去优化某些模块。<br/>
+云服务作为大众服务平台难以为每个产品做定制。</p>
+
+<p>类似于游戏引擎，如今各个平台都不缺乏优秀的游戏引擎。可是仍有公司和团队耗费大量的成本自研游戏引擎，就是希望能配合自己的游戏系统，完美地展现自己的游戏。</p>
+
+<p>一样的，后台云服务和自定制的后台，是相交但永远不会重合的关系。 他们彼此之间相互影响，共同进步。</p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14864272317835.html" 
+          title="Previous Post: 服务器作防盗链图片中转，nodejs 上手项目简明教程">&laquo; 服务器作防盗链图片中转，nodejs 上手项目简明教程</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14805196774412.html" 
+          title="Next Post: 生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。">生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5790edd7f65e05aa"></script><div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//lixindongtop.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    <script id="dsq-count-scr" src="//lixindongtop.disqus.com/count.js" async></script>
+    
+    
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>博客未命名</h1>
+                <div class="site-des">专注于重成文思路清晰的技术文章。</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="http://github.com/auv1107" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html"><strong>生活日常</strong></a>
+        
+            <a href="Android%E5%BC%80%E5%8F%91.html"><strong>Android开发</strong></a>
+        
+            <a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html"><strong>产品想法</strong></a>
+        
+            <a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html"><strong>吉它学习🎸</strong></a>
+        
+            <a href="web%E5%BC%80%E5%8F%91.html"><strong>web开发</strong></a>
+        
+            <a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html"><strong>书籍电影</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14864277119252.html">开发这个Chrome插件，更高效地翻译社区文档</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864276588598.html">深入理解LayoutInflater.inflate()</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864272317835.html">服务器作防盗链图片中转，nodejs 上手项目简明教程</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864271201285.html">使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14805196774412.html">生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?84fca9a2f5023159ce7f5a699c8bf2d0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  </body>
+</html>

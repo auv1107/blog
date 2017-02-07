@@ -1,0 +1,440 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  开发这个Chrome插件，更高效地翻译社区文档 - 博客未命名
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:lixindong.top ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 博客未命名</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html">生活日常</a></li>
+        
+            <li><a href="Android%E5%BC%80%E5%8F%91.html">Android开发</a></li>
+        
+            <li><a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html">产品想法</a></li>
+        
+            <li><a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html">吉它学习🎸</a></li>
+        
+            <li><a href="web%E5%BC%80%E5%8F%91.html">web开发</a></li>
+        
+            <li><a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html">书籍电影</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>开发这个Chrome插件，更高效地翻译社区文档</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/2/7</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html'>产品想法</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>注：本文为产品设想，没有实际的产品实现。</p>
+
+<p>最近在看intellij 插件的文档，没有很好的中文版本。加之长期阅读英文文档时的想法和苦恼，准备开发一个chrome插件，用于辅助翻译社区文档。<br/>
+本文从一个最简单的工具出发，设想了一下操作原型，四步走，如下：</p>
+
+<blockquote>
+<p>1 . 打开待翻译页面</p>
+</blockquote>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-84be21a810f7e35f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>2 . 选取翻译段落</p>
+</blockquote>
+
+<p>选取部分文字后跳出询问是否翻译的按钮，点击进入第3步。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-c62534b82dc0a5ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>3 . 直接修改文字 或进行标注</p>
+</blockquote>
+
+<p>第2步中选中文字部分变成一个输入框，直接进行修改。</p>
+
+<p>当然，在进行修改时仍然显示原文，保存翻译后隐藏原文是更好的表现方案。图片只是举例说明。<br/>
+<img src="http://upload-images.jianshu.io/upload_images/25769-425369bc04e063c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>4 . 保存或导出</p>
+</blockquote>
+
+<p>保存或导出这里方案也有很多，简单例举几个：<br/>
+* 直接保存网页(到云端、本地)。保存后打开原文链接可选择是否直接展示翻译<br/>
+* 导出到本地 pdf<br/>
+* 导出markdown格式</p>
+
+<p>这里最主要的一点就是，基本保留原来的排版结构。不需要在翻译的同时操心排版之事。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-73276e961c2a9ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>要点</p>
+</blockquote>
+
+<ul>
+<li>保留排版</li>
+<li>直接修改符合习惯</li>
+<li>打开原文可展示翻译页面</li>
+</ul>
+
+<blockquote>
+<p>更多feature</p>
+</blockquote>
+
+<ul>
+<li>翻译建议（包括简单单词、词组翻译，通过翻译库匹配的建议，不同领域的建议）</li>
+<li>云端翻译库相关feature（通过插件翻译并保存于云端，用户自定义公开与否）</li>
+<li>协同翻译功能（同一页面、同一站点下）（标注、求助等）</li>
+<li>专有名词关联</li>
+<li>书库，文档库</li>
+<li>语法分析（拿不准的句子，看看类似的翻译例句）</li>
+<li>社交，这也能社交？可以。不过已经是脱离工具之外的主题了</li>
+<li>一键发布到问答社区或问答版</li>
+<li>众包形式（类协同模式）</li>
+</ul>
+
+<p>有兴趣的同学请私信交流。</p>
+
+<p>————————————<br/>
+<strong>9.13 更新</strong><br/>
+<a href="https://translate.google.com/community?source=t-new-user#en/zh-CN/gt/completed">谷歌翻译社区</a><br/>
+文章片段化处理，分割成句子，用户只需完成短句翻译<br/>
+分翻译、验证两类。综合评估翻译质量。</p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14864276588598.html" 
+          title="Next Post: 深入理解LayoutInflater.inflate()">深入理解LayoutInflater.inflate() &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5790edd7f65e05aa"></script><div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//lixindongtop.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    <script id="dsq-count-scr" src="//lixindongtop.disqus.com/count.js" async></script>
+    
+    
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>博客未命名</h1>
+                <div class="site-des">专注于重成文思路清晰的技术文章。</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="http://github.com/auv1107" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html"><strong>生活日常</strong></a>
+        
+            <a href="Android%E5%BC%80%E5%8F%91.html"><strong>Android开发</strong></a>
+        
+            <a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html"><strong>产品想法</strong></a>
+        
+            <a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html"><strong>吉它学习🎸</strong></a>
+        
+            <a href="web%E5%BC%80%E5%8F%91.html"><strong>web开发</strong></a>
+        
+            <a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html"><strong>书籍电影</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14864277119252.html">开发这个Chrome插件，更高效地翻译社区文档</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864276588598.html">深入理解LayoutInflater.inflate()</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864272317835.html">服务器作防盗链图片中转，nodejs 上手项目简明教程</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864271201285.html">使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14805196774412.html">生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?84fca9a2f5023159ce7f5a699c8bf2d0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  </body>
+</html>

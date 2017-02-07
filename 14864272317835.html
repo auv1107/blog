@@ -1,0 +1,547 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  服务器作防盗链图片中转，nodejs 上手项目简明教程 - 博客未命名
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:lixindong.top ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 博客未命名</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html">生活日常</a></li>
+        
+            <li><a href="Android%E5%BC%80%E5%8F%91.html">Android开发</a></li>
+        
+            <li><a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html">产品想法</a></li>
+        
+            <li><a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html">吉它学习🎸</a></li>
+        
+            <li><a href="web%E5%BC%80%E5%8F%91.html">web开发</a></li>
+        
+            <li><a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html">书籍电影</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>服务器作防盗链图片中转，nodejs 上手项目简明教程</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/2/7</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='web%E5%BC%80%E5%8F%91.html'>web开发</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>记录一下上手项目的各个点，以后再用 nodejs 就不用到处查资料了。</p>
+
+<p>前几天随手写的 chrome 插件遇到了防盗链问题，由于插件不能用 js iframe 的方法反防盗链，于是想用服务器做个中转。</p>
+
+<p>思路很简单，自用服务器处理防盗链的各种问题，开放接口作为图片中转使用。这样就绕开了 chrome 插件开发的各种限制。</p>
+
+<p>之前没有一套特别熟悉的 web 开发框架，加上插件存储服务依赖的平台 LeanCloud 刚好支持部署 nodejs 网站，刚好拿这个小项目作为 nodejs 上手项目。</p>
+
+<h3 id="toc_0">1. 项目是什么样子</h3>
+
+<h4 id="toc_1">1.1 接口的样子?</h4>
+
+<ul>
+<li>有一个开放接口</li>
+<li>接口有一个参数，<code>api?url=http://abc.com/image.png</code>，大概长这样子</li>
+<li>响应内容是反防盗链后的真实图片</li>
+</ul>
+
+<h4 id="toc_2">1.2 应该怎么做?</h4>
+
+<ul>
+<li>把服务器跑起来</li>
+<li>处理 GET 请求</li>
+<li>分析请求参数</li>
+<li>下载原图</li>
+<li>response 原图</li>
+</ul>
+
+<blockquote>
+<h4 id="toc_3">上面的可以不读</h4>
+</blockquote>
+
+<h3 id="toc_4">2. 学习路径(在对目标未知的前提下提出疑问)</h3>
+
+<ol>
+<li> 如何开始，建立服务器</li>
+<li> 如何处理基本请求 GET POST</li>
+<li> 如何下载图片并转发</li>
+<li> 完成基本功能，上线</li>
+<li> 优化</li>
+</ol>
+
+<h4 id="toc_5">2.1 如何开始，建立服务器</h4>
+
+<p>主要是  <code>http.createServer().listen(port)</code> 这组方法，建立服务器、监听端口一键搞定。</p>
+
+<pre><code>var http = require(&#39;http&#39;);
+    
+http.createServer(function (request, response) {
+     // do things here
+}).listen(8888);
+    
+console.log(&#39;Server running at: 8888&#39;);
+</code></pre>
+
+<h4 id="toc_6">2.2 如何处理基本请求 GET POST</h4>
+
+<p><code>createServer</code> 回调方法的两个参数 <code>req</code> <code>res</code> 是 http <code>request</code> 和 <code>response</code> 的内容，打印一下他们的内容。</p>
+
+<p><code>request</code> 是 <code>InComingMessage</code> 类，打印它的 <code>url</code> 字段。</p>
+
+<pre><code>var http = require(&#39;http&#39;);
+var url = require(&#39;url&#39;);
+var util = require(&#39;util&#39;);
+http.createServer(function(req, res){
+    res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/plain&#39;});
+    res.end(util.inspect(url.parse(req.url, true)));
+}).listen(3000);
+</code></pre>
+
+<p><strong>请求</strong><br/>
+<code>http://localhost:3000/api?url=http://abc.com/image.png</code></p>
+
+<p><strong>请求结果</strong></p>
+
+<pre><code>Url {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: &#39;?url=http://abc.com/image.png&#39;,
+  query: { url: &#39;http://abc.com/image.png&#39; },
+  pathname: &#39;/api&#39;,
+  path: &#39;/api?url=http://abc.com/image.png&#39;,
+  href: &#39;/api?url=http://abc.com/image.png&#39; }
+</code></pre>
+
+<p><code>query</code> 字段刚好是我们想要的内容，下载这个字段对应的图片。</p>
+
+<h4 id="toc_7">2.3 如何下载图片并转发</h4>
+
+<p><code>request</code> 模块支持管道方法，可以和 <code>shell</code> 的管道一样理解。</p>
+
+<p>这可以省很多事，不需要在本地存储图片，不需要处理杂七杂八的事情，甚至不需要再去了解 <code>nodejs</code> 的流。一个方法全搞定。</p>
+
+<p>关键方法: <code>request(options).pipe(res)</code></p>
+
+<pre>
+    var options = {
+      uri: imgUrl, // 这个 uri 为空时，会认为该字段不存在，报异常
+      headers: {
+         'Referer': referrer // 解决部分防盗链选项
+      }
+    };
+    request(options).pipe(res);
+</pre>
+
+<h4 id="toc_8">2.4 完成基本功能，上线</h4>
+
+<p><a href="https://github.com/auv1107/FileTransferServer/blob/master/routes/image.js">项目地址</a></p>
+
+<p><strong>完整代码</strong></p>
+
+<pre><code>    &#39;use strict&#39;;
+    var router = require(&#39;express&#39;).Router();
+    var http = require(&#39;http&#39;);
+    var url = require(&#39;url&#39;);
+    var util = require(&#39;util&#39;);
+    var fs = require(&#39;fs&#39;);
+    var callfile = require(&#39;child_process&#39;);
+    var request = require(&#39;request&#39;);
+    
+    router.get(&#39;/&#39;, function(req, res, next) {
+        var imgUrl = url.parse(req.url, true).query.url;
+        console.log(url.parse(req.url,true).query); 
+    
+        console.log(&#39;get a request for &#39; + imgUrl);
+        if (imgUrl == null || imgUrl == &quot;&quot; || imgUrl == undefined) {
+            console.log(&#39;end&#39;);
+            res.end();
+            return;
+        }
+    
+        var parsedUrl = url.parse(imgUrl);
+        // 这里暂时使用图片服务器主机名做Referer
+        var referrer = parsedUrl.protocol + &#39;//&#39; + parsedUrl.host; 
+        console.log(&#39;referrer &#39; + referrer);
+    
+        var options = {
+          uri: imgUrl,
+          headers: {
+             &#39;Referer&#39;: referrer
+          }
+        };
+    
+        function callback(error, response, body) {
+          if (!error &amp;&amp; response.statusCode == 200) {
+            console.log(&quot;type &quot; + response.headers[&#39;content-type&#39;]);
+          }
+          res.end(response.body);
+        }
+    
+        // request(options, callback);
+        request(options)
+            .on(&#39;error&#39;, function(err) {
+                console.log(err)
+            })
+            .pipe(res);
+    });
+    
+    module.exports = router;
+</code></pre>
+
+<h4 id="toc_9">2.5 优化</h4>
+
+<p>这部分主要是防盗链部分的优化。</p>
+
+<p>单就 <code>Referer</code> 来说，使用空值和主机名都只能满足部分需求。</p>
+
+<p>一个优化方式是组合，当一种方式不能突破即采用另一种方式。<br/>
+这种方式的有点在于扩大了适用面积，并且方法对任何场景比较通用。</p>
+
+<p>一个优化方式是接口请求参数带源引用连接。<br/>
+这种方式对很多人来说不太通用，因为很多场景下并不清楚源引用连接在哪。<br/>
+但是对我的插件来说非常适用，插件本身保留了源引用。因此可以很好的绕过防盗链限制。</p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14864276588598.html" 
+          title="Previous Post: 深入理解LayoutInflater.inflate()">&laquo; 深入理解LayoutInflater.inflate()</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14864271201285.html" 
+          title="Next Post: 使用LeanCloud服务做一站式Chrome插件开发——Favorite Image">使用LeanCloud服务做一站式Chrome插件开发——Favorite Image &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5790edd7f65e05aa"></script><div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//lixindongtop.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    <script id="dsq-count-scr" src="//lixindongtop.disqus.com/count.js" async></script>
+    
+    
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>博客未命名</h1>
+                <div class="site-des">专注于重成文思路清晰的技术文章。</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="http://github.com/auv1107" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html"><strong>生活日常</strong></a>
+        
+            <a href="Android%E5%BC%80%E5%8F%91.html"><strong>Android开发</strong></a>
+        
+            <a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html"><strong>产品想法</strong></a>
+        
+            <a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html"><strong>吉它学习🎸</strong></a>
+        
+            <a href="web%E5%BC%80%E5%8F%91.html"><strong>web开发</strong></a>
+        
+            <a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html"><strong>书籍电影</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14864277119252.html">开发这个Chrome插件，更高效地翻译社区文档</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864276588598.html">深入理解LayoutInflater.inflate()</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864272317835.html">服务器作防盗链图片中转，nodejs 上手项目简明教程</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864271201285.html">使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14805196774412.html">生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?84fca9a2f5023159ce7f5a699c8bf2d0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  </body>
+</html>

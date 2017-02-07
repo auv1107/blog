@@ -8,17 +8,23 @@
   带阴影的TextView 淡入淡出动画异常，显示多余的阴影 - 博客未命名
   
   </title>
- <meta name="description" content="专注于重成文思路清晰的技术文章。">
- <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
+  
+  
+  <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
-
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-    <script src="asset/highlightjs/highlight.pack.js"></script>
-    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:lixindong.top ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
   </head>
   <body class="antialiased hide-extras">
     
@@ -28,11 +34,32 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-<div id="header">
-    <h1><a href="index.html">博客未命名</a></h1>
-</div>
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
 
 </nav>
+
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; 博客未命名</span>
@@ -41,152 +68,68 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-      <li><a href="index.html">Home</a></li>
-      
-        <li class="divider"></li>
-        <li><label>生活日常</label></li>
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
 
-          
-            <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
-          
-            <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
-          
-            <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
-          
-            <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
-          
-            <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
-          
+    <li><label>Categories</label></li>
 
-      
-        <li class="divider"></li>
-        <li><label>Android开发</label></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html">生活日常</a></li>
+        
+            <li><a href="Android%E5%BC%80%E5%8F%91.html">Android开发</a></li>
+        
+            <li><a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html">产品想法</a></li>
+        
+            <li><a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html">吉它学习🎸</a></li>
+        
+            <li><a href="web%E5%BC%80%E5%8F%91.html">web开发</a></li>
+        
+            <li><a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html">书籍电影</a></li>
+         
 
-          
-            <li><a title="Android中 Integer对象使用==运算符还是equals()方法比较大小?" href="14730898296691.html">Android中 Integer对象使用==运算符还是equals()方法比较大小?</a></li>
-          
-            <li><a title="如何在Java中避免equals方法的隐藏陷阱" href="14730873130757.html">如何在Java中避免equals方法的隐藏陷阱</a></li>
-          
-            <li><a title="Android GPS定位欺骗(模拟定位)的两种方式" href="14720509840810.html">Android GPS定位欺骗(模拟定位)的两种方式</a></li>
-          
-            <li><a title="android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？" href="14720509627845.html">android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a></li>
-          
-            <li><a title="带阴影的TextView 淡入淡出动画异常，显示多余的阴影" href="14720508913010.html">带阴影的TextView 淡入淡出动画异常，显示多余的阴影</a></li>
-          
-            <li><a title="Android应用横竖屏切换的两种方式，从表现上看最大的区别" href="14701507519730.html">Android应用横竖屏切换的两种方式，从表现上看最大的区别</a></li>
-          
-            <li><a title="PokemonGo破解" href="14685051740290.html">PokemonGo破解</a></li>
-          
-            <li><a title="Creating a Navigation Drawer" href="14583860309318.html">Creating a Navigation Drawer</a></li>
-          
-            <li><a title="Smartoo 开发中遇到的问题和解决" href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>产品想法</label></li>
-
-          
-            <li><a title="app 我有一个问题" href="14464734385012.html">app 我有一个问题</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>吉它学习🎸</label></li>
-
-          
-            <li><a title="风の诗(风之诗 Wind Song)" href="14530335489771.html">风の诗(风之诗 Wind Song)</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>书籍电影</label></li>
-
-          
-            <li><a title="下町火箭" href="14488126785387.html">下町火箭</a></li>
-          
-
-      
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
+
         <section id="main-content" role="main" class="scroll-container">
+        
+       
 
-          <div class="row">
-            <div class="large-3 medium-3 columns">
-              <div class="hide-for-small">
-                <div class="sidebar">
-                <nav>
-                  <ul id="side-nav" class="side-nav">
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>带阴影的TextView 淡入淡出动画异常，显示多余的阴影</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/8/24</span>
 
-                    
-                      <li class="side-title"><span>生活日常</span></li>
-                        
-                          <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
-                        
-                          <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
-                        
-                          <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
-                        
-                          <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
-                        
-                          <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
-                        
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+           
+         
+          <span class="comments">
+            
 
-                    
-                      <li class="side-title"><span>Android开发</span></li>
-                        
-                          <li><a title="Android中 Integer对象使用==运算符还是equals()方法比较大小?" href="14730898296691.html">Android中 Integer对象使用==运算符还是equals()方法比较大小?</a></li>
-                        
-                          <li><a title="如何在Java中避免equals方法的隐藏陷阱" href="14730873130757.html">如何在Java中避免equals方法的隐藏陷阱</a></li>
-                        
-                          <li><a title="Android GPS定位欺骗(模拟定位)的两种方式" href="14720509840810.html">Android GPS定位欺骗(模拟定位)的两种方式</a></li>
-                        
-                          <li><a title="android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？" href="14720509627845.html">android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a></li>
-                        
-                          <li><a title="带阴影的TextView 淡入淡出动画异常，显示多余的阴影" href="14720508913010.html">带阴影的TextView 淡入淡出动画异常，显示多余的阴影</a></li>
-                        
-                          <li><a title="Android应用横竖屏切换的两种方式，从表现上看最大的区别" href="14701507519730.html">Android应用横竖屏切换的两种方式，从表现上看最大的区别</a></li>
-                        
-                          <li><a title="PokemonGo破解" href="14685051740290.html">PokemonGo破解</a></li>
-                        
-                          <li><a title="Creating a Navigation Drawer" href="14583860309318.html">Creating a Navigation Drawer</a></li>
-                        
-                          <li><a title="Smartoo 开发中遇到的问题和解决" href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a></li>
-                        
+            
+          </span>
 
-                    
-                      <li class="side-title"><span>产品想法</span></li>
-                        
-                          <li><a title="app 我有一个问题" href="14464734385012.html">app 我有一个问题</a></li>
-                        
+        </div>
+      </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>吉它学习🎸</span></li>
-                        
-                          <li><a title="风の诗(风之诗 Wind Song)" href="14530335489771.html">风の诗(风之诗 Wind Song)</a></li>
-                        
-
-                    
-                      <li class="side-title"><span>书籍电影</span></li>
-                        
-                          <li><a title="下町火箭" href="14488126785387.html">下町火箭</a></li>
-                        
-
-                    
-                  </ul>
-                </nav>
-                </div>
-              </div>
-            </div>
-            <div class="large-9 medium-9 columns">
-
- <div class="markdown-body">
-<h1>带阴影的TextView 淡入淡出动画异常，显示多余的阴影</h1>
-
-<h4 id="toc_0">1. 问题</h4>
+      <div class="article-content">
+      <h4 id="toc_0">1. 问题</h4>
 
 <p>带阴影的TextView 淡入淡出动画异常，有多余的阴影</p>
 
@@ -231,32 +174,31 @@
 </ol>
 
 
-</div>
+    
 
-<br /><br />
-<hr />
+      </div>
 
-<div class="row clearfix">
-  <div class="large-6 columns">
-	<div class="text-left" style="padding:15px 0px;">
-		
-	        <a href="14720509627845.html"  title="Previous Post: android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？">&laquo; android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a>
-	    
-	</div>
-  </div>
-  <div class="large-6 columns">
-	<div class="text-right" style="padding:15px 0px;">
-		
-	        <a href="14705728845498.html" 
-	        title="Next Post: 微博自动发贴，简单却不容易被注意到的反爬方式">微博自动发贴，简单却不容易被注意到的反爬方式 &raquo;</a>
-	    
-	</div>
-  </div>
-</div>
-
-<div class="row">
-<div style="padding:0px 0.93em;" class="share-comments">
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14720509627845.html" 
+          title="Previous Post: android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？">&laquo; android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14705728845498.html" 
+          title="Next Post: 微博自动发贴，简单却不容易被注意到的反爬方式">微博自动发贴，简单却不容易被注意到的反爬方式 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5790edd7f65e05aa"></script><div id="disqus_thread"></div>
 <script>
     /**
@@ -281,48 +223,178 @@
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>    <script id="dsq-count-scr" src="//lixindongtop.disqus.com/count.js" async></script>
     
     
-</div>
-</div>
-<script type="text/javascript">
-	$(function(){
-		var currentURL = '14720508913010.html';
-		$('#side-nav a').each(function(){
-			if($(this).attr('href') == currentURL){
-				$(this).parent().addClass('active');
-			}
-		});
-	});
-</script>  
-</div></div>
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-<div class="page-bottom">
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>博客未命名</h1>
+                <div class="site-des">专注于重成文思路清晰的技术文章。</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="http://github.com/auv1107" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html"><strong>生活日常</strong></a>
+        
+            <a href="Android%E5%BC%80%E5%8F%91.html"><strong>Android开发</strong></a>
+        
+            <a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html"><strong>产品想法</strong></a>
+        
+            <a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html"><strong>吉它学习🎸</strong></a>
+        
+            <a href="web%E5%BC%80%E5%8F%91.html"><strong>web开发</strong></a>
+        
+            <a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html"><strong>书籍电影</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14864277119252.html">开发这个Chrome插件，更高效地翻译社区文档</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864276588598.html">深入理解LayoutInflater.inflate()</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864272317835.html">服务器作防盗链图片中转，nodejs 上手项目简明教程</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864271201285.html">使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14805196774412.html">生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
   <div class="row">
-  <hr />
-  <div class="small-9 columns">
-  <p class="copyright">Copyright &copy; 2015
+   <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-  <div class="small-3 columns">
-  <p class="copyright text-right"><a href="#header">TOP</a></p>
-  </div>
-   
   </div>
 </div>
 
         </section>
       </div>
     </div>
+
+  
     
-    
+
     <script src="asset/js/foundation.min.js"></script>
-    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
      
     </script>
+
     
 
 <script>
@@ -334,6 +406,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
 
   </body>
 </html>

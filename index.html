@@ -8,17 +8,23 @@
   博客未命名
   
   </title>
- <meta name="description" content="专注于重成文思路清晰的技术文章。">
- <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
+  
+  
+  <link href="atom.xml" rel="alternate" title="博客未命名" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
-
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-    <script src="asset/highlightjs/highlight.pack.js"></script>
-    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:lixindong.top ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
   </head>
   <body class="antialiased hide-extras">
     
@@ -28,11 +34,32 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-<div id="header">
-    <h1><a href="index.html">博客未命名</a></h1>
-</div>
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
 
 </nav>
+
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; 博客未命名</span>
@@ -41,156 +68,834 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-      <li><a href="index.html">Home</a></li>
-      
-        <li class="divider"></li>
-        <li><label>生活日常</label></li>
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
 
-          
-            <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
-          
-            <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
-          
-            <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
-          
-            <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
-          
-            <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
-          
+    <li><label>Categories</label></li>
 
-      
-        <li class="divider"></li>
-        <li><label>Android开发</label></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html">生活日常</a></li>
+        
+            <li><a href="Android%E5%BC%80%E5%8F%91.html">Android开发</a></li>
+        
+            <li><a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html">产品想法</a></li>
+        
+            <li><a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html">吉它学习🎸</a></li>
+        
+            <li><a href="web%E5%BC%80%E5%8F%91.html">web开发</a></li>
+        
+            <li><a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html">书籍电影</a></li>
+         
 
-          
-            <li><a title="Android中 Integer对象使用==运算符还是equals()方法比较大小?" href="14730898296691.html">Android中 Integer对象使用==运算符还是equals()方法比较大小?</a></li>
-          
-            <li><a title="如何在Java中避免equals方法的隐藏陷阱" href="14730873130757.html">如何在Java中避免equals方法的隐藏陷阱</a></li>
-          
-            <li><a title="Android GPS定位欺骗(模拟定位)的两种方式" href="14720509840810.html">Android GPS定位欺骗(模拟定位)的两种方式</a></li>
-          
-            <li><a title="android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？" href="14720509627845.html">android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a></li>
-          
-            <li><a title="带阴影的TextView 淡入淡出动画异常，显示多余的阴影" href="14720508913010.html">带阴影的TextView 淡入淡出动画异常，显示多余的阴影</a></li>
-          
-            <li><a title="Android应用横竖屏切换的两种方式，从表现上看最大的区别" href="14701507519730.html">Android应用横竖屏切换的两种方式，从表现上看最大的区别</a></li>
-          
-            <li><a title="PokemonGo破解" href="14685051740290.html">PokemonGo破解</a></li>
-          
-            <li><a title="Creating a Navigation Drawer" href="14583860309318.html">Creating a Navigation Drawer</a></li>
-          
-            <li><a title="Smartoo 开发中遇到的问题和解决" href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>产品想法</label></li>
-
-          
-            <li><a title="app 我有一个问题" href="14464734385012.html">app 我有一个问题</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>吉它学习🎸</label></li>
-
-          
-            <li><a title="风の诗(风之诗 Wind Song)" href="14530335489771.html">风の诗(风之诗 Wind Song)</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>书籍电影</label></li>
-
-          
-            <li><a title="下町火箭" href="14488126785387.html">下町火箭</a></li>
-          
-
-      
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
+
         <section id="main-content" role="main" class="scroll-container">
+        
+       
 
-          <div class="row">
-            <div class="large-3 medium-3 columns">
-              <div class="hide-for-small">
-                <div class="sidebar">
-                <nav>
-                  <ul id="side-nav" class="side-nav">
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="14864277119252.html">
+                
+                  <h1>开发这个Chrome插件，更高效地翻译社区文档</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>注：本文为产品设想，没有实际的产品实现。</p>
 
-                    
-                      <li class="side-title"><span>生活日常</span></li>
-                        
-                          <li><a title="微博自动发贴，简单却不容易被注意到的反爬方式" href="14705728845498.html">微博自动发贴，简单却不容易被注意到的反爬方式</a></li>
-                        
-                          <li><a title="利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)" href="14705395849188.html">利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</a></li>
-                        
-                          <li><a title="谈谈爬虫-模拟登录思路" href="14698088043297.html">谈谈爬虫-模拟登录思路</a></li>
-                        
-                          <li><a title="使用Github的Webhooks进行网站的自动化部署" href="14691078063823.html">使用Github的Webhooks进行网站的自动化部署</a></li>
-                        
-                          <li><a title="10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）" href="14686843615662.html">10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</a></li>
-                        
+<p>最近在看intellij 插件的文档，没有很好的中文版本。加之长期阅读英文文档时的想法和苦恼，准备开发一个chrome插件，用于辅助翻译社区文档。<br/>
+本文从一个最简单的工具出发，设想了一下操作原型，四步走，如下：</p>
 
-                    
-                      <li class="side-title"><span>Android开发</span></li>
-                        
-                          <li><a title="Android中 Integer对象使用==运算符还是equals()方法比较大小?" href="14730898296691.html">Android中 Integer对象使用==运算符还是equals()方法比较大小?</a></li>
-                        
-                          <li><a title="如何在Java中避免equals方法的隐藏陷阱" href="14730873130757.html">如何在Java中避免equals方法的隐藏陷阱</a></li>
-                        
-                          <li><a title="Android GPS定位欺骗(模拟定位)的两种方式" href="14720509840810.html">Android GPS定位欺骗(模拟定位)的两种方式</a></li>
-                        
-                          <li><a title="android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？" href="14720509627845.html">android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</a></li>
-                        
-                          <li><a title="带阴影的TextView 淡入淡出动画异常，显示多余的阴影" href="14720508913010.html">带阴影的TextView 淡入淡出动画异常，显示多余的阴影</a></li>
-                        
-                          <li><a title="Android应用横竖屏切换的两种方式，从表现上看最大的区别" href="14701507519730.html">Android应用横竖屏切换的两种方式，从表现上看最大的区别</a></li>
-                        
-                          <li><a title="PokemonGo破解" href="14685051740290.html">PokemonGo破解</a></li>
-                        
-                          <li><a title="Creating a Navigation Drawer" href="14583860309318.html">Creating a Navigation Drawer</a></li>
-                        
-                          <li><a title="Smartoo 开发中遇到的问题和解决" href="14539061256073.html">Smartoo 开发中遇到的问题和解决</a></li>
-                        
+<blockquote>
+<p>1 . 打开待翻译页面</p>
+</blockquote>
 
-                    
-                      <li class="side-title"><span>产品想法</span></li>
-                        
-                          <li><a title="app 我有一个问题" href="14464734385012.html">app 我有一个问题</a></li>
-                        
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-84be21a810f7e35f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
 
-                    
-                      <li class="side-title"><span>吉它学习🎸</span></li>
-                        
-                          <li><a title="风の诗(风之诗 Wind Song)" href="14530335489771.html">风の诗(风之诗 Wind Song)</a></li>
-                        
+<blockquote>
+<p>2 . 选取翻译段落</p>
+</blockquote>
 
-                    
-                      <li class="side-title"><span>书籍电影</span></li>
-                        
-                          <li><a title="下町火箭" href="14488126785387.html">下町火箭</a></li>
-                        
+<p>选取部分文字后跳出询问是否翻译的按钮，点击进入第3步。</p>
 
-                    
-                  </ul>
-                </nav>
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-c62534b82dc0a5ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>3 . 直接修改文字 或进行标注</p>
+</blockquote>
+
+<p>第2步中选中文字部分变成一个输入框，直接进行修改。</p>
+
+<p>当然，在进行修改时仍然显示原文，保存翻译后隐藏原文是更好的表现方案。图片只是举例说明。<br/>
+<img src="http://upload-images.jianshu.io/upload_images/25769-425369bc04e063c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>4 . 保存或导出</p>
+</blockquote>
+
+<p>保存或导出这里方案也有很多，简单例举几个：<br/>
+* 直接保存网页(到云端、本地)。保存后打开原文链接可选择是否直接展示翻译<br/>
+* 导出到本地 pdf<br/>
+* 导出markdown格式</p>
+
+<p>这里最主要的一点就是，基本保留原来的排版结构。不需要在翻译的同时操心排版之事。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-73276e961c2a9ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""/></p>
+
+<blockquote>
+<p>要点</p>
+</blockquote>
+
+<ul>
+<li>保留排版</li>
+<li>直接修改符合习惯</li>
+<li>打开原文可展示翻译页面</li>
+</ul>
+
+<blockquote>
+<p>更多feature</p>
+</blockquote>
+
+<ul>
+<li>翻译建议（包括简单单词、词组翻译，通过翻译库匹配的建议，不同领域的建议）</li>
+<li>云端翻译库相关feature（通过插件翻译并保存于云端，用户自定义公开与否）</li>
+<li>协同翻译功能（同一页面、同一站点下）（标注、求助等）</li>
+<li>专有名词关联</li>
+<li>书库，文档库</li>
+<li>语法分析（拿不准的句子，看看类似的翻译例句）</li>
+<li>社交，这也能社交？可以。不过已经是脱离工具之外的主题了</li>
+<li>一键发布到问答社区或问答版</li>
+<li>众包形式（类协同模式）</li>
+</ul>
+
+<p>有兴趣的同学请私信交流。</p>
+
+<p>————————————<br/>
+<strong>9.13 更新</strong><br/>
+<a href="https://translate.google.com/community?source=t-new-user#en/zh-CN/gt/completed">谷歌翻译社区</a><br/>
+文章片段化处理，分割成句子，用户只需完成短句翻译<br/>
+分翻译、验证两类。综合评估翻译质量。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/2/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html'>产品想法</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="large-9 medium-9 columns">
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14864276588598.html">
+                
+                  <h1>深入理解LayoutInflater.inflate()</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><a href="https://www.bignerdranch.com/blog/understanding-androids-layoutinflater-inflate/">原文链接：https://www.bignerdranch.com/blog/understanding-androids-layoutinflater-inflate/</a><br/>
+<a href="http://blog.chengdazhi.com/index.php/110">译文链接：http://blog.chengdazhi.com/index.php/110</a></p>
 
- 
+<p>由于我们很容易习惯公式化的预置代码，有时我们会忽略很优雅的细节。LayoutInflater以及它在Fragment的onCreateView()中填充View的方式带给我的就是这样的感受。这个类用于将XML文件转换成相对应的ViewGroup和控件Widget。我尝试在Google官方文档与网络上其他讨论中寻找有关的说明，而后发现许多人<strong>不但不清楚LayoutInflater的inflate()方法的细节，而且甚至在误用它。</strong></p>
+
+<p>这里的困惑很大程度上是因为Google上有关attachToRoot（也就是inflate()方法第三个参数）的文档太模糊：</p>
+
+<blockquote>
+<p>被填充的层是否应该附在root参数内部？如果是false，root参数只适用于为XML根元素View创建正确的LayoutParams的子类。</p>
+</blockquote>
+
+<p>其实意思就是：<strong>如果attachToRoot是true的话，那第一个参数的layout文件就会被填充并附加在第二个参数所指定的ViewGroup内。方法返回结合后的View，根元素是第二个参数ViewGroup。如果是false的话，第一个参数所指定的layout文件会被填充并作为View返回。这个View的根元素就是layout文件的根元素。不管是true还是false，都需要ViewGroup的LayoutParams来正确的测量与放置layout文件所产生的View对象。</strong></p>
+
+<p>attachToRoot传入true代表layout文件填充的View会被直接添加进ViewGroup，而传入false则代表创建的View会以其他方式被添加进ViewGroup。</p>
+
+<p>让我们就两种情况多举一些例子来更深入的理解。</p>
+
+<h1 id="toc_0">attachToRoot是True</h1>
+
+<p>假设我们在XML layout文件中写了一个Button并指定了宽高为match_parent。<br/>
+<code><br/>
+&lt;Button xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;<br/>
+android:layout_width=&quot;match_parent&quot;<br/>
+android:layout_height=&quot;match_parent&quot;<br/>
+android:id=&quot;@+id/custom_button&quot;&gt;<br/>
+&lt;/Button&gt;<br/>
+</code></p>
+
+<p>现在我们想动态地把这个按钮添加进Fragment或Activity的LinearLayout中。如果这里LinearLayout已经是一个成员变量mLinearLayout了，我们只需要通过如下代码达成目标：</p>
+
+<pre><code>inflater.inflate(R.layout.custom_button, mLinearLayout, true);
+</code></pre>
+
+<p>我们指定了用于填充button的layout资源文件，然后我们告诉LayoutInflater我们想把button添加到mLinearLayout中。这里Button的LayoutParams种类为LinearLayout.LayoutParams。</p>
+
+<p>下面的代码也有同样的效果。LayoutInflater的两个参数的inflate()方法自动将attachToRoot设置为true。</p>
+
+<pre><code>inflater.inflate(R.layout.custom_button, mLinearLayout);
+</code></pre>
+
+<p>另一种在attachToRoot中传递true的情况是使用自定义View。我们看一个layout文件中根元素有<merge>标签的例子。<merge>标签标识着这个layout文件的根ViewGroup可以有多种类型。</p>
+
+<pre><code>public class MyCustomView extends LinearLayout {
+...
+private void init() {
+LayoutInflater inflater = LayoutInflater.from(getContext());
+inflater.inflate(R.layout.view_with_merge_tag, this);
+}
+}
+</code></pre>
+
+<p>这就是一个很好的使用attachToRoot的例子。这个例子中layout文件没有ViewGroup作为根元素，所以我们指定我们自定义的LinearLayout作为根元素。如果layout文件有一个FrameLayout作为根元素而不是<merge>，那么FrameLayout和它的子元素都可以正常填充，而后都会被添加到LinearLayout中，LinearLayout是根ViewGroup，包含着FrameLayout和其子元素。</merge></p>
+
+<h1 id="toc_1">attachToRoot是False</h1>
+
+<p>我们看一下什么时候attachToRoot应该是false。在这种情况下，inflate()方法中的第一个参数所指定的View不会被添加到第二个参数所指定的ViewGroup中。</p>
+
+<p>回忆一下刚才的例子中的Button，我们想通过layout文件添加自定义的Button至mLinearLayout中。当attachToRoot为false时，我们仍可以将Button添加到mLinearLayout中，但是这需要我们自己动手。</p>
+
+<pre><code>Button button = (Button) inflater.inflate(R.layout.custom_button, mLinearLayout, false);
+mLinearLayout.addView(button);
+</code></pre>
+
+<p>这两行代码与刚才attachToRoot为true时的一行代码等效。通过传入false，我们告诉LayoutInflater我们不暂时还想将View添加到根元素ViewGroup中，意思是我们一会儿再添加。在这个例子中，一会儿再添加就是在inflate()后调用addView()方法。</p>
+
+<p>在将attachToRoot设置为false的例子中，由于要手动添加View进ViewGroup导致代码变多了。将Button添加到LinearLayout中还是用一行代码直接将attachToRoot设置为true简便一些。下面我们看一下什么情况下attachToRoot必须传入false。</p>
+
+<p>每一个RecyclerView的子元素都要在attachToRoot设置为false的情况下填充。这里子View在onCreateViewHolder()中填充。</p>
+
+<pre><code>public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+LayoutInflater inflater = LayoutInflater.from(getActivity());
+View view = inflater.inflate(android.R.layout.list_item_recyclerView, parent, false);
+return new ViewHolder(view);
+}
+</code></pre>
+
+<p>RecyclerView负责决定什么时候展示它的子View，这个不由我们决定。在任何我们不负责将View添加进ViewGroup的情况下都应该将attachToRoot设置为false。</p>
+
+<p>当在Fragment的onCreateView()方法中填充并返回View时，要将attachToRoot设为false。如果传入true，会抛出IllegalStateException，因为指定的子View已经有父View了。你需要指定在哪里将Fragment的View放进Activity里，而添加、移除或替换Fragment则是FragmentManager的事情。</p>
+
+<pre><code>FragmentManager fragmentManager = getSupportFragmentManager();
+Fragment fragment = fragmentManager.findFragmentById(R.id.root_viewGroup);
+
+if (fragment == null) {
+fragment = new MainFragment();
+fragmentManager.beginTransaction().add(R.id.root_viewGroup, fragment).commit();
+}
+</code></pre>
+
+<p>上面代码中root_viewGroup就是Activity中用于放置Fragment的容器，它会作为inflate()方法中的第二个参数被传入onCreateView()中。它也是你在inflate()方法中传入的ViewGroup。FragmentManager会将Fragment的View添加到ViewGroup中，你可不想添加两次。</p>
+
+<pre><code>public View onCreateView(LayoutInflater inflater, ViewGroup parentViewGroup, Bundle savedInstanceState) {
+View view = inflater.inflate(R.layout.fragment_layout, parentViewGroup, false);
+…
+return view;
+}
+</code></pre>
+
+<p>问题是：如果我们不需在onCreateView()中将View添加进ViewGroup，为什么还要传入ViewGroup呢？为什么inflate()方法必须要传入根ViewGroup？</p>
+
+<p>原因是及时不需要马上将新填充的View添加进ViewGroup，我们还是需要这个父元素的LayoutParams来在将来添加时决定View的size和position。</p>
+
+<p>你在网上一定会遇到一些不正确的建议。有些人会建议你如果将attachToRoot设置为false的话直接将根ViewGroup传入null。但是，如果有父元素的话，还是应该传入的。</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/25769-f6a7daf1df51f931.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="null-root"/></p>
+
+<p>Lint会警告你不要讲null作为root传入。你的App不会挂掉，但是可能会表现异常。当你的子View没有正确的LayoutParams时，它会自己通过<a href="http://developer.android.com/reference/android/view/ViewGroup.html#generateDefaultLayoutParams()">generateDefaultLayoutParams</a>计算。</p>
+
+<p>你可能并不想要这些默认的LayoutParams。你在XML指定的LayoutParams会被忽略。我们可能已经指定了子View要填充父元素的宽度，但父View又wrap_content导致最终的View小很多。</p>
+
+<p>下面是一种没有ViewGroup作为root传入inflate()方法的情况。当为AlertDialog创建自定义View时，还无法访问父元素。</p>
+
+<pre><code>AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
+View customView = inflater.inflate(R.layout.custom_alert_dialog, null);
+...
+dialogBuilder.setView(customView);
+dialogBuilder.show();
+</code></pre>
+
+<p>在这种情况下，可以将null作为root ViewGroup传入。后来我发现AlertDialog还是会重写LayoutParams并设置各项参数为match_parent。但是，规则还是在有ViewGroup可以传入时传入它。</p>
+
+<h1 id="toc_2">避开崩溃、异常表现与误解</h1>
+
+<p>希望这篇文章可以帮助你在使用LayoutInflater时避开崩溃、异常表现与误解。下面整理了文章的要点：</p>
+
+<ul>
+<li>  如果可以传入ViewGroup作为根元素，那就传入它。</li>
+<li>  避免将null作为根ViewGroup传入。</li>
+<li>  当我们不负责将layout文件的View添加进ViewGroup时设置attachToRoot参数为false。</li>
+<li>  不要在View已经被添加进ViewGroup时传入true。</li>
+<li>  自定义View时很适合将attachToRoot设置为true。</li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/2/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14864272317835.html">
+                
+                  <h1>服务器作防盗链图片中转，nodejs 上手项目简明教程</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>记录一下上手项目的各个点，以后再用 nodejs 就不用到处查资料了。</p>
+
+<p>前几天随手写的 chrome 插件遇到了防盗链问题，由于插件不能用 js iframe 的方法反防盗链，于是想用服务器做个中转。</p>
+
+<p>思路很简单，自用服务器处理防盗链的各种问题，开放接口作为图片中转使用。这样就绕开了 chrome 插件开发的各种限制。</p>
+
+<p>之前没有一套特别熟悉的 web 开发框架，加上插件存储服务依赖的平台 LeanCloud 刚好支持部署 nodejs 网站，刚好拿这个小项目作为 nodejs 上手项目。</p>
+
+<h3 id="toc_0">1. 项目是什么样子</h3>
+
+<h4 id="toc_1">1.1 接口的样子?</h4>
+
+<ul>
+<li>有一个开放接口</li>
+<li>接口有一个参数，<code>api?url=http://abc.com/image.png</code>，大概长这样子</li>
+<li>响应内容是反防盗链后的真实图片</li>
+</ul>
+
+<h4 id="toc_2">1.2 应该怎么做?</h4>
+
+<ul>
+<li>把服务器跑起来</li>
+<li>处理 GET 请求</li>
+<li>分析请求参数</li>
+<li>下载原图</li>
+<li>response 原图</li>
+</ul>
+
+<blockquote>
+<h4 id="toc_3">上面的可以不读</h4>
+</blockquote>
+
+<h3 id="toc_4">2. 学习路径(在对目标未知的前提下提出疑问)</h3>
+
+<ol>
+<li> 如何开始，建立服务器</li>
+<li> 如何处理基本请求 GET POST</li>
+<li> 如何下载图片并转发</li>
+<li> 完成基本功能，上线</li>
+<li> 优化</li>
+</ol>
+
+<h4 id="toc_5">2.1 如何开始，建立服务器</h4>
+
+<p>主要是  <code>http.createServer().listen(port)</code> 这组方法，建立服务器、监听端口一键搞定。</p>
+
+<pre><code>var http = require(&#39;http&#39;);
+    
+http.createServer(function (request, response) {
+     // do things here
+}).listen(8888);
+    
+console.log(&#39;Server running at: 8888&#39;);
+</code></pre>
+
+<h4 id="toc_6">2.2 如何处理基本请求 GET POST</h4>
+
+<p><code>createServer</code> 回调方法的两个参数 <code>req</code> <code>res</code> 是 http <code>request</code> 和 <code>response</code> 的内容，打印一下他们的内容。</p>
+
+<p><code>request</code> 是 <code>InComingMessage</code> 类，打印它的 <code>url</code> 字段。</p>
+
+<pre><code>var http = require(&#39;http&#39;);
+var url = require(&#39;url&#39;);
+var util = require(&#39;util&#39;);
+http.createServer(function(req, res){
+    res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/plain&#39;});
+    res.end(util.inspect(url.parse(req.url, true)));
+}).listen(3000);
+</code></pre>
+
+<p><strong>请求</strong><br/>
+<code>http://localhost:3000/api?url=http://abc.com/image.png</code></p>
+
+<p><strong>请求结果</strong></p>
+
+<pre><code>Url {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: &#39;?url=http://abc.com/image.png&#39;,
+  query: { url: &#39;http://abc.com/image.png&#39; },
+  pathname: &#39;/api&#39;,
+  path: &#39;/api?url=http://abc.com/image.png&#39;,
+  href: &#39;/api?url=http://abc.com/image.png&#39; }
+</code></pre>
+
+<p><code>query</code> 字段刚好是我们想要的内容，下载这个字段对应的图片。</p>
+
+<h4 id="toc_7">2.3 如何下载图片并转发</h4>
+
+<p><code>request</code> 模块支持管道方法，可以和 <code>shell</code> 的管道一样理解。</p>
+
+<p>这可以省很多事，不需要在本地存储图片，不需要处理杂七杂八的事情，甚至不需要再去了解 <code>nodejs</code> 的流。一个方法全搞定。</p>
+
+<p>关键方法: <code>request(options).pipe(res)</code></p>
+
+<pre>
+    var options = {
+      uri: imgUrl, // 这个 uri 为空时，会认为该字段不存在，报异常
+      headers: {
+         'Referer': referrer // 解决部分防盗链选项
+      }
+    };
+    request(options).pipe(res);
+</pre>
+
+<h4 id="toc_8">2.4 完成基本功能，上线</h4>
+
+<p><a href="https://github.com/auv1107/FileTransferServer/blob/master/routes/image.js">项目地址</a></p>
+
+<p><strong>完整代码</strong></p>
+
+<pre><code>    &#39;use strict&#39;;
+    var router = require(&#39;express&#39;).Router();
+    var http = require(&#39;http&#39;);
+    var url = require(&#39;url&#39;);
+    var util = require(&#39;util&#39;);
+    var fs = require(&#39;fs&#39;);
+    var callfile = require(&#39;child_process&#39;);
+    var request = require(&#39;request&#39;);
+    
+    router.get(&#39;/&#39;, function(req, res, next) {
+        var imgUrl = url.parse(req.url, true).query.url;
+        console.log(url.parse(req.url,true).query); 
+    
+        console.log(&#39;get a request for &#39; + imgUrl);
+        if (imgUrl == null || imgUrl == &quot;&quot; || imgUrl == undefined) {
+            console.log(&#39;end&#39;);
+            res.end();
+            return;
+        }
+    
+        var parsedUrl = url.parse(imgUrl);
+        // 这里暂时使用图片服务器主机名做Referer
+        var referrer = parsedUrl.protocol + &#39;//&#39; + parsedUrl.host; 
+        console.log(&#39;referrer &#39; + referrer);
+    
+        var options = {
+          uri: imgUrl,
+          headers: {
+             &#39;Referer&#39;: referrer
+          }
+        };
+    
+        function callback(error, response, body) {
+          if (!error &amp;&amp; response.statusCode == 200) {
+            console.log(&quot;type &quot; + response.headers[&#39;content-type&#39;]);
+          }
+          res.end(response.body);
+        }
+    
+        // request(options, callback);
+        request(options)
+            .on(&#39;error&#39;, function(err) {
+                console.log(err)
+            })
+            .pipe(res);
+    });
+    
+    module.exports = router;
+</code></pre>
+
+<h4 id="toc_9">2.5 优化</h4>
+
+<p>这部分主要是防盗链部分的优化。</p>
+
+<p>单就 <code>Referer</code> 来说，使用空值和主机名都只能满足部分需求。</p>
+
+<p>一个优化方式是组合，当一种方式不能突破即采用另一种方式。<br/>
+这种方式的有点在于扩大了适用面积，并且方法对任何场景比较通用。</p>
+
+<p>一个优化方式是接口请求参数带源引用连接。<br/>
+这种方式对很多人来说不太通用，因为很多场景下并不清楚源引用连接在哪。<br/>
+但是对我的插件来说非常适用，插件本身保留了源引用。因此可以很好的绕过防盗链限制。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/2/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='web%E5%BC%80%E5%8F%91.html'>web开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14864271201285.html">
+                
+                  <h1>使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">0. 目录</h2>
+
+<ol>
+<li>要开发的是什么项目
+1.1 想法开端
+1.2 应该有什么功能?</li>
+<li>开发需要解决的核心问题</li>
+<li>具体解决方案
+3.1 帐号系统
+3.2 存储服务
+3.3 使用<code>LeanEngine</code>做反防盗链中转接口
+3.4 Chrome 插件实现</li>
+<li>对去后端化的看法</li>
+</ol>
+
+<h2 id="toc_1">1. 要开发的是什么项目?</h2>
+
+<p>一个Chrome插件，用来保存浏览网页时看到的喜欢的图片。</p>
+
+<h3 id="toc_2">1.1 想法开端</h3>
+
+<p>在 pixiv 翻图时看到一些喜欢的插画，看完就随手翻过去了，没有保存。为什么呢？ 因为以我对自己的了解，图片下载下来，就相当于放进了垃圾桶。 并不是因为本地的文件管理有多乱，而是因为，几乎没有用鼠标打开文件管理器的习惯。</p>
+
+<p>现在我获取信息的流量入口最常用的只有两个：1. 终端 2. 浏览器</p>
+
+<p>于是乎，一个想法油然而生：</p>
+
+<blockquote>
+<p>把插画存到浏览器吧！</p>
+</blockquote>
+
+<p>于是就立刻构思，动手写了这款插件。</p>
+
+<h3 id="toc_3">1.2 应该有什么功能?</h3>
+
+<p>功能很简单，<br/>
+<strong>保存操作</strong>：1. 对图片点击右键 2. 选择&quot;保存到浏览器..&quot; 之类的选项<br/>
+<strong>查看操作</strong>：1. 点击插件图标 查看保存过的图片。<br/>
+<strong>其它</strong>：1. 图片同步到云端，也可保存到浏览器本地。2. 既然要保存到云端，自然需要账号系统</p>
+
+<h2 id="toc_4">2. 开发需要解决的核心问题</h2>
+
+<blockquote>
+<p>核心问题有两个，一个是数据云存储问题，一个是图片防盗链问题。</p>
+</blockquote>
+
+<p><strong>云存储问题，帐号系统，多端同步</strong><br/>
+最开始只想做浏览器本地的存储，使用<code>Chrome</code>提供的<code>localStorage</code>存在本地就。<br/>
+后来因为<code>localStorage</code>并不支持数据库语法查询，有很多不便。使用过程中又发现多端同步在体验上的优越性，决定要把存储放到云上。</p>
+
+<p><strong>图片防盗链问题</strong><br/>
+看了些资料，解决方式基本可以分为两种。</p>
+
+<p>一类使用前端js嵌入<code>iframe</code>解决，优点是解决方式简单，问题是<code>Chrome</code>插件不支持页面嵌入式的<code>js</code>脚本。所以这个方案pass。</p>
+
+<p>第二类使用后台服务器做反防盗链措施，作为中转给前端使用。优点是不受<code>chrome</code>插件的各种安全机制的限制，缺点是需要后台支持，增加工作量和资源成本。<br/>
+使用第二类完成。</p>
+
+<h2 id="toc_5">3. 具体解决方案</h2>
+
+<blockquote>
+<p>云存储及帐号系统使用<code>LeanCloud</code>提供的<code>存储服务</code>解决。<br/>
+反防盗链接口使用<code>LeanCloud</code>提供的<code>云引擎</code>搭建<code>NodeJs</code>后台。</p>
+</blockquote>
+
+<p>啰嗦一句，为什么要使用<code>LeanCloud</code>? <br/>
+一是对我的需求可以做到完全免费，二是它们的文档实在是太xx的好用了。</p>
+
+<h3 id="toc_6">3.1 帐号系统</h3>
+
+<p>参照：<a href="https://leancloud.cn/docs/leanstorage-started-js.html">数据存储入门教程 · JavaScript</a></p>
+
+<p>实现过程基本照抄这个教程的代码。后台账号系统包括对账号的重复检测、密码加密、session等都已经实现。</p>
+
+<blockquote>
+<p>我们要做的，就是调用前端的这几个<strong>关键方法</strong>，实现简单的注册、登陆、退出:</p>
+</blockquote>
+
+<pre><code>  // LeanCloud - 注册
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#注册
+  var user = new AV.User();
+  user.setUsername(username);
+  user.setPassword(password);
+  user.setEmail(email);
+  user.signUp().then(function (loginedUser) {
+    // 注册成功
+  }, (function (error) {
+      alert(JSON.stringify(error));
+  }));
 
 
-	
-		<div class="markdown-body">
-		<h1>Android中 Integer对象使用==运算符还是equals()方法比较大小?</h1>
+  // LeanCloud - 登录
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#用户名和密码登录
+  AV.User.logIn(username, password).then(function (loginedUser) {
+    // 登录成功
+  }, function (error) {
+    alert(JSON.stringify(error));
+  });
 
-		<p>最近项目组使用findbugs辅助检测代码问题，其中一个问题提到了Integer对象的值比较问题。虽然心里很清楚，java语言类对象的双等号操作符默认比较的是对象的地址，即是否是同一个对象。可是对于Integer、Long这类基本类型的扩展类，心想存在特殊处理的可能，所以还是查了下资料，主要是解释一些心里的疑惑。</p>
+
+  // LeanCloud - 当前用户信息
+  // https://leancloud.cn/docs/leanstorage_guide-js.html#当前用户
+  var currentUser = AV.User.current();
+
+
+  // 退出登陆
+  AV.User.logOut();
+
+</code></pre>
+
+<h3 id="toc_7">3.2 存储服务</h3>
+
+<blockquote>
+<p>使用账号系统为每个用户添加身份信息后，存储部分就只需要把<code>数据</code> + <code>用户身份信息</code>一同上传或下载就可以了。</p>
+</blockquote>
+
+<p>照样只贴关键方法</p>
+
+<pre><code>// 初始化类(在数据库中表现为数据表`ImageRepo`)和实例(数据库中表现为一条数据)
+this.ImageRepo = AV.Object.extend(&#39;ImageRepo&#39;);
+var repo = new this.ImageRepo();
+// 填充数据
+repo.put(&#39;username&#39;, &#39;xxx&#39;);
+// 上传数据
+repo.save().then(function (repo) {
+    }, function (error) {
+    });
+
+// 下载数据
+// 初始化对&#39;ImageRepo&#39;表的查询
+var query = new AV.Query(&#39;ImageRepo&#39;);
+// 查询条件为 username字段等于&#39;xxx&#39;
+query.equalTo(&#39;username&#39;, &#39;xxx&#39;);
+// 查询
+query.find().then(function(results) {
+    // 遍历results
+    // 在页面添加解决防盗链问题后的图片
+}, function(error) {
+});
+</code></pre>
+
+<h3 id="toc_8">3.3 使用<code>LeanEngine</code>做反防盗链中转接口</h3>
+
+<p><strong>要实现的效果是:</strong><br/>
+1. 我有一个防盗链图片连接<code>abc.com/xxx.png</code>。<br/>
+2. 我的接口url是<code>http://codeli.leanapp.cn/image?url=xxx</code>。<br/>
+3. 访问<code>http://codeli.leanapp.cn/image?url=abc.com/xxx.png</code>可访问原图，不受防盗链措施限制。</p>
+
+<blockquote>
+<p>主要原理很简单，后台处理图片请求时更改<code>header</code>中的<code>referer</code>字段，将结果作为<code>response</code>返回。</p>
+</blockquote>
+
+<p>关于这部分的实现，欢迎阅读我的另一篇文章，就不再赘述：<br/>
+<a href="http://www.jianshu.com/p/7b9f7cd6dce5">服务器作防盗链图片中转，nodejs 上手项目简明教程</a></p>
+
+<blockquote>
+<p>关于<code>LeanEngin</code>的使用，文档如下，使用方法非常简单。<br/>
+<a href="https://leancloud.cn/docs/leanengine_quickstart.html">云引擎快速入门</a></p>
+
+<p>云引擎支持<code>NodeJS</code> <code>Python</code> <code>PHP</code> <code>JAVA</code> <br/>
+只需要下载云引擎命令行工具<code>lean</code>，然后输入几行命令就可以建立一个你熟悉的web框架。<br/>
+然后，使用你熟悉的语言编写反防盗链实现就行了。</p>
+</blockquote>
+
+<h3 id="toc_9">3.4 Chrome 插件实现</h3>
+
+<blockquote>
+<p>有了 3.1~3.3 的实现，这部分就是简单的插件部署和业务逻辑了。</p>
+</blockquote>
+
+<p>Chrome 插件结构如图：<br/>
+<img src="http://7xrnu9.com1.z0.glb.clouddn.com/chrome%E6%8F%92%E4%BB%B6%E7%BB%93%E6%9E%84.png" alt="图片来自 蒋国纲的技术博客"/></p>
+
+<p><strong>主要业务：</strong><br/>
+1. 在<code>popup</code>窗口中添加<code>注册</code> <code>登陆</code> <code>退出</code> 等业务。<br/>
+2. 打开<code>popup</code> 窗口时从云端获取指定账号下保存的图片信息，并展示。若未登陆，则从浏览器<code>localStorage</code>获取并展示。<br/>
+3. <code>background script</code> 中添加右键菜单项: 当目标是图片时，显示<code>Keep image in browser</code>。<br/>
+4. 点击<code>Keep image in browser</code>, 执行保存业务逻辑: 若登陆了，保存到云端。若未登录，保存到浏览器<code>localStorage</code>。</p>
+
+<blockquote>
+<p>具体实现见我的github项目:  <a href="https://github.com/auv1107/KeepImageInBrowser">KeepImageInBrowser</a><br/>
+插件Web Store地址： <a href="https://chrome.google.com/webstore/detail/favorite-image/dboialkignkpkbggkomglilgdhkgijfp">Favorite Image</a></p>
+</blockquote>
+
+<h2 id="toc_10">4. 最后，对去后端化的看法</h2>
+
+<p>前段时间在知乎上看到了一个问题,我也顺便说下自己的看法。</p>
+
+<blockquote>
+<p>web后端会不会变得越来越不需要?</p>
+</blockquote>
+
+<p>像bmob和leancloud这类后台云服务的流行有一段日子了，使用这些服务使一些web、app的开发周期大大缩减。这对于小团队和初创公司尤为方便。</p>
+
+<p>但这并不意味着不再需要自己开发后台。不是因为他们提供的服务不够全面(相反，我倒认为这类服务将向着全面、便捷、快速发展)，而是因为很多公司和产品，为了保持服务的质量和稳定，突出自己产品的特性，需要自己定制自己的后台，有针对性的去优化某些模块。<br/>
+云服务作为大众服务平台难以为每个产品做定制。</p>
+
+<p>类似于游戏引擎，如今各个平台都不缺乏优秀的游戏引擎。可是仍有公司和团队耗费大量的成本自研游戏引擎，就是希望能配合自己的游戏系统，完美地展现自己的游戏。</p>
+
+<p>一样的，后台云服务和自定制的后台，是相交但永远不会重合的关系。 他们彼此之间相互影响，共同进步。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/2/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='web%E5%BC%80%E5%8F%91.html'>web开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14805196774412.html">
+                
+                  <h1>生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>有人说，送礼重要的是情谊，无论礼物轻重贵贱，只要真心祝福，朋友自然会开心。<br/>
+道理是这样，我也在一定程度上表示认同。所以我今天要讲的不是价格高低，也不是品类含义，而只是讲讲我在选择礼物时的思考。</p>
+
+<h2 id="toc_0">消耗品 or 非消耗品</h2>
+
+<p>在北京租房经历过几次搬家，加之对山下英子老师断舍离思想的认同，让我形成了「如果不是必要的，就不要随意添加」的观念。以至于每每要准备礼物，我都要消瘦三斤。<br/>
+因为万一选取不当，便会成为被赠与者的负担。<br/>
+“丢弃过意不去，放在家里不合适，礼物本身不适合转送，干脆建个专门收藏礼物的收藏馆吧”。于是新的创业项目风火出炉。<br/>
+因此若非对对方很了解或事先询问，我定会选择消耗品或生命周期较短的物品。女生花、零食、化妆品成为首选，男生吃顿饭就算过去了。</p>
+
+<h2 id="toc_1">书</h2>
+
+<p>书是我比较倾向的一类。<br/>
+一来身边朋友大多抱着大学文凭，书的品类众多，因此即便对方早已对读书嗤之以鼻，也总能有那么几本适合的。<br/>
+二来书籍适合转送。即便很不巧地送错了书，被赠予者也可以无压力地转送出去。如上所说，送礼重要的是心意，心意传达到了，自然皆大欢喜。<br/>
+缺点是，除非对方嗜书如命，否则很难从这礼物中感受到惊喜。</p>
+
+<h2 id="toc_2">红包</h2>
+
+<p>关系很铁或很官方时没问题。</p>
+
+<h2 id="toc_3">兴趣对口周边</h2>
+
+<p>简单粗暴但仍需仔细确认。<br/>
+如果对方是宅宅，送手办。<br/>
+程序员，耳机键盘科技产品。<br/>
+运动达人，运动装备。<br/>
+程序猿，吃。<br/>
+设计师，钱。</p>
+
+<h2 id="toc_4">是否要事先询问</h2>
+
+<p>当我做好打算赠送非消耗品时，一定会认真询问。虽然有时会略显尴尬，又让对方失去了惊喜。但是对于一个信奉简约思想的朋友来说，无疑是极为合适的。重要的是，虽然没了惊喜，却能让人感受到你满满的诚意。</p>
+
+<p>说了这些，回头想想现实其实并没这么复杂。现实中多的是收到什么礼物都感到惊喜的朋友。只是当对方是一个对生活认真且谨慎的人，而他又对你很重要时，切记，要谨慎处理。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/11/30</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14730898296691.html">
+                
+                  <h1>Android中 Integer对象使用==运算符还是equals()方法比较大小?</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>最近项目组使用findbugs辅助检测代码问题，其中一个问题提到了Integer对象的值比较问题。虽然心里很清楚，java语言类对象的双等号操作符默认比较的是对象的地址，即是否是同一个对象。可是对于Integer、Long这类基本类型的扩展类，心想存在特殊处理的可能，所以还是查了下资料，主要是解释一些心里的疑惑。</p>
 
 <h2 id="toc_0">疑问?</h2>
 
@@ -232,93 +937,2523 @@ public static Integer valueOf(int i) {<br/>
 
 <p>无论如何，请使用equals()方法比较大小。</p>
 
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/9/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14730873130757.html">
+                
+                  <h1>如何在Java中避免equals方法的隐藏陷阱</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>今天看资料时看到coolshell的这篇文章，获益匪浅，收藏到文库里。</p>
+
+<p>译文原文：<a href="http://coolshell.cn/articles/1051.html">http://coolshell.cn/articles/1051.html</a><br/>
+英文原文：<a href="http://www.artima.com/lejava/articles/equality.html">http://www.artima.com/lejava/articles/equality.html</a></p>
+
+<p><strong>译者注</strong> :你可能会觉得Java很简单，Object的equals实现也会非常简单，但是事实并不是你想象的这样，耐心的读完本文，你会发现你对Java了解的是如此的少。如果这篇文章是一份Java程序员的入职笔试，那么不知道有多少人会掉落到这样的陷阱中。原文转自<a href="http://www.artima.com/lejava/articles/equality.html">http://www.artima.com/lejava/articles/equality.html</a> 三位作者都是不同领域的大拿，有兴趣的读者可以从上面这个连接直接去阅读原文。</p>
+
+<p><strong>摘要</strong></p>
+
+<p>本文描述重载equals方法的技术，这种技术即使是具现类的子类增加了字段也能保证equal语义的正确性。</p>
+
+<p>在《Effective Java》的第8项中，Josh Bloch描述了当继承类作为面向对象语言中的等价关系的基础问题，要保证派生类的equal正确性语义所会面对的困难。Bloch这样写到：</p>
+
+<blockquote>
+<p><strong>除非你忘记了面向对象抽象的好处，否则在当你继承一个新类或在类中增加了一个值组件时你无法同时保证equal的语义依然正确</strong></p>
+</blockquote>
+
+<p>在《Programming in Scala》中的第28章演示了一种方法，这种方法允许即使继承了新类，增加了新的值组件，equal的语义仍然能得到保证。虽然在这本书中这项技术是在使用Scala类环境中，但是这项技术同样可以应用于Java定义的类中。在本文中的描述来自于Programming in Scala中的文字描述，但是代码被我从scala翻译成了Java</p>
+
+<h4 id="toc_0">常见的等价方法陷阱</h4>
+
+<p>java.lang.Object 类定义了equals这个方法，它的子类可以通过重载来覆盖它。不幸的是，在面向对象中写出正确的equals方法是非常困难的。事实上，在研究了大量的Java代码后，2007 paper的作者得出了如下的一个结论：</p>
+
+<blockquote>
+<p>几乎所有的equals方法的实现都是错误的！</p>
+</blockquote>
+
+<p>这个问题是因为等价是和很多其他的事物相关联。例如其中之一，一个的类型C的错误等价方法可能意味着你无法将这个类型C的对象可信赖的放入到容器中。比如说，你有两个元素elem1和elem2他们都是类型C的对象，并且他们是相等，即<code>elem1.equals(elm2)</code>返回ture。但是，只要这个equals方法是错误的实现，那么你就有可能会看见如下的一些行为：</p>
+
+<pre><code>Set hashSet&lt;C&gt; = new java.util.HashSet&lt;C&gt;();
+hashSet.add(elem1);
+hashSet.contains(elem2);    // returns false!&lt;/pre&gt;
+</code></pre>
+
+<p>当equals重载时，这里有4个会引发equals行为不一致的常见陷阱：</p>
+
+<ol>
+<li> 定义了错误的equals方法签名(signature) Defining equals with the wrong signature.</li>
+<li> 重载了equals的但没有同时重载hashCode的方法。 Changing equals without also changing hashCode.</li>
+<li> 建立在会变化字域上的equals定义。 Defining equals in terms of mutable fields.</li>
+<li> 不满足等价关系的equals错误定义 Failing to define equals as an equivalence relation.</li>
+</ol>
+
+<p>在剩下的章节中我们将依次讨论这4中陷阱。</p>
+
+<h4 id="toc_1">陷阱1：定义错误equals方法签名(signature)</h4>
+
+<p>考虑为下面这个简单类Point增加一个等价性方法：</p>
+
+<pre><code>public class Point {
+
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    // ...
+}
+</code></pre>
+
+<p>看上去非常明显，但是按照这种方式来定义equals就是错误的。</p>
+
+<pre><code>// An utterly wrong definition of equals
+public boolean equals(Point other) {
+  return (this.getX() == other.getX() &amp;&amp; this.getY() == other.getY());
+}
+</code></pre>
+
+<p>这个方法有什么问题呢？初看起来，它工作的非常完美：</p>
+
+<pre><code>Point p1 = new Point(1, 2);
+Point p2 = new Point(1, 2);
+
+Point q = new Point(2, 3);
+
+System.out.println(p1.equals(p2)); // prints true
+
+System.out.println(p1.equals(q)); // prints false
+</code></pre>
+
+<p>然而，当我们一旦把这个Point类的实例放入到一个容器中问题就出现了：</p>
+
+<pre><code>import java.util.HashSet;
+
+HashSet&lt;Point&gt; coll = new HashSet&lt;Point&gt;();
+coll.add(p1);
+
+System.out.println(coll.contains(p2)); // prints false
+</code></pre>
+
+<p>为什么coll中没有包含p2呢？甚至是p1也被加到集合里面，p1和p2是是等价的对象吗？在下面的程序中，我们可以找到其中的一些原因，定义p2a是一个指向p2的对象，但是p2a的类型是Object而非Point类型：</p>
+
+<pre><code>Object p2a = p2;
+</code></pre>
+
+<p>现在我们重复第一个比较，但是不再使用p2而是p2a,我们将会得到如下的结果：</p>
+
+<pre><code>System.out.println(p1.equals(p2a)); // prints false
+</code></pre>
+
+<p>到底是那里出了了问题？事实上，之前所给出的equals版本并没有覆盖Object类的equals方法，因为他的类型不同。下面是Object的equals方法的定义</p>
+
+<pre><code>public boolean equals(Object other)
+</code></pre>
+
+<p>因为Point类中的equals方法使用的是以Point类而非Object类做为参数，因此它并没有覆盖Object中的equals方法。而是一种变化了的重载。在Java中重载被解析为静态的参数类型而非运行期的类型，因此当静态参数类型是Point,Point的equals方法就被调用。然而当静态参数类型是Object时，Object类的equals就被调用。因为这个方法并没有被覆盖，因此它仍然是实现成比较对象标示。这就是为什么虽然p1和p2a具有同样的x,y值，”p1.equals(p2a)”仍然返回了false。这也是会什么HasSet的contains方法返回false的原因，因为这个方法操作的是泛型，他调用的是一般化的Object上equals方法而非Point类上变化了的重载方法equals</p>
+
+<p>一个更好但不完美的equals方法定义如下：</p>
+
+<pre><code>// A better definition, but still not perfect
+@Override public boolean equals(Object other) {
+    boolean result = false;
+    if (other instanceof Point) {
+        Point that = (Point) other;
+        result = (this.getX() == that.getX() &amp;&amp; this.getY() == that.getY());
+    }
+    return result;
+}
+</code></pre>
+
+<p>现在equals有了正确的类型，它使用了一个Object类型的参数和一个返回布尔型的结果。这个方法的实现使用instanceof操作和做了一个造型。它首先检查这个对象是否是一个Point类，如果是，他就比较两个点的坐标并返回结果，否则返回false。</p>
+
+<h4 id="toc_2">陷阱2：重载了equals的但没有同时重载hashCode的方法</h4>
+
+<p>如果你使用上一个定义的Point类进行p1和p2a的反复比较，你都会得到你预期的true的结果。但是如果你将这个类对象放入到HashSet.contains()方法中测试，你就有可能仍然得到false的结果：</p>
+
+<pre><code>Point p1 = new Point(1, 2);
+Point p2 = new Point(1, 2);
+
+HashSet&lt;Point&gt; coll = new HashSet&lt;Point&gt;();
+coll.add(p1);
+
+System.out.println(coll.contains(p2)); // 打印 false (有可能)
+</code></pre>
+
+<p>事实上，这个个结果不是100%的false，你也可能有返回ture的经历。如果你得到的结果是true的话，那么你试试其他的坐标值，最终你一定会得到一个在集合中不包含的结果。导致这个结果的原因是Point重载了equals却没有重载hashCode。</p>
+
+<p>注意上面例子的的容器是一个HashSet，这就意味着容器中的元素根据他们的哈希码被被放入到”哈希桶 hash buckets”中。contains方法首先根据哈希码在哈希桶中查找，然后让桶中的所有元素和所给的参数进行比较。现在，虽然最后一个Point类的版本重定义了equals方法，但是它并没有同时重定义hashCode。因此，hashCode仍然是Object类的那个版本，即：所分配对象的一个地址的变换。所以p1和p2的哈希码理所当然的不同了，甚至是即时这两个点的坐标完全相同。不同的哈希码导致他们具有极高的可能性被放入到集合中不同的哈希桶中。contains方法将会去找p2的哈希码对应哈希桶中的匹配元素。但是大多数情况下，p1一定是在另外一个桶中，因此，p2永远找不到p1进行匹配。当然p2和p2也可能偶尔会被放入到一个桶中，在这种情况下，contains的结果就为true了。</p>
+
+<p>最新一个Point类实现的问题是，它的实现违背了作为Object类的定义的hashCode的语义。</p>
+
+<blockquote>
+<p>如果两个对象根据equals(Object)方法是相等的，那么在这两个对象上调用hashCode方法应该产生同样的值</p>
+</blockquote>
+
+<p>事实上，在Java中，hashCode和equals需要一起被重定义是众所周知的。此外，hashCode只可以依赖于equals依赖的域来产生值。对于Point这个类来说，下面的的hashCode定义是一个非常合适的定义。</p>
+
+<pre><code>public class Point {
+
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof Point) {
+            Point that = (Point) other;
+            result = (this.getX() == that.getX() &amp;&amp; this.getY() == that.getY());
+        }
+        return result;
+    }
+
+    @Override public int hashCode() {
+        return (41 * (41 + getX()) + getY());
+    }
+
+}
+</code></pre>
+
+<p>这只是hashCode一个可能的实现。x域加上常量41后的结果再乘与41并将结果在加上y域的值。这样做就可以以低成本的运行时间和低成本代码大小得到一个哈希码的合理的分布(<strong>译者注：</strong>性价比相对较高的做法)。</p>
+
+<p>增加hashCode方法重载修正了定义类似Point类等价性的问题。然而，关于类的等价性仍然有其他的问题点待发现。</p>
+
+<h4 id="toc_3">陷阱3：建立在会变化字段上的equals定义</h4>
+
+<p>让我们在Point类做一个非常微小的变化</p>
+
+<pre><code>public class Point {
+
+    private int x;
+    private int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) { // Problematic
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof Point) {
+            Point that = (Point) other;
+            result = (this.getX() == that.getX() &amp;&amp; this.getY() == that.getY());
+        }
+        return result;
+    }
+
+    @Override public int hashCode() {
+        return (41 * (41 + getX()) + getY());
+    }
+}
+</code></pre>
+
+<p>唯一的不同是x和y域不再是final，并且两个set方法被增加到类中来，并允许客户改变x和y的值。equals和hashCode这个方法的定义现在是基于在这两个会发生变化的域上，因此当他们的域的值改变时，结果也就跟着改变。因此一旦你将这个point对象放入到集合中你将会看到非常神奇的效果。</p>
+
+<pre><code>Point p = new Point(1, 2);
+
+HashSet&lt;Point&gt; coll = new HashSet&lt;Point&gt;();
+coll.add(p);
+
+System.out.println(coll.contains(p)); // 打印 true
+</code></pre>
+
+<p>现在如果你改变p中的一个域，这个集合中还会包含point吗，我们将拭目以待。</p>
+
+<pre><code>p.setX(p.getX() + 1);
+
+System.out.println(coll.contains(p)); // (有可能)打印 false
+</code></pre>
+
+<p>看起来非常的奇怪。p去那里去了？如果你通过集合的迭代器来检查p是否包含，你将会得到更奇怪的结果。</p>
+
+<pre><code>Iterator&lt;Point&gt; it = coll.iterator();
+boolean containedP = false;
+while (it.hasNext()) {
+    Point nextP = it.next();
+    if (nextP.equals(p)) {
+        containedP = true;
+        break;
+    }
+}
+
+System.out.println(containedP); // 打印 true
+</code></pre>
+
+<p>结果是，集合中不包含p，但是p在集合的元素中！到底发生了什么！当然，所有的这一切都是在x域的修改后才发生的，p最终的的hashCode是在集合coll错误的哈希桶中。即，原始哈希桶不再有其新值对应的哈希码。换句话说，p已经在集合coll的是视野范围之外，虽然他仍然属于coll的元素。</p>
+
+<p>从这个例子所得到的教训是，当equals和hashCode依赖于会变化的状态时，那么就会给用户带来问题。如果这样的对象被放入到集合中，用户必须小心，不要修改这些这些对象所依赖的状态，这是一个小陷阱。如果你需要根据对象当前的状态进行比较的话，你应该不要再重定义equals，应该起其他的方法名字而不是equals。对于我们的Point类的最后的定义，我们最好省略掉hashCode的重载，并将比较的方法名命名为equalsContents，或其他不同于equals的名字。那么Point将会继承原来默认的equals和hashCode的实现，因此当我们修改了x域后p依然会呆在其原来在容器中应该在位置。</p>
+
+<h4 id="toc_4">陷阱4：不满足等价关系的equals错误定义</h4>
+
+<p>Object中的equals的规范阐述了equals方法必须实现在非null对象上的等价关系：</p>
+
+<ul>
+<li>  自反原则：对于任何非null值X,表达式x.equals(x)总返回true。</li>
+<li>  等价性：对于任何非空值x和y，那么当且仅当y.equals(x)返回真时，x.equals(y)返回真。</li>
+<li>  传递性：对于任何非空值x,y,和z，如果x.equals(y)返回真，且y.equals(z)也返回真，那么x.equals(z)也应该返回真。</li>
+<li>  一致性：对于非空x,y，多次调用x.equals(y)应该一致的返回真或假。提供给equals方法比较使用的信息不应该包含改过的信息。</li>
+<li>  对于任何非空值x,x.equals(null)应该总返回false.</li>
+</ul>
+
+<p>Point类的equals定义已经被开发成了足够满足equals规范的定义。然而，当考虑到继承的时候，事情就开始变得非常复杂起来。比如说有一个Point的子类ColoredPoint，它比Point多增加了一个类型是Color的color域。假设Color被定义为一个枚举类型：</p>
+
+<pre><code>public enum Color {
+    RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET;
+}
+</code></pre>
+
+<p>ColoredPoint重载了equals方法，并考虑到新加入color域，代码如下：</p>
+
+<pre><code>public class ColoredPoint extends Point { // Problem: equals not symmetric
+
+    private final Color color;
+
+    public ColoredPoint(int x, int y, Color color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof ColoredPoint) {
+            ColoredPoint that = (ColoredPoint) other;
+            result = (this.color.equals(that.color) &amp;&amp; super.equals(that));
+        }
+        return result;
+    }
+}
+</code></pre>
+
+<p>这是很多程序员都有可能写成的代码。注意在本例中，类ColoredPointed不需要重载hashCode，因为新的ColoredPoint类上的equals定义，严格的重载了Point上equals的定义。hashCode的规范仍然是有效，如果两个着色点(colored point)相等，其坐标必定相等，因此它的hashCode也保证了具有同样的值。</p>
+
+<p>对于ColoredPoint类自身对象的比较是没有问题的，但是如果使用ColoredPoint和Point混合进行比较就要出现问题。</p>
+
+<pre><code>Point p = new Point(1, 2);
+
+ColoredPoint cp = new ColoredPoint(1, 2, Color.RED);
+
+System.out.println(p.equals(cp)); // 打印真 true
+
+System.out.println(cp.equals(p)); // 打印假 false
+</code></pre>
+
+<p>“p等价于cp”的比较这个调用的是定义在Point类上的equals方法。这个方法只考虑两个点的坐标。因此比较返回真。在另外一方面，“cp等价于p”的比较这个调用的是定义在ColoredPoint类上的equals方法，返回的结果却是false，这是因为p不是ColoredPoint，所以equals这个定义违背了对称性。</p>
+
+<p>违背对称性对于集合来说将导致不可以预期的后果，例如：</p>
+
+<pre><code>Set&lt;Point&gt; hashSet1 = new java.util.HashSet&lt;Point&gt;();
+hashSet1.add(p);
+System.out.println(hashSet1.contains(cp));    // 打印 false
+
+Set&lt;Point&gt; hashSet2 = new java.util.HashSet&lt;Point&gt;();
+hashSet2.add(cp);
+System.out.println(hashSet2.contains(p));    // 打印 true
+</code></pre>
+
+<p>因此虽然p和cp是等价的，但是contains测试中一个返回成功，另外一个却返回失败。</p>
+
+<p>你如何修改equals的定义，才能使得这个方法满足对称性？本质上说有两种方法，你可以使得这种关系变得更一般化或更严格。更一般化的意思是这一对对象，a和b，被用于进行对比，无论是a比b还是b比a 都返回true，下面是代码：</p>
+
+<pre><code>public class ColoredPoint extends Point { // Problem: equals not transitive
+
+    private final Color color;
+
+    public ColoredPoint(int x, int y, Color color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof ColoredPoint) {
+            ColoredPoint that = (ColoredPoint) other;
+            result = (this.color.equals(that.color) &amp;&amp; super.equals(that));
+        }
+        else if (other instanceof Point) {
+            Point that = (Point) other;
+            result = that.equals(this);
+        }
+        return result;
+    }
+}
+</code></pre>
+
+<p>在ColoredPoint中的equals的新定义比老定义中检查了更多的情况:如果对象是一个Point对象而不是ColoredPoint，方法就转变为Point类的equals方法调用。这个所希望达到的效果就是equals的对称性，不管”cp.equals(p)”还是”p.equals(cp)”的结果都是true。然而这种方法，equals的规范还是被破坏了，现在的问题是这个新等价性不满足传递性。考虑下面的一段代码实例，定义了一个点和这个点上上两种不同颜色点：</p>
+
+<pre><code>ColoredPoint redP = new ColoredPoint(1, 2, Color.RED);
+ColoredPoint blueP = new ColoredPoint(1, 2, Color.BLUE);
+</code></pre>
+
+<p>redP等价于p，p等价于blueP</p>
+
+<pre><code>System.out.println(redP.equals(p)); // prints true
+
+System.out.println(p.equals(blueP)); // prints true
+</code></pre>
+
+<p>然而，对比redP和blueP的结果是false:</p>
+
+<pre><code>System.out.println(redP.equals(blueP)); // 打印 false
+</code></pre>
+
+<p>因此，equals的传递性就被违背了。</p>
+
+<p>使equals的关系更一般化似乎会将我们带入到死胡同。我们应该采用更严格化的方法。一种更严格化的equals方法是认为不同类的对象是不同的。这个可以通过修改Point类和ColoredPoint类的equals方法来达到。你能增加额外的比较来检查是否运行态的这个Point类和那个Point类是同一个类，就像如下所示的代码一样：</p>
+
+<pre><code>// A technically valid, but unsatisfying, equals method
+public class Point {
+
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof Point) {
+            Point that = (Point) other;
+            result = (this.getX() == that.getX() &amp;&amp; this.getY() == that.getY()
+                    &amp;&amp; this.getClass().equals(that.getClass()));
+        }
+        return result;
+    }
+
+    @Override public int hashCode() {
+        return (41 * (41 + getX()) + getY());
+    }
+}
+</code></pre>
+
+<p>你现在可以将ColoredPoint类的equals实现用回刚才那个不满足对称性要的equals实现了。</p>
+
+<pre><code>public class ColoredPoint extends Point { // 不再违反对称性需求
+
+    private final Color color;
+
+    public ColoredPoint(int x, int y, Color color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof ColoredPoint) {
+            ColoredPoint that = (ColoredPoint) other;
+            result = (this.color.equals(that.color) &amp;&amp; super.equals(that));
+        }
+        return result;
+    }
+}
+</code></pre>
+
+<p>这里，Point类的实例只有当和另外一个对象是同样类，并且有同样的坐标时候，他们才被认为是相等的，即意味着 .getClass()返回的是同样的值。这个新定义的等价关系满足了对称性和传递性因为对于比较对象是不同的类时结果总是false。所以着色点(colored point)永远不会等于点(point)。通常这看起来非常合理，但是这里也存在着另外一种争论——这样的比较过于严格了。</p>
+
+<p>考虑我们如下这种稍微的迂回的方式来定义我们的坐标点(1,2)</p>
+
+<pre><code>Point pAnon = new Point(1, 1) {
+    @Override public int getY() {
+        return 2;
+    }
+};
+</code></pre>
+
+<p>pAnon等于p吗？答案是假，因为p和pAnon的java.lang.Class对象不同。p是Point，而pAnon是Point的一个匿名派生类。但是，非常清晰的是pAnon的确是在坐标1，2上的另外一个点。所以将他们认为是不同的点是没有理由的。</p>
+
+<h4 id="toc_5">canEqual 方法</h4>
+
+<p>到此，我们看其来似乎是遇到阻碍了，存在着一种正常的方式不仅可以在不同类继承层次上定义等价性，并且保证其等价的规范性吗？事实上，的确存在这样的一种方法，但是这就要求除了重定义equals和hashCode外还要另外的定义一个方法。基本思路就是在重载equals(和hashCode)的同时，它应该也要要明确的声明这个类的对象永远不等价于其他的实现了不同等价方法的超类的对象。为了达到这个目标，我们对每一个重载了equals的类新增一个方法canEqual方法。这个方法的方法签名是：</p>
+
+<pre><code>public boolean canEqual(Object other)
+</code></pre>
+
+<p>如果other 对象是canEquals(重)定义那个类的实例时，那么这个方法应该返回真，否则返回false。这个方法由equals方法调用，并保证了两个对象是可以相互比较的。下面Point类的新的也是最终的实现：</p>
+
+<pre><code>public class Point {
+
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof Point) {
+            Point that = (Point) other;
+            result =(that.canEqual(this) &amp;&amp; this.getX() == that.getX() &amp;&amp; this.getY() == that.getY());
+        }
+        return result;
+    }
+
+    @Override public int hashCode() {
+        return (41 * (41 + getX()) + getY());
+    }
+    public boolean canEqual(Object other) {
+        return (other instanceof Point);
+    }
+
+}
+</code></pre>
+
+<p>这个版本的Point类的equals方法中包含了一个额外的需求，通过canEquals方法来决定另外一个对象是否是是满足可以比较的对象。在Point中的canEqual宣称了所有的Point类实例都能被比较。</p>
+
+<p>下面是ColoredPoint相应的实现</p>
+
+<pre><code>public class ColoredPoint extends Point { // 不再违背对称性
+
+    private final Color color;
+
+    public ColoredPoint(int x, int y, Color color) {
+        super(x, y);
+        this.color = color;
+    }
+
+    @Override public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof ColoredPoint) {
+            ColoredPoint that = (ColoredPoint) other;
+            result = (that.canEqual(this) &amp;&amp; this.color.equals(that.color) &amp;&amp; super.equals(that));
+        }
+        return result;
+    }
+
+    @Override public int hashCode() {
+        return (41 * super.hashCode() + color.hashCode());
+    }
+
+    @Override public boolean canEqual(Object other) {
+        return (other instanceof ColoredPoint);
+    }
+}
+</code></pre>
+
+<p>在上显示的新版本的Point类和ColoredPoint类定义保证了等价的规范。等价是对称和可传递的。比较一个Point和ColoredPoint类总是返回false。因为点p和着色点cp,“p.equals(cp)返回的是假。并且，因为cp.canEqual(p)总返回false。相反的比较，cp.equals(p)同样也返回false，由于p不是一个ColoredPoint，所以在ColoredPoint的equals方法体内的第一个instanceof检查就失败了。</p>
+
+<p>另外一个方面，不同的Point子类的实例却是可以比较的，同样没有重定义等价性方法的类也是可以比较的。对于这个新类的定义，p和pAnon的比较将总返回true。下面是一些例子：</p>
+
+<pre><code>Point p = new Point(1, 2);
+
+ColoredPoint cp = new ColoredPoint(1, 2, Color.INDIGO);
+
+Point pAnon = new Point(1, 1) {
+    @Override public int getY() {
+        return 2;
+    }
+};
+
+Set&lt;Point&gt; coll = new java.util.HashSet&lt;Point&gt;();
+coll.add(p);
+
+System.out.println(coll.contains(p)); // 打印 true
+
+System.out.println(coll.contains(cp)); // 打印 false
+
+System.out.println(coll.contains(pAnon)); // 打印 true
+</code></pre>
+
+<p>这些例子显示了如果父类在equals的实现定义并调用了canEquals，那么开发人员实现的子类就能决定这个子类是否可以和它父类的实例进行比较。例如ColoredPoint，因为它以”一个着色点永远不可以等于普通不带颜色的点重载了” canEqual，所以他们就不能比较。但是因为pAnon引用的匿名子类没有重载canEqual,因此它的实例就可以和Point的实例进行对比。</p>
+
+<p>canEqual方法的一个潜在的争论是它是否违背了Liskov替换准则(LSP)。例如，通过比较运行态的类来实现的比较技术(<strong>译者注：</strong> canEqual的前一版本，使用.getClass()的那个版本)，将导致不能定义出一个子类，这个子类的实例可以和其父类进行比较，因此就违背了LSP。这是因为，LSP原则是这样的，在任何你能使用父类的地方你都可以使用子类去替换它。在之前例子中，虽然cp的x,y坐标匹配那些在集合中的点，然而”coll.contains(cp)”仍然返回false，这看起来似乎违背得了LSP准则，因为你不能这里能使用Point的地方使用一个ColoredPointed。但是我们认为这种解释是错误的，因为LSP原则并没有要求子类和父类的行为一致，而仅要求其行为能一种方式满足父类的规范。</p>
+
+<p>通过比较运行态的类来编写equals方法(<strong>译者注：</strong> canEqual的前一版本，使用.getClass()的那个版本)的问题并不是违背LSP准则的问题，但是它也没有为你指明一种创建派生类的实例能和父类实例进行对比的的方法。例如，我们使用这种运行态比较的技术在之前的”coll.contains(pAnon)”将会返回false，并且这并不是我们希望的。相反我们希望“coll.contains(cp)”返回false，因为通过在ColoredPoint中重载的equals，我基本上可以说，一个在坐标1，2上着色点和一个坐标1，2上的普通点并不是一回事。然而，在最后的例子中，我们能传递Point两种不同的子类实例到集合中contains方法，并且我们能得到两个不同的答案，并且这两个答案都正确。</p>
+
+<p><strong>–全文完–</strong></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/9/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14720509840810.html">
+                
+                  <h1>Android GPS定位欺骗(模拟定位)的两种方式</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>前段时间发布的手游PokemonGo相信大家都有耳闻，而因为这个游戏在国内的坐标遭到了封锁，很多科学游戏方法也陆续涌现。好不热闹。<br/>
+那其实，PokemonGo最初的版本，在大陆是可以通过简单的vpn+gps欺骗进行游戏的。<br/>
+不过很快地，在新的版本更新中就封锁了这一方式。</p>
+
+<p>而对Android系统使用GPS欺骗，应用场景也绝不只是这一个游戏而已。所以我今天来简单介绍一下可使用的几种方式。</p>
+
+<blockquote>
+<p>控制噪声的方式有三种：防止噪声产生，阻断噪声传播和防止噪声进入耳朵</p>
+</blockquote>
+
+<p>相对应的，</p>
+
+<blockquote>
+<p>修改GPS定位结果的三种途径： 编译时修改NLP结果，运行时修改LocationManager结果，从应用获取到的结果修改。</p>
+</blockquote>
+
+<h3 id="toc_0">1. 编译时修改NLP结果</h3>
+
+<p>难度系数：五颗星<br/>
+建议：想都别想<br/>
+大概思路：修改nlp部分源码，重编系统</p>
+
+<h3 id="toc_1">2. 运行时修改LocationManager结果</h3>
+
+<p>这个分两类：</p>
+
+<blockquote>
+<p><strong>一类</strong>： 使用android自带的调试api，模拟gps provider的结果。</p>
+</blockquote>
+
+<pre><code>LocationManager.setTestProviderLocation(Provider, Location);
+</code></pre>
+
+<p>优点：简单，无需root<br/>
+缺点：不稳定，特征明显，容易按特征嗅探到（有反作弊机制的游戏基本都能查出来），需要打开开发者的允许模拟位置选项</p>
+
+<blockquote>
+<p><strong>第二类</strong>: 使用xposed,传说中的android神器，用它对app_process进行注入。</p>
+</blockquote>
+
+<p>有什么用呢，就是你可以放个钩子，英文名叫hook。这个钩子能知道你系统里的每个应用什么时候调用了哪个函数，还能修改对应的这个函数。<br/>
+说到这就懂了吧。比如你猜测对应app会使用LocationManager.getLastKnownLocation的结果。然后你用xposed把内存里的这个函数返回值改成 <code>纬度 N 39.832670° 东经 E116.460370°</code>，然后调用这个函数的程序看到的记过就是你修改之后的结果。<br/>
+具体代码看这里吧（非本人repo，只是找了个简单易懂的demo）<br/>
+<a href="https://github.com/YiuChoi/FakeGps/tree/master/app/src/main/java/name/caiyao/fakegps/hook">FakeGPS demo</a></p>
+
+<p>优点：稳定，难以被反查<br/>
+缺点：需要root</p>
+
+<h3 id="toc_2">3. 对想欺骗的app反编译，修改结果</h3>
+
+<p>该怎么做看标题就明白了。<br/>
+步骤就是<br/>
+1. 反编译<br/>
+2. 找到所有使用了定位结果的位置<br/>
+3. 修改结果<br/>
+4. 重新打包</p>
+
+<p>这个方式的优缺点也很明显。<br/>
+优点： 无需root，稳定性强（前提是找准入口）<br/>
+缺点： 技术水平要求高。根据应用复杂程度、混淆、安全策略等不同，难度差异较大。难易程度包括很多内容，包括混淆部分、入口寻找、签名验证等。 我也不熟啊，感兴趣的同学请自行深入学习吧。</p>
+
+<p>————————</p>
+
+<p>3类4种欺骗方式，各位看官收好。</p>
+
+<p>以上。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14720509627845.html">
+                
+                  <h1>android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>很多初接触android的同学在布局时都会有这样一个疑问：</p>
+
+<blockquote>
+<p>这个布局的父亲用LinearLayout和RelativeLayout都可以，我用哪个更合适呢？</p>
+</blockquote>
+
+<p>有些同学可能就开始权量了，RelativeLayout更灵活，用这个吧。但是感觉LinearLayout更方便啊，自动帮我把这几个View分布开了，不会一开始就挤在一块。</p>
+
+<p>其实呢，随着项目的进展，布局会发生调整，这是再自然不过的事情。</p>
+
+<blockquote>
+<p>不要让自己这些『主观』的思考拖慢进度。</p>
+</blockquote>
+
+<p>今天我从数据上来说下在面临这种情况（两者都可选择）时，应如何选择。</p>
+
+<p><strong>注: 当然，很多情况会有其它更好的选择，我这里仅就这两者进行对比。</strong></p>
+
+<blockquote>
+<p>从效率的角度考虑，选取渲染速度更快的那个。</p>
+</blockquote>
+
+<p>我们知道一个View的绘制包括三个步骤：<br/>
+1. 测量 measure<br/>
+2. 布局 layout<br/>
+3. 绘制 draw</p>
+
+<p>这三个哪个拖后腿都会影响渲染效率，我们就来看看使用不同的布局时，这三者之间的差距。</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>子View</th>
+<th>父View</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>父View使用LinearLayout</td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-ad4a99485588a741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linear_child.png"/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-c2a9998a2d24bc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linear_parent.png"/></td>
+</tr>
+<tr>
+<td>父View使用RelativeLayout</td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-0d2ff6157d6133e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_child.png"/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-4c1f5807cd35172d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_parent.png"/></td>
+</tr>
+</tbody>
+</table>
+
+<p>这里我们主要关注 <strong>Measure</strong> 时间。<br/>
+通过对比我们可以看到，父View使用LinearLayout时，父亲和孩子的Measure时间是相差无几的。<br/>
+而父View使用RelativeLayout时，父亲几乎是孩子的两倍。</p>
+
+<blockquote>
+<p>RelativeLayout 的子View经常会被measure两次。</p>
+</blockquote>
+
+<h3 id="toc_0">结论</h3>
+
+<ol>
+<li>两者都可使用，并且层数不受影响的前提下，尽量使用LinearLayout.</li>
+<li>若是层数受影响，优先考虑层数少的。(这点会在以后的文章中谈到)</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14720508913010.html">
+                
+                  <h1>带阴影的TextView 淡入淡出动画异常，显示多余的阴影</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h4 id="toc_0">1. 问题</h4>
+
+<p>带阴影的TextView 淡入淡出动画异常，有多余的阴影</p>
+
+<h4 id="toc_1">2. 复现步骤</h4>
+
+<ol>
+<li>TextView 设置阴影</li>
+<li>对TextView设置的alpha值设置 ObjectAnimator</li>
+<li>观察</li>
+</ol>
+
+<h4 id="toc_2">3. 上图</h4>
+
+<table>
+<thead>
+<tr>
+<th>TextView底部有多余阴影</th>
+<th>动画正常</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-6ba639edeab70edb.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
+<td><img src="http://upload-images.jianshu.io/upload_images/25769-57053d376b7c5fd8.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="toc_3">4. 原因</h4>
+
+<ol>
+<li>硬件加速并非对所有2D图形的支持都很好，处理alpha相关的事件时需尤为注意。</li>
+<li>并非所有方法都有做应对处理。</li>
+</ol>
+
+<h4 id="toc_4">5. 解决方案</h4>
+
+<ol>
+<li>对相应的View或Activity或Application关闭硬件加速。</li>
+<li>使用其他替代方法实现动画。这就要看具体方法的实现了。</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/24</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14705728845498.html">
+                
+                  <h1>微博自动发贴，简单却不容易被注意到的反爬方式</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>移动端登录后移步 <a href="http://m.weibo.cn/mblog">http://m.weibo.cn/mblog</a> 页面发贴，正常思路是：填写消息-&gt;其它选项-&gt;点击发送。</p>
+
+<pre><code>tv_msg.send_keys(&quot;msg&quot;)
+btn_send.click()
+</code></pre>
+
+<p>仔细看下细节，会发现，发送按钮一开始是disable的，输入消息后才会变成enable。<br/>
+所以按理说，代码确实没有问题。可是执行结果是最终停留在这个页面，而且send按钮<strong>并没有</strong>变成可用的橙色。</p>
+
+<p>测试最后发现，msg输入后，send并不会立即改变状态，而是有一个很小的延迟时间。而因为机器的执行速度极快，导致在send状态改变前，已经执行了click动作。所以发送动作没有如期进行。</p>
+
+<p>在其中加入一点delay解决问题。</p>
+
+<pre><code>tv_msg.send_keys(&quot;msg&quot;)
+time.sleep(0.1)
+btn_send.click()
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14705395849188.html">
+                
+                  <h1>利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">对WebElement截图</h2>
+
+<p>WebDriver.Chrome自带的方法只能对当前窗口截屏，且不能指定特定元素。若是需要截取特定元素或是窗口超过了一屏，就只能另辟蹊径了。<br/>
+WebDriver.PhantomJS自带的方法支持对整个网页截屏。<br/>
+下面提供几种思路。</p>
+
+<h4 id="toc_1">方式一</h4>
+
+<blockquote>
+<p>针对WebDriver.Chrome</p>
+</blockquote>
+
+<p>通过WebDriver的js脚本注入功能，曲线救国。<br/>
+1. 注入第三方html转canvas的js库(见下方推荐)<br/>
+2. 获取元素html源码<br/>
+3. 将html转换为canvas<br/>
+4. 下载canvas</p>
+
+<p><strong>优点</strong>: 截取长图容易实现<br/>
+<strong>缺点</strong>: 加载第三方库耗费时间，转换原理请参考这篇文章:<br/>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></p>
+
+<h4 id="toc_2">方式二</h4>
+
+<blockquote>
+<p>针对WebDriver.Chrome</p>
+</blockquote>
+
+<p>截取全图，自行裁剪、拼接<br/>
+1. 获取元素位置、大小<br/>
+2. 获取窗口大小<br/>
+3. 截取包含元素的窗口<br/>
+4. 进行相应的裁剪和拼接。</p>
+
+<p>具体算法思路很清晰，但需要注意的细节较多。这里就不在赘述。示例代码请移步: <br/>
+<a href="https://github.com/auv1107/PythonSpiderLibs">[Github]PythonSpiderLibs</a></p>
+
+<p><strong>优点</strong>: 不需太多js工作，python+少量js代码即可完成<br/>
+<strong>缺点</strong>: 拼接等工作会被WebDriver的实现差异、图片加载速度等因素影响，需多加注意。 在保证截图质量的情况下，速度较慢</p>
+
+<h4 id="toc_3">方式三</h4>
+
+<blockquote>
+<p>针对WebDriver.PhantomJS<br/>
+由于接口实现的差异，PhantomJS相比于Chrome，可以截取到整个网页。所以获取指定元素的截图也就简单很多</p>
+</blockquote>
+
+<ol>
+<li>截取网页全图</li>
+<li>裁剪指定元素</li>
+</ol>
+
+<pre><code>driver = webdriver.Chrome()
+driver.get(&#39;http://stackoverflow.com/&#39;)
+driver.save_screenshot(&#39;screenshot.png&#39;)
+
+left = element.location[&#39;x&#39;]
+top = element.location[&#39;y&#39;]
+right = element.location[&#39;x&#39;] + element.size[&#39;width&#39;]
+bottom = element.location[&#39;y&#39;] + element.size[&#39;height&#39;]
+
+im = Image.open(&#39;screenshot.png&#39;) 
+im = im.crop((left, top, right, bottom))
+im.save(&#39;screenshot.png&#39;)
+</code></pre>
+
+<p><strong>优点</strong>: 实现简单<br/>
+<strong>缺点</strong>: 对于高度太高的页面会导致文件过大，处理会有问题，我测试的最大图片尺寸是12.8M。</p>
+
+<h4 id="toc_4">解决图片加载不完整的问题</h4>
+
+<p>参考: <a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></p>
+
+<p>我们先在首页上执行一段 JavaScript 脚本，将页面的滚动条拖到最下方，然后再拖回顶部，最后才截图。这样可以解决像上面那种按需加载图片的情况。</p>
+
+<pre><code>from selenium import webdriver
+import time
+
+
+def take_screenshot(url, save_fn=&quot;capture.png&quot;):
+    browser = webdriver.Firefox() # Get local session of firefox
+    browser.set_window_size(1200, 900)
+    browser.get(url) # Load page
+    browser.execute_script(&quot;&quot;&quot;
+        (function () {
+            var y = 0;
+            var step = 100;
+            window.scroll(0, 0);
+
+            function f() {
+                if (y &lt; document.body.scrollHeight) {
+                    y += step;
+                    window.scroll(0, y);
+                    setTimeout(f, 100);
+                } else {
+                    window.scroll(0, 0);
+                    document.title += &quot;scroll-done&quot;;
+                }
+            }
+
+            setTimeout(f, 1000);
+        })();
+    &quot;&quot;&quot;)
+
+    for i in xrange(30):
+        if &quot;scroll-done&quot; in browser.title:
+            break
+        time.sleep(10)
+
+    browser.save_screenshot(save_fn)
+    browser.close()
+
+
+if __name__ == &quot;__main__&quot;:
+
+    take_screenshot(&quot;http://codingpy.com&quot;)
+
+</code></pre>
+
+<h2 id="toc_5">不同wewbdriver对某些方法的实现不同</h2>
+
+<p>Chrome和PhantomJS 的接口差异<br/>
+抓知乎时的坑，<br/>
+1. Chrome用<code>WebElement.text</code>可以正常得到值，用PhantomJS只能用 <code>WebElement.get_attribute(&#39;innerHTML&#39;)</code><br/>
+2. WebDriver.Chrome截图只能截当前屏幕区域。WebDriver.PhantomJS截图可以获取整个页面的长图。</p>
+
+<p>其它还有一些坑等待发现</p>
+
+<h2 id="toc_6">推荐</h2>
+
+<ol>
+<li><a href="http://html2canvas.hertzen.com/documentation.html">html2canvas库</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></li>
+<li><a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14705318101263.html">
+                
+                  <h1>技术资料</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">文档</h2>
+
+<p><a href="https://pillow.readthedocs.io/en/3.3.x/">Pillow(PIL Fork)</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/7</span>
+                    
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14701507519730.html">
+                
+                  <h1>Android应用横竖屏切换的两种方式，从表现上看最大的区别</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>我们知道android应用更改屏幕方向有两种方式，对应两种过程，一是销毁重建，二是设置onConfigurationChanged。在其中做改变方向的处理。</p>
+
+<p>很久前我们的测试同学给计算器应用报了一个bug，说应用旋转到横屏后锁屏，再解锁。此时应用会先回到竖屏，再转换到横屏(图一)。正确的表现应该和浏览器的表现一样(图二),解锁后直接进入横屏。<br/>
+<img src="http://i.imgur.com/m9kqNuh.gif" alt="图一，表现错误，使用销毁重建的方式"/><br/>
+<img src="http://i.imgur.com/jsswjwK.gif" alt="图二，表现正确，使用onConfigurationChanged"/></p>
+
+<p>百思不得其解。<br/>
+后来解一个性能相关的bug，很巧地把原来销毁重建的方式，改成了onConfigurationChanged处理。无意间解了这个搁置很久的问题。</p>
+
+<p>根据systrace的结果，推测可能的原因如下。<br/>
+1. 销毁重建，其间会进行目标activity的销毁、重建以及其它系统调用。这一系列动作不能在一帧内完成，导致解锁时能看到竖屏切换到横屏的动作。<br/>
+2. onConfigurationChanged，横竖屏切换其间只执行这一个函数，其中只有layout的MLD操作，这一系列动作在短时间内完成，因此我们看到的也就直接进入和横屏。<br/>
+3. 可能有其它activity管理之间的原因，暂不清楚。知道的请不吝赐教。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/8/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14698088043297.html">
+                
+                  <h1>谈谈爬虫-模拟登录思路</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>最近在做的sideproject，需要网络上的文章数据。于是顺便学习了下爬虫技术，也算是有些心得体会。写下来分享给刚入坑的新人。</p>
+
+<h2 id="toc_0">怎么理解模拟登录？</h2>
+
+<p>怎么理解模拟登录？<br/>
+把这句话补全就是： 怎么(让机器)模拟(人在浏览器上的行为)登录(指定的网站)。<br/>
+那么这个问题实际上问的是： 人通过浏览器登录网站时，浏览器为我们做了哪些事情。<br/>
+那么我们需要做的只有：写一个脚本，让这个脚本模拟浏览器的行为，做我们希望它做的事情。</p>
+
+<p>有兴趣参考:<br/>
+ <a href="https://www.zhihu.com/question/34873227">当在浏览器地址栏输入一个URL后回车，将会发生的事情？</a></p>
+
+<p><strong>那么</strong>，<br/>
+人类在登录时做了哪些事情呢，很简单：<br/>
+1. 打开登录页面<br/>
+2. 输入用户名密码，有时可能还有验证码，各种各样的验证码<br/>
+3. 点击登录<br/>
+4. 等待浏览器自动跳转</p>
+
+<p>只要你稍微懂一点html语言，就应该能分析个八九不离十。<br/>
+机器人怎么做呢：<br/>
+两种方式：</p>
+
+<p><strong>方式一</strong>：<br/>
+需要使用虚拟的浏览器引擎。<br/>
+优点: 适合几乎所有的网站登录，可以人为输入验证码<br/>
+缺点: 速度较慢<br/>
+1. 请求登录页面的url，比如微博的(<a href="https://passport.weibo.cn/signin/login">https://passport.weibo.cn/signin/login</a>)<br/>
+2. 分析html中的表单数据<br/>
+2.1 找到输入用户名、密码的输入框<br/>
+2.2 把输入框的text域替换成自己的用户名密码<br/>
+3. 模拟点击提交按钮</p>
+
+<p><strong>方式二</strong>：<br/>
+分析登录信息提交方式，一般就是表单<br/>
+优点: 轻量，速度快<br/>
+缺点: 局限性大，对技术要求高，对验证码机制需要做针对的破解<br/>
+1. 使用浏览器的调试模式查看网页<br/>
+2. 检查是否使用表单提交<br/>
+3. 点击登录按钮，查看发送的请求数据。主要查看参数有无加密验证或其它隐藏信息。<br/>
+4. 使用分析结果进行请求操作</p>
+
+<p>对于一般用户，所有的非特殊性需求都可以使用方式一进行完成。<br/>
+若非是为了学习，推荐方式一。</p>
+
+<p>技术资料请参考:<br/>
+<a href="http://cuiqingcai.com/1052.html">Python爬虫学习系列教程</a>(推荐)<br/>
+<a href="http://www.voidcn.com/blog/eastmount/article/p-5954929.html">[Python爬虫] Selenium爬取新浪微博移动端热点话题及评论 (下)</a></p>
+
+<h2 id="toc_1">如何让脚本的行为看起来像人？</h2>
+
+<p><strong>为什么要像人</strong><br/>
+因为很多服务器会使用一些反爬技术拒绝爬虫软件访问。</p>
+
+<p><strong>哪些东西让你看起来像人，哪些不像人</strong><br/>
+像人，其实可以分为两点。<br/>
+一类是看请求数据，是否符合是浏览器发出的正常数据，比如header内容。<br/>
+一类是看行为模式，发送请求对象的行为更像人类还是机器人，比如请求的频率。</p>
+
+<p>不像人，和上面对应。<br/>
+从请求数据上看，你没说明user-agent,我就可以认为你是非法侵入。你没有带着我之前给你的饼干(cookie)来，我也可以拒绝你。<br/>
+从行为模式上，同一个ip访问的频率过高，短时间内流量异常，都可以作为非人类处理。</p>
+
+<h2 id="toc_2">结合反爬技术</h2>
+
+<ol>
+<li>需要登录用cookie</li>
+<li>ip限制加代理</li>
+<li>用user-agent告诉对方你是浏览器</li>
+<li>服务器限制访问频率，加延迟</li>
+<li>ajax异步加载，使用js引擎或者人工分析</li>
+<li>redirect，最简单的方式虚拟内核＋延迟</li>
+<li>验证码，虚拟内核</li>
+</ol>
+
+<h2 id="toc_3">如何找切入点？</h2>
+
+<p>什么是好的登录页面？<br/>
+没有验证码，非ajax异步加载。<br/>
+不一定局限于pc端网页，app端、移动端一般做的反爬策略比较少，可以从这里入手，寻找适合的站点。</p>
+
+<p>理解自己要做什么，如何伪装成人类。仔细思考访问流程，针对性的有哪些反爬手段。把这些想通了，爬虫之路会好走很多。</p>
+
+<p>转载请注明：<a href="http://lixindong.top">未命名的博客</a></p>
+
+<h2 id="toc_4">相关文章和资料</h2>
+
+<p>技术语言资料请自行google。</p>
+
+<ol>
+<li><a href="https://www.zhihu.com/question/28168585">如何应对网站反爬虫策略？如何高效地爬大量数据?</a></li>
+<li><a href="https://www.zhihu.com/question/27621722">能利用爬虫技术做到哪些很酷很有趣很有用的事情?</a>(很有意思)</li>
+<li><a href="http://cuiqingcai.com/1052.html">Python爬虫学习系列教程</a>(推荐)</li>
+<li><a href="http://www.voidcn.com/blog/eastmount/article/p-5954929.html">[Python爬虫] Selenium爬取新浪微博移动端热点话题及评论 (下)</a></li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/7/30</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14691078063823.html">
+                
+                  <h1>使用Github的Webhooks进行网站的自动化部署</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>使用mWeb做自己的博客，服务器没有直接使用github的gh-pages功能，而是部署到了自己的服务器上。<br/>
+从此更新博客变成了三步走：1. 使用mWeb生成静态网页 2. push 到github 3. 登录服务器拉取最新内容。</p>
+
+<p>昨天想到，能不能再简化一些步骤，让我的文章push到github后，让服务器自动拉取文章，部署新内容。说干就干，实施想法。</p>
+
+<h2 id="toc_0">1. 目标</h2>
+
+<p>服务器自动拉取push到github上的新文章。</p>
+
+<h2 id="toc_1">2. 想法</h2>
+
+<p>想法一: 定时检查置顶repo的提交，有更新，则启动部署流程。（主动查询方式）<br/>
+想法二: github是否支持事件提醒或者第三方有无支持。(被动唤醒方式)(相当于消息推送)</p>
+
+<h2 id="toc_2">3. 思考</h2>
+
+<p>主动查询，耗费cpu时间及流量，并且必然会和github产生同步间隔。<br/>
+被动唤醒，不会消耗不必要的资源，若是支持必然是第一选项。</p>
+
+<h2 id="toc_3">4. 查阅资料(可行性分析)</h2>
+
+<p>github支持Webhooks及大量的第三方服务，可以很好得对repo的push等操作做出反应。</p>
+
+<p><strong>Webhooks做了什么?</strong><br/>
+当github收到repo的操作行为时，会向指定的url发送一个带有描述操作内容的post请求。</p>
+
+<h2 id="toc_4">5. 实现思路(总结)</h2>
+
+<p>对指定repo注册webhooks，指向我的服务器上的接口，服务器解析数据，若操作是push，则进行部署行为。</p>
+
+<h2 id="toc_5">6. 实现</h2>
+
+<h4 id="toc_6">6.1 部署脚本：</h4>
+
+<p><strong>deploy.sh</strong></p>
+
+<pre><code>#!/bin/bash
+
+LOG_FILE=&quot;/var/log/blog_deploy.log&quot;
+
+date &gt;&gt; &quot;$LOG_FILE&quot;
+echo &quot;Start deployment&quot; &gt;&gt;&quot;$LOG_FILE&quot;
+cd /Path/need/be/deployed/
+echo &quot;pulling source code...&quot; &gt;&gt; &quot;$LOG_FILE&quot;
+git checkout origin gh-pages
+git pull origin gh-pages
+echo &quot;Finished.&quot; &gt;&gt;&quot;$LOG_FILE&quot;
+echo &gt;&gt; $LOG_FILE
+</code></pre>
+
+<p>每当接收到带push的post请求时，执行上面的脚本。</p>
+
+<h4 id="toc_7">6.2 处理post请求</h4>
+
+<p>注：以下nodejs内容摘自<a href="http://www.lovelucy.info/auto-deploy-website-by-webhooks-of-github-and-gitlab.html">曾曦前辈博客－尘埃落定</a></p>
+
+<blockquote>
+<p>然后我们就要写一个脚本在 <a href="http://dev.lovelucy.info/incoming">http://dev.lovelucy.info/incoming</a> 这里接受 POST 请求了。因为本人机器上跑的是 node，俺就找了个 nodejs 的中间件 github-webhook-handler 。如果你要部署的是 PHP 网站，那你应该找一个世界上最好的语言 PHP 的版本，或者自己写一个，只需要接收 $_POST 嘛，好简单的，不多废话啦。么么哒 ( • ̀ω•́ )</p>
+</blockquote>
+
+<pre><code>$ npm install -g github-webhook-handler
+</code></pre>
+
+<blockquote>
+<p>鉴于在天朝的服务器上 npm 拉 repo 比拉屎还难的状况，我们可以 选用 阿里的镜像，据说 10 分钟和官方同步一次。_(:3 」∠ )_</p>
+</blockquote>
+
+<pre><code>$ npm install -g cnpm --registry=http://r.cnpmjs.org
+$ cnpm install -g github-webhook-handler
+</code></pre>
+
+<blockquote>
+<p>好了，万事俱备，下面是 NodeJS 的监听程序 deploy.js</p>
+</blockquote>
+
+<pre><code>var http = require(&#39;http&#39;)
+var createHandler = require(&#39;github-webhook-handler&#39;)
+var handler = createHandler({ path: &#39;/incoming&#39;, secret: &#39;myHashSecret&#39; }) 
+// 上面的 secret 保持和 GitHub 后台设置的一致
+ 
+function run_cmd(cmd, args, callback) {
+  var spawn = require(&#39;child_process&#39;).spawn;
+  var child = spawn(cmd, args);
+  var resp = &quot;&quot;;
+ 
+  child.stdout.on(&#39;data&#39;, function(buffer) { resp += buffer.toString(); });
+  child.stdout.on(&#39;end&#39;, function() { callback (resp) });
+}
+ 
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end(&#39;no such location&#39;)
+  })
+}).listen(7777)
+ 
+handler.on(&#39;error&#39;, function (err) {
+  console.error(&#39;Error:&#39;, err.message)
+})
+ 
+handler.on(&#39;push&#39;, function (event) {
+  console.log(&#39;Received a push event for %s to %s&#39;,
+    event.payload.repository.name,
+    event.payload.ref);
+  run_cmd(&#39;sh&#39;, [&#39;./deploy.sh&#39;], function(text){ console.log(text) });
+})
+ 
+/*
+handler.on(&#39;issues&#39;, function (event) {
+  console.log(&#39;Received an issue event for % action=%s: #%d %s&#39;,
+    event.payload.repository.name,
+    event.payload.action,
+    event.payload.issue.number,
+    event.payload.issue.title)
+})
+*/
+</code></pre>
+
+<p>之后把服务器跑起来就可以了。</p>
+
+<pre><code>$ nodejs deploy.js
+</code></pre>
+
+<p>为了防止服务挂掉，我们有很多方式可以处理。我选择了用系统自带的nohup。</p>
+
+<pre><code>$ nohup nodejs deply.js &amp;
+</code></pre>
+
+<p>曾曦前辈使用的是 NodeJs的forever，也可以使用python的supervisor。<br/>
+<a href="http://www.lovelucy.info/auto-deploy-website-by-webhooks-of-github-and-gitlab.html">曾曦前辈博客－尘埃落定</a>有相关介绍。</p>
+
+<h4 id="toc_8">6.3 配置Webhooks监听</h4>
+
+<p>将Payload URL指向自己服务器的接口<br/>
+<img src="media/14691078063823/14691103881759.jpg" alt=""/></p>
+
+<pre><code>var handler = createHandler({ path: &#39;/incoming&#39;, secret: &#39;myHashSecret&#39; })
+
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end(&#39;no such location&#39;)
+  })
+}).listen(7777)
+</code></pre>
+
+<p>这是deploy.js 的关键代码。<br/>
+listen(7777)，表明服务器监听的是7777端口<br/>
+path:&#39;/incoming&#39;，表示在 ip:7777/incoming 接收POST请求<br/>
+secret: &#39;myHashSecret&#39;, 要求和上图的Secret字段一样，不然服务器会因为不匹配，拒绝接收到的请求。主要为了防止第三方向这个端口发送请求。</p>
+
+<h2 id="toc_9">7. 最后梳理一下</h2>
+
+<p><strong>6.3 那里知道什么时候有人提交文章了，然后告诉6.2 有人push</strong><br/>
+<strong>6.2 从6.3 得到消息，看下你的密码(secret)和我的一样不，如果一样，我就把这个消息告诉6.1</strong><br/>
+<strong>6.1 开始跑到github数据库拉取最新的数据，部署完成</strong></p>
+
+<h2 id="toc_10">澄清</h2>
+
+<p>有朋友告诉我，复制粘贴的部分比较多。即便加了转载说明，也不是很好。<br/>
+在这里澄清一下：<br/>
+网络上技术文章特点：<strong>多</strong>，<strong>杂</strong>，<strong>全</strong><br/>
+可用的经典实例: <strong>少</strong><br/>
+自生产实例的成本: <strong>费时</strong><br/>
+一篇<strong>全原创</strong>的优质文章需要：<strong>思考</strong>＋<strong>原创实例</strong>＋<strong>码字</strong>＋<strong>重复前三项</strong> 。<br/>
+而对于学习者而言，<strong>思想＋实例＋思路</strong>已经满足80%。<br/>
+所以我认为，一篇能学到东西的技术文章，并不需要<strong>全原创</strong>。<br/>
+清晰的思路＋前人提供的经典实例＋个人思考，传达到位即可。</p>
+
+<p><strong>前人都总结好了，你再发一遍，不是制造网络垃圾吗？</strong><br/>
+打造一个以思路清晰著称的博客，专注于技术文章整理、重成文是本博客存在的意义。我不是垃圾的生产者，我是大自然的清道夫。</p>
+
+<p>欢迎关注个人微博<a href="http://weibo.com/2293237681">斯科特</a>，进行技术、非技术交流。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/7/21</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14686843615662.html">
+                
+                  <h1>10分钟快速搭建无限制流量的"VPN"（shadowsocks协议）</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Too Long No Read： 阅读标题和标重点部分就能了解全部内容。</p>
+
+<h2 id="toc_0">1. 简介</h2>
+
+<p>良心声明: 有朋友说10分钟根本连文章都看不完，哪能建起个自己完全不熟悉的V P N 呢？<br/>
+所以在这里必须解释一波：10分钟指的是开始动手到可以使用的时间。并不包括读这篇文章的时间，也不包括你在搭建服务过程中自我纠结的时间（比如，租多大的服务器？用什么密码？剁完手后又要饿多久的肚子才能给女票买下件内衣？之类。别问我为什么知道你一定是男的）最后，不包括运行出错，调试测试的时间。因为，按我说的做，你根本不可能失败！</p>
+
+<p>接下来是简介：<br/>
+说是无限制流量，其实骗你的啦（可爱）。说是VPN，其实不限于VPN。（本文搭建的也不是VPN，而是被称为Shadowsocks的协议。）<br/>
+接下来解释：<br/>
+<strong>原理:</strong> 租一个国外的服务器 --&gt;这个服务器上搭建自己的VPN --&gt; 通过这个VPN科学上网。<br/>
+<strong>无限制流量：</strong>500G，1T，甚至更多。一月这么多，用的完吗？用不完不就相当于无限制。<br/>
+<strong>VPN：</strong>既然有了自己墙外的服务器，就可以用它搭建任何自己想要的科学上网利器。本文章主要介绍当下最安全、最流行的<strong>ShadowSocks</strong>.<br/>
+<strong>价格：</strong>很便宜！！很便宜！！很便宜！！</p>
+
+<h2 id="toc_1">2. 工具篇</h2>
+
+<h3 id="toc_2">2.1 VPS 国外的服务器</h3>
+
+<p><strong>VPS：</strong>Virtual Private Server 虚拟专用服务器<br/>
+其实你就知道是个自己能用来搭建科学上网服务的主机就行了。<br/>
+一般不了解的人，第一反应都是：卧槽，我指用个10G流量只能翻墙的VPN就几十块一个月。那租一个可以干很多事情、不限流量的服务器，岂不要几百几千？其实不用998、不用98，绝对用你想不到的价格，买到最不可思议的产品！<br/>
+<strong>推荐：</strong></p>
+
+<h4 id="toc_3">1. 搬瓦工 (便宜推荐)</h4>
+
+<p><strong>优点：</strong>便宜！！最低500G流量，年购19.99美刀，使用优惠码还可以再减1刀左右。相当于每月10元。这价格已经比大多数VPN便宜了。<br/>
+<strong>支持支付宝交易！</strong><br/>
+<strong>支持30天内退款</strong> 一般一个工作日内就能回复，支付宝收到2～3天。<br/>
+<strong>一键配置shadowsocks！</strong>如果使用搬瓦工，那后面的内容都不用看了，点下面的链接注册即可。<br/>
+官方网址：<a href="https://bandwagonhost.com/">https://bandwagonhost.com/</a></p>
+
+<p>数据中心：美国西雅图、佛罗里达、洛杉矶、荷兰 套餐价格：64MB内存年3.99美元 / 96MB内存年4.99美元/128MB内存年5.99美元/512MB内存年9.99美元 简单介绍：IT7官方旗下的低价VPS主机产品，拥有速度较好的西岸亚利桑那州机房，最低年付仅需3.99美元，我们可以用来学习、工作项目演示，以及需要支持PPP/TUN搭建工具使用需求。拥有4个数据中心，而且可以自由切换IP，更换不同的IP，解决IP被封问题。<br/>
+    •   CPU：1核心CPU<br/>
+    •   内存：256MB<br/>
+    •   硬盘：10GB SSD<br/>
+    •   流量：500GB<br/>
+    •   端口：1Gbps<br/>
+    •   架构：OpenVZ+KiwiVM面板<br/>
+    •   IP数：1独立IP<br/>
+    •   系统：Linux<br/>
+    •   价格：<strong>$19.99/年</strong>（购买）</p>
+
+<pre><code>•   CPU：1核心CPU
+•   内存：4096MB
+•   硬盘：30GB SSD
+•   流量：2000GB
+•   端口：1Gbps
+•   架构：OpenVZ+KiwiVM面板
+•   IP数：1独立IP
+•   系统：Linux
+•   价格：$6.99/月（购买）
+
+•   CPU：1核心CPU
+•   内存：512MB
+•   硬盘：10GB SSD
+•   流量：1000GB
+•   端口：1Gbps
+•   架构：OpenVZ+KiwiVM面板
+•   IP数：1独立IP
+•   系统：Linux
+•   价格：$19.99/年（弗里蒙特）
+
+•   CPU：1核心CPU
+•   内存：1024MB
+•   硬盘：20GB SSD
+•   流量：2000GB
+•   端口：1Gbps
+•   架构：OpenVZ+KiwiVM面板
+•   IP数：1独立IP
+•   系统：Linux
+•   价格：$49.99/年（弗里蒙特）
+
+•   CPU：2核心CPU
+•   内存：512MB
+•   硬盘：20GB SSD
+•   流量：1000GB
+•   端口：1Gbps
+•   架构：OpenVZ+KiwiVM面板
+•   IP数：1独立IP
+•   系统：Linux
+•   价格：$4.99/月（购买）
+
+•   CPU：3核心CPU
+•   内存：1024MB
+•   硬盘：40GB SSD
+•   流量：2000GB
+•   端口：1Gbps
+•   架构：OpenVZ+KiwiVM面板
+•   IP数：1独立IP
+•   系统：Linux
+•   价格：$9.99/月（购买）
+</code></pre>
+
+<h4 id="toc_4">2. Vultr （稳定推荐，我自己目前在用）</h4>
+
+<p><a href="http://www.vultr.com/?ref=6920216">注册网址</a><br/>
+<strong>优点</strong> <br/>
+1. 注册赠送20美金。使用最低标准服务5刀/月，相当于可以免费使用4个月。<br/>
+2. 服务稳定。至少我还没碰到过当机情况。<br/>
+3. 第三点是缺点，想获得20美金，必须使用信用卡支付，并且扣除2.5美元的验证费。（以后会返还）<br/>
+<a href="http://www.vultr.com/?ref=6921913-3B">点击注册并获取20美金</a></p>
+
+<p>数据中心：日本、洛杉矶、英国、法国、德国、荷兰、澳大利亚等14个机房<br/>
+套餐价格：KVM 768MB 15GB SSD 1TB月流量 <strong>$5/月</strong><br/>
+简单介绍：Vultr作为全球最大的游戏主机提供商背景之一，上线之后以高质的性价比、12个数据中心，以及新注册账户赠送5美金的账户使用金优惠促销，吸引广大的用户。作为我们用户，日本、洛杉矶等数据中心速度较好，如果有需要海外其他机房也可以在其12个数据中心中选择到适合自己的。</p>
+
+<p>官方网站：<a href="https://www.vultr.com">https://www.vultr.com</a></p>
+
+<h4 id="toc_5">3. 其它</h4>
+
+<p>因为我指用过上面两个，所以其他的也不多介绍了。列个列表，大家可以自行google。<br/>
+Linode: 很多人推荐。速度快。价格中等。<br/>
+DigitalOcean: 很多人推荐。速度快，价格差不多。</p>
+
+<h4 id="toc_6">为什么说价格便宜</h4>
+
+<p>除了明码标价的价格。其实本身已经和普通VPN价格差不多了。但是仍然，有一点。虽然流量并不是无限，但是带宽并没有限制。就是说，在流量还够用的前提下，和朋友一起使用，是几乎不影响访问速度的，价格又能再除以...,最后折算下来非常可观。当然，不能超越物理极限，3、5个人一起用，是保险又便利的方式。</p>
+
+<h4 id="toc_7">价格上，贵就是好</h4>
+
+<p>对于同类物品，贵就是好。所以无论是我提到的，还是没提到的，虽然价格有差异，但是毕竟体现在服务好坏上。所以，如果你发现不同价格，买到了同样的配置，但是实际效果却有差距，这很正常。</p>
+
+<h3 id="toc_8">2.2 Python Shadowsocks 搭建服务的工具和协议</h3>
+
+<p>Shadowsocks 属于socks5 代理，稳定性好，抗干扰能力强。</p>
+
+<h4 id="toc_9">搭建服务 三步走</h4>
+
+<p>1 . 安装<br/>
+ 在CentOS中运行下面两条命令就完成了shadowsocks的安装了：</p>
+
+<pre><code>yum install python-setuptools &amp;&amp; easy_install pip
+pip install shadowsocks
+</code></pre>
+
+<p>2 . 配置<br/>
+完成之后创建一个配置文件 /etc/shadowsocks.json，写入以下内容：</p>
+
+<pre><code>{ 
+        &quot;server&quot;:&quot;0.0.0.0&quot;,            #服务器IP地址
+        &quot;server_port&quot;:8388,                 #服务监听端口
+        &quot;local_port&quot;:1080,                  #本地连接端口
+        &quot;password&quot;:&quot;barfoo&quot;,               #加密传输使用到的密码
+        &quot;timeout&quot;:600,                      #连接超时时间
+        &quot;method&quot;:&quot;aes-256-cfb&quot;,             #加密算法
+}
+</code></pre>
+
+<p>3 . 启动、停止<br/>
+运行下面的命令来启动和停止后台服务：</p>
+
+<pre><code class="language-ssserver">ssserver -c /etc/shadowsocks.json -d stop
+</code></pre>
+
+<h4 id="toc_10">然后你就可以使用上面的配置连接shadowsocks了。</h4>
+
+<ol>
+<li>客户端如何用？</li>
+</ol>
+
+<p>各个平台使用的客户端都有差异，但是用到的信息就这些：<br/>
+－ 服务器IP: 不是上面的0.0.0.0，是你申请的VPS，会提供一个ip。打开网站，登录，找到它<br/>
+－ 端口(port): 8388<br/>
+－ 协议类型: aes-256-cfb 一般默认就这个，不用换。但还是要看一眼。<br/>
+－ 密码(password): barfoo<br/>
+连接，欢呼。</p>
+
+<h2 id="toc_11">3. 拓展</h2>
+
+<p>可以点赞了。</p>
+
+<p>欢迎关注微博进行技术交流 <a href="http://weibo.com/2293237681">斯科特</a><br/>
+**</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/7/16</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14685051740290.html">
+                
+                  <h1>PokemonGo破解</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ol>
+<li>简单的更改unity位置
+报错
+<code>07-14 22:04:02.801 7512-9260/? E/NianticAccountManager: User cannot be authenticated.
+                                                    com.google.android.gms.auth.GoogleAuthException: INVALID_AUDIENCE
+                                                        at com.google.android.gms.auth.GoogleAuthUtil.zza(Unknown Source)
+                                                        at com.google.android.gms.auth.GoogleAuthUtil.getToken(Unknown Source)
+                                                        at com.google.android.gms.auth.GoogleAuthUtil.getToken(Unknown Source)
+                                                        at com.google.android.gms.auth.GoogleAuthUtil.getToken(Unknown Source)
+                                                        at com.nianticlabs.nia.account.NianticAccountManager.getAccount(NianticAccountManager.java:75)</code></li>
+</ol>
+
+<h2 id="toc_0">测试一下是否有签名登录保护之类的策略。</h2>
+
+<p>使用apk反编译后直接重新打包，打开app。<br/>
+google账号鉴权成功。没问题！</p>
+
+<h2 id="toc_1">测试做些简单的修改</h2>
+
+<p><code>    invoke-virtual {p0, v0}, Lcom/kodelabs/boilerplate/presentation/ui/activities/MainActivity;-&gt;updateLocation(Landroid/location/Location;)V</code><br/>
+<code><br/>
+.method public updateLocation(Landroid/location/Location;)V<br/>
+    .locals 2<br/>
+    .param p1, &quot;location&quot;    # Landroid/location/Location;</p>
+
+<pre><code>.prologue
+.line 31
+const-wide v0, -0x3fa7170e2c12ad82L    # -99.63976
+
+invoke-virtual {p1, v0, v1}, Landroid/location/Location;-&gt;setLongitude(D)V
+
+.line 32
+const-wide v0, 0x4043d0087ca643ccL    # 39.625259
+
+invoke-virtual {p1, v0, v1}, Landroid/location/Location;-&gt;setLatitude(D)V
+
+.line 33
+return-void
+</code></pre>
+
+<p>.end method</code></p>
+
+<h2 id="toc_2">打包安装</h2>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/7/14</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14583860309318.html">
+                
+                  <h1>Creating a Navigation Drawer</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">表现</h2>
+
+<p>Navigation Drawer <br/>
+<img src="media/14583860309318/14583864312339.jpg" alt=""/></p>
+
+<p>手指从屏幕左边右滑，打开的这个像 Menu 一样的的页面就被称为 NavigationDrawer。<br/>
+谷歌在 MD 规范中详细说明了它的设计规范，在开始设计你的应用时请务必阅读作为参考。<br/>
+<a href="http://developer.android.com/design/patterns/navigation-drawer.html">Navigation Drawer</a></p>
+
+<h2 id="toc_1">实现思路</h2>
+
+<p>分析一下，很容易看出来，基本是分为两层。上层的这个 Drawer 层(包含你看到的这个 View 和可能被忽略的覆盖下层的阴影)，下层的包含了页面本身的内容层(ActionBar TabLayout 其它内容)。</p>
+
+<h2 id="toc_2">使用方式</h2>
+
+<p>所以，使用也很符合思考模式：以 DrawerLayout 为根 View 包含两层子 View。</p>
+
+<h3 id="toc_3">1. XML 文件</h3>
+
+<pre><code class="language-&lt;android.support.v4.widget.DrawerLayout">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/drawer_layout&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+    &lt;!-- The main content view --&gt;
+    &lt;FrameLayout
+        android:id=&quot;@+id/content_frame&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot; /&gt;
+    &lt;!-- The navigation drawer --&gt;
+    &lt;ListView android:id=&quot;@+id/left_drawer&quot;
+        android:layout_width=&quot;240dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:layout_gravity=&quot;start&quot;
+        android:choiceMode=&quot;singleChoice&quot;
+        android:divider=&quot;@android:color/transparent&quot;
+        android:dividerHeight=&quot;0dp&quot;
+        android:background=&quot;#111&quot;/&gt;
+&lt;/android.support.v4.widget.DrawerLayout&gt;
+</code></pre>
+
+<p><strong>注意的点</strong><br/>
+*  内容层必须是DrawerLayout 的第一个子 View。因为 XML 以 View 的顺序决定 Z 的次序。<br/>
+*  drawer 层必须设定 android:layout_gravity 属性。用来支持 right-to-left 语言。注意用 &quot;start&quot; 代替 &quot;left&quot;。<br/>
+*  drawer 层的宽度小于320dp，这样展开时也能看到下方的内容。高度 match_parent。</p>
+
+<h3 id="toc_4">2. 代码对内容进行配置</h3>
+
+<pre><code>public class MainActivity extends Activity {
+    private String[] mPlanetTitles;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    ...
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        // Set the adapter for the list view
+        mDrawerList.setAdapter(new ArrayAdapter&lt;String&gt;(this,
+                R.layout.drawer_list_item, mPlanetTitles));
+        // Set the list&#39;s click listener
+        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+
+        ...
+    }
+}
+</code></pre>
+
+<h3 id="toc_5">3. 处理其它问题</h3>
+
+<h4 id="toc_6">3.1 处理点击事件导航</h4>
+
+<p>给 Drawer 的 ListView 设置 OnItemClickListener 就行。<br/>
+<strong>示例代码</strong><br/>
+```<br/>
+private class DrawerItemClickListener implements ListView.OnItemClickListener {<br/>
+    @Override<br/>
+    public void onItemClick(AdapterView parent, View view, int position, long id) {<br/>
+        selectItem(position);<br/>
+    }<br/>
+}</p>
+
+<p>/** Swaps fragments in the main content view */<br/>
+private void selectItem(int position) {<br/>
+    // Create a new fragment and specify the planet to show based on position<br/>
+    Fragment fragment = new PlanetFragment();<br/>
+    Bundle args = new Bundle();<br/>
+    args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);<br/>
+    fragment.setArguments(args);</p>
+
+<pre><code>// Insert the fragment by replacing any existing fragment
+FragmentManager fragmentManager = getFragmentManager();
+fragmentManager.beginTransaction()
+               .replace(R.id.content_frame, fragment)
+               .commit();
+
+// Highlight the selected item, update the title, and close the drawer
+mDrawerList.setItemChecked(position, true);
+setTitle(mPlanetTitles[position]);
+mDrawerLayout.closeDrawer(mDrawerList);
+</code></pre>
+
+<p>}</p>
+
+<p>@Override<br/>
+public void setTitle(CharSequence title) {<br/>
+    mTitle = title;<br/>
+    getActionBar().setTitle(mTitle);<br/>
+}<br/>
+```</p>
+
+<h4 id="toc_7">监听 Drawer 展开、关闭事件</h4>
+
+<p>调用 DrawerLayout.setDrawerListener() 方法，传递一个 DrawerLayout.DrawerListener 接口的实现。<br/>
+实现这个接口有两种方式。<br/>
+1. 直接实现 DrawerListener.<br/>
+2. 写一个继承 ActionBarDrawerToggle 的子类，这个类实现了这个接口，你可以在子类中重写 DrawerListener 接口函数。</p>
+
+<p><strong>示例代码</strong><br/>
+```<br/>
+public class MainActivity extends Activity {<br/>
+    private DrawerLayout mDrawerLayout;<br/>
+    private ActionBarDrawerToggle mDrawerToggle;<br/>
+    private CharSequence mDrawerTitle;<br/>
+    private CharSequence mTitle;<br/>
+    ...</p>
+
+<pre><code>@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    ...
+
+    mTitle = mDrawerTitle = getTitle();
+    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+            R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
+
+        /** Called when a drawer has settled in a completely closed state. */
+        public void onDrawerClosed(View view) {
+            super.onDrawerClosed(view);
+            getActionBar().setTitle(mTitle);
+            invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+        }
+
+        /** Called when a drawer has settled in a completely open state. */
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+            getActionBar().setTitle(mDrawerTitle);
+            invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+        }
+    };
+
+    // Set the drawer toggle as the DrawerListener
+    mDrawerLayout.setDrawerListener(mDrawerToggle);
+}
+
+/* Called whenever we call invalidateOptionsMenu() */
+@Override
+public boolean onPrepareOptionsMenu(Menu menu) {
+    // If the nav drawer is open, hide action items related to the content view
+    boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+    menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+    return super.onPrepareOptionsMenu(menu);
+}
+</code></pre>
+
+<p>}<br/>
+```</p>
+
+<h4 id="toc_8">通过 App Icon 打开、关闭 Drawer</h4>
+
+<p>通过使用 ActionBarDrawerToggle 类，可以控制这些行为。<br/>
+* 点击控制 Drawer 行为<br/>
+* 指定展开时的 icon</p>
+
+<p>标准的导航 Icon 图标在 (Download the Action Bar Icon Pack)[<a href="http://developer.android.com/downloads/design/Android_Design_Icons_20130926.zip">http://developer.android.com/downloads/design/Android_Design_Icons_20130926.zip</a>]</p>
+
+<p>最后你需要在 Activity 的生命周期中使用 ActionBarDrawerToggle 的这些方法。<br/>
+<strong>示例代码</strong><br/>
+```<br/>
+public class MainActivity extends Activity {<br/>
+    private DrawerLayout mDrawerLayout;<br/>
+    private ActionBarDrawerToggle mDrawerToggle;<br/>
+    ...</p>
+
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+    ...
+
+    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    mDrawerToggle = new ActionBarDrawerToggle(
+            this,                  /* host Activity */
+            mDrawerLayout,         /* DrawerLayout object */
+            R.drawable.ic_drawer,  /* nav drawer icon to replace &#39;Up&#39; caret */
+            R.string.drawer_open,  /* &quot;open drawer&quot; description */
+            R.string.drawer_close  /* &quot;close drawer&quot; description */
+            ) {
+
+        /** Called when a drawer has settled in a completely closed state. */
+        public void onDrawerClosed(View view) {
+            super.onDrawerClosed(view);
+            getActionBar().setTitle(mTitle);
+        }
+
+        /** Called when a drawer has settled in a completely open state. */
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+            getActionBar().setTitle(mDrawerTitle);
+        }
+    };
+
+    // Set the drawer toggle as the DrawerListener
+    mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+    getActionBar().setDisplayHomeAsUpEnabled(true);
+    getActionBar().setHomeButtonEnabled(true);
+}
+
+@Override
+protected void onPostCreate(Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
+    // Sync the toggle state after onRestoreInstanceState has occurred.
+    mDrawerToggle.syncState();
+}
+
+@Override
+public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    mDrawerToggle.onConfigurationChanged(newConfig);
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Pass the event to ActionBarDrawerToggle, if it returns
+    // true, then it has handled the app icon touch event
+    if (mDrawerToggle.onOptionsItemSelected(item)) {
+      return true;
+    }
+    // Handle your other action bar items...
+
+    return super.onOptionsItemSelected(item);
+}
+...
+</code></pre>
+
+<p>}<br/>
+```</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/3/19</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14539061256073.html">
+                
+                  <h1>Smartoo 开发中遇到的问题和解决</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><code>Weibo客户端sso认证不成功</code><br/>
+uri mismatch 的问题是因为weibo开放平台配置有延迟，在平台上修改redirect uri后，隔天就可以通过了<br/>
+闪退的问题，可能是由于不是打的release的包，做reader的分享时就有这样的问题。明天用release的包测试一下。<br/>
+使用web验证可以顺利通过。</p>
+
+<p><code>未通过审核帐号的接口调用限制</code><br/>
+大概在200-300次之间</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/1/27</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Android%E5%BC%80%E5%8F%91.html'>Android开发</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14530335489771.html">
+                
+                  <h1>风の诗(风之诗 Wind Song)</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>F4 </p>
+
+<h2 id="toc_0">音程</h2>
+
+<p>n度  大n度  小n度<br/>
+和弦  和谐，不和谐<br/>
+和弦 根音＋1 3 5度，小三度＋大三度  minor和弦， 大三度＋小三度 大和弦， 小三度＋小三度 减和弦</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/1/17</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html'>吉它学习🎸</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14488126785387.html">
+                
+                  <h1>下町火箭</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="http://i12.tietuku.com/82e26086176beb7c.png" alt="http://i12.tietuku.com/82e26086176beb7c.png"/><br/>
+《下町火箭》讲述的是小小的佃制造所通过努力，成功帮助帝国重工将火箭升空的一系列感人的故事。<br/>
+通常这类故事都会被打上励志的标签，本剧却不止于此。</p>
+
+<p>如何能够在一次火箭发射失败后从头再来，潜心研究。如何平衡工作和女儿的关系。如何能像信任自己的孩子一般信任自己的作品。<br/>
+《下町火箭》更多讲的是人看待梦想的态度，人与人之间的羁绊。</p>
+
+<p>日剧总是把人们的这些感情解读并重点展现出来，这也是为什么我会对日剧如此钟爱。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2015/11/29</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html'>书籍电影</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14464734385012.html">
+                
+                  <h1>app 我有一个问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<blockquote>
+<p>这个app不是问答式的社区</p>
+</blockquote>
+
+<h2 id="toc_0">疑问</h2>
+
+<p>人每天都会产生疑问，但每天也有疑问被搁置下来，没有解答<br/>
+想想，如果这些问题全部或者大部分都能被解决并记录。那么一年以后的自己将会变得多么博学</p>
+
+<h2 id="toc_1">想想，这些问题被搁置的原因</h2>
+
+<ul>
+<li><strong>时间</strong>:   “我在做其它事情，分不开时间”</li>
+<li><strong>优先级</strong>:  “其实问题也不是那么重要”</li>
+<li><strong>复杂性</strong>:  “这可能不是一会儿能了解的”</li>
+<li><strong>领域</strong>:   “无从下手”</li>
+<li><strong>人真是复杂慵懒的动物</strong>:   “想之后解决，然后就忘记了，或者想起来也没兴趣了”</li>
+<li><strong>比干货更简洁</strong>:   “我只想知道个大概，可网上的答案总不能让我满意。要么太全面，要么没讲到点”</li>
+</ul>
+
+<blockquote>
+<p>没能在产生疑问的<strong>时间</strong>，找到合适的<strong>资料</strong>,和那个能一句话讲到点的<strong>人</strong>。</p>
+</blockquote>
+
+<h2 id="toc_2">因此，我们需要什么</h2>
+
+<p>正式点讲 <strong>最简洁，最get到point的回答</strong><br/>
+不正式点 <strong>最右神回复</strong></p>
+
+<blockquote>
+<p>然而提供内容并不是我们要做的</p>
+
+<p>人从心底总是自私的<br/>
+即便在<em>知乎</em>这类为他人服务的平台上，人们也总是倾向于回答自己感兴趣的提问</p>
+</blockquote>
+
+<h2 id="toc_3">如何做</h2>
+
+<p>因此，<br/>
+我们只是提供给用户一个私人的<strong>记录平台</strong>, 个人的问题<strong>管理平台</strong></p>
+
+<h4 id="toc_4">定位：</h4>
+
+<ul>
+<li>个人手账类的记事本</li>
+<li>将公开内容聚合的知识库</li>
+<li>社区</li>
+</ul>
+
+<h4 id="toc_5">功能</h4>
+
+<ul>
+<li>随时定义新概念：有时为了讲解方便，需要用一个词代替一个概念。在当下没有相应的概念时，一个新的概念词诞生是被允许和值得推荐的。我们也有机制推荐其中优秀和广为传播的新概念。</li>
+<li>随时记录新疑问</li>
+<li>对于未填补答案的问题
+
+<ul>
+<li>自动归档到todo</li>
+<li>手动填补答案</li>
+<li>查看知识库中推荐的已有答案</li>
+<li>公开征求答案</li>
+<li>选择合适的答案mark到自己的手账中</li>
+</ul></li>
+<li>对于已填补的问题
+
+<ul>
+<li>根据艾宾浩斯记忆法，进行复习</li>
+<li>知识库中有相关问题的优解，推荐</li>
+<li>在知识库中作为备选答案，接受其它用户浏览、评分</li>
+</ul></li>
+<li>知识库的答案全部由运营商或其它用户提供</li>
+<li>打赏功能：对于很好地解决了自己问题的<strong>优质</strong>答案，用户可选择进行打赏</li>
+<li>专题功能：专家级的用户可以创建自己的专题，专题内容通过一定的标准（质与量），可以将其电子版内容打包出售</li>
+<li>发烧圈子：可由专题、小组组成。是人的圈子，也是内容的圈子。一个内容可以在某个圈子发表，圈子内可见。一个用户可以在圈子中被推荐。</li>
+<li>热门的分类社区：howto类，购物类，等</li>
+</ul>
+
+<h4 id="toc_6">用户群体</h4>
+
+<ul>
+<li>文青</li>
+<li>动手达人</li>
+<li>领域专家</li>
+<li>爱思考的人</li>
+<li>拖延症患者</li>
+<li>除上面以外的其他人</li>
+</ul>
+
+<h4 id="toc_7">盈利模式</h4>
+
+<p>这是我的一个问题。期待社区帮我解答。</p>
+
+<h2 id="toc_8">最后</h2>
+
+<p><strong>我们希望并渴求精炼的一句话答案</strong> <br/>
+帮助大多数人瞬间开窍</p>
+
+<p><strong>我们也渴望专业级别的教科书</strong><br/>
+提升你自己的同时，带给世界更优质的内容</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2015/11/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html'>产品想法</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
 		</div>
-	
+	</div><!-- large 8 -->
 
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
-  
-  
-</div></div>
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>博客未命名</h1>
+                <div class="site-des">专注于重成文思路清晰的技术文章。</div>
+                <div class="social">
 
 
-<div class="page-bottom">
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="http://github.com/auv1107" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html"><strong>生活日常</strong></a>
+        
+            <a href="Android%E5%BC%80%E5%8F%91.html"><strong>Android开发</strong></a>
+        
+            <a href="%E4%BA%A7%E5%93%81%E6%83%B3%E6%B3%95.html"><strong>产品想法</strong></a>
+        
+            <a href="%E5%90%89%E5%AE%83%E5%AD%A6%E4%B9%A0%F0%9F%8E%B8.html"><strong>吉它学习🎸</strong></a>
+        
+            <a href="web%E5%BC%80%E5%8F%91.html"><strong>web开发</strong></a>
+        
+            <a href="%E4%B9%A6%E7%B1%8D%E7%94%B5%E5%BD%B1.html"><strong>书籍电影</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14864277119252.html">开发这个Chrome插件，更高效地翻译社区文档</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864276588598.html">深入理解LayoutInflater.inflate()</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864272317835.html">服务器作防盗链图片中转，nodejs 上手项目简明教程</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14864271201285.html">使用LeanCloud服务做一站式Chrome插件开发——Favorite Image</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14805196774412.html">生而为人，总要经历送礼这回事。逢年过节倒还好，亲戚朋友送些吃的喝的也就过去了。可是平时见朋友，过生日之类，选择什么礼物就成了一大烦恼。</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
   <div class="row">
-  <hr />
-  <div class="small-9 columns">
-  <p class="copyright">Copyright &copy; 2015
+   <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-  <div class="small-3 columns">
-  <p class="copyright text-right"><a href="#header">TOP</a></p>
-  </div>
-   
   </div>
 </div>
 
         </section>
       </div>
     </div>
+
+  
     
-    
+
     <script src="asset/js/foundation.min.js"></script>
-    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
      
     </script>
+
     
 
 <script>
@@ -330,6 +3465,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
 
   </body>
 </html>
