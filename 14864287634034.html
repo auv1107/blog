@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素) - 博客未命名
+  静物速写1 圆桌和鞋 - 博客未命名
   
   </title>
   
@@ -111,14 +111,14 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>利用 Python + Selenium 实现对页面的指定元素截图(可截长图元素)</h1>
+          <h1>静物速写1 圆桌和鞋</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2016/8/7</span>
+          <span class="date">2017/2/7</span>
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8.html'>生活日常</a></span>
+              <span class="posted-in"><a href='%E7%BB%98%E7%94%BB.html'>绘画</a></span>
            
          
           <span class="comments">
@@ -131,141 +131,8 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">对WebElement截图</h2>
-
-<p>WebDriver.Chrome自带的方法只能对当前窗口截屏，且不能指定特定元素。若是需要截取特定元素或是窗口超过了一屏，就只能另辟蹊径了。<br/>
-WebDriver.PhantomJS自带的方法支持对整个网页截屏。<br/>
-下面提供几种思路。</p>
-
-<h4 id="toc_1">方式一</h4>
-
-<blockquote>
-<p>针对WebDriver.Chrome</p>
-</blockquote>
-
-<p>通过WebDriver的js脚本注入功能，曲线救国。<br/>
-1. 注入第三方html转canvas的js库(见下方推荐)<br/>
-2. 获取元素html源码<br/>
-3. 将html转换为canvas<br/>
-4. 下载canvas</p>
-
-<p><strong>优点</strong>: 截取长图容易实现<br/>
-<strong>缺点</strong>: 加载第三方库耗费时间，转换原理请参考这篇文章:<br/>
-<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></p>
-
-<h4 id="toc_2">方式二</h4>
-
-<blockquote>
-<p>针对WebDriver.Chrome</p>
-</blockquote>
-
-<p>截取全图，自行裁剪、拼接<br/>
-1. 获取元素位置、大小<br/>
-2. 获取窗口大小<br/>
-3. 截取包含元素的窗口<br/>
-4. 进行相应的裁剪和拼接。</p>
-
-<p>具体算法思路很清晰，但需要注意的细节较多。这里就不在赘述。示例代码请移步: <br/>
-<a href="https://github.com/auv1107/PythonSpiderLibs">[Github]PythonSpiderLibs</a></p>
-
-<p><strong>优点</strong>: 不需太多js工作，python+少量js代码即可完成<br/>
-<strong>缺点</strong>: 拼接等工作会被WebDriver的实现差异、图片加载速度等因素影响，需多加注意。 在保证截图质量的情况下，速度较慢</p>
-
-<h4 id="toc_3">方式三</h4>
-
-<blockquote>
-<p>针对WebDriver.PhantomJS<br/>
-由于接口实现的差异，PhantomJS相比于Chrome，可以截取到整个网页。所以获取指定元素的截图也就简单很多</p>
-</blockquote>
-
-<ol>
-<li>截取网页全图</li>
-<li>裁剪指定元素</li>
-</ol>
-
-<pre><code>driver = webdriver.Chrome()
-driver.get(&#39;http://stackoverflow.com/&#39;)
-driver.save_screenshot(&#39;screenshot.png&#39;)
-
-left = element.location[&#39;x&#39;]
-top = element.location[&#39;y&#39;]
-right = element.location[&#39;x&#39;] + element.size[&#39;width&#39;]
-bottom = element.location[&#39;y&#39;] + element.size[&#39;height&#39;]
-
-im = Image.open(&#39;screenshot.png&#39;) 
-im = im.crop((left, top, right, bottom))
-im.save(&#39;screenshot.png&#39;)
-</code></pre>
-
-<p><strong>优点</strong>: 实现简单<br/>
-<strong>缺点</strong>: 对于高度太高的页面会导致文件过大，处理会有问题，我测试的最大图片尺寸是12.8M。</p>
-
-<h4 id="toc_4">解决图片加载不完整的问题</h4>
-
-<p>参考: <a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></p>
-
-<p>我们先在首页上执行一段 JavaScript 脚本，将页面的滚动条拖到最下方，然后再拖回顶部，最后才截图。这样可以解决像上面那种按需加载图片的情况。</p>
-
-<pre><code>from selenium import webdriver
-import time
-
-
-def take_screenshot(url, save_fn=&quot;capture.png&quot;):
-    browser = webdriver.Firefox() # Get local session of firefox
-    browser.set_window_size(1200, 900)
-    browser.get(url) # Load page
-    browser.execute_script(&quot;&quot;&quot;
-        (function () {
-            var y = 0;
-            var step = 100;
-            window.scroll(0, 0);
-
-            function f() {
-                if (y &lt; document.body.scrollHeight) {
-                    y += step;
-                    window.scroll(0, y);
-                    setTimeout(f, 100);
-                } else {
-                    window.scroll(0, 0);
-                    document.title += &quot;scroll-done&quot;;
-                }
-            }
-
-            setTimeout(f, 1000);
-        })();
-    &quot;&quot;&quot;)
-
-    for i in xrange(30):
-        if &quot;scroll-done&quot; in browser.title:
-            break
-        time.sleep(10)
-
-    browser.save_screenshot(save_fn)
-    browser.close()
-
-
-if __name__ == &quot;__main__&quot;:
-
-    take_screenshot(&quot;http://codingpy.com&quot;)
-
-</code></pre>
-
-<h2 id="toc_5">不同wewbdriver对某些方法的实现不同</h2>
-
-<p>Chrome和PhantomJS 的接口差异<br/>
-抓知乎时的坑，<br/>
-1. Chrome用<code>WebElement.text</code>可以正常得到值，用PhantomJS只能用 <code>WebElement.get_attribute(&#39;innerHTML&#39;)</code><br/>
-2. WebDriver.Chrome截图只能截当前屏幕区域。WebDriver.PhantomJS截图可以获取整个页面的长图。</p>
-
-<p>其它还有一些坑等待发现</p>
-
-<h2 id="toc_6">推荐</h2>
-
-<ol>
-<li><a href="http://html2canvas.hertzen.com/documentation.html">html2canvas库</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas">将 DOM 对象绘制到 canvas 中</a></li>
-<li><a href="http://codingpy.com/article/take-screenshot-of-web-page-using-selenium/">利用 Python + Selenium 自动化快速截图</a></li>
-</ol>
+      <p>其实是静物慢写，画的超级慢。用了大概4个小时。<br/>
+<img src="media/14864287634034/%E9%9D%99%E7%89%A9%E9%80%9F%E5%86%991.jpeg" alt="静物速写1"/></p>
 
 
     
@@ -276,16 +143,16 @@ if __name__ == &quot;__main__&quot;:
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="14705728845498.html" 
-          title="Previous Post: 微博自动发贴，简单却不容易被注意到的反爬方式">&laquo; 微博自动发贴，简单却不容易被注意到的反爬方式</a>
+          <a href="14864288430644.html" 
+          title="Previous Post: 静物速写2 小熊手枪和梨">&laquo; 静物速写2 小熊手枪和梨</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="14705318101263.html" 
-          title="Next Post: 技术资料">技术资料 &raquo;</a>
+          <a  href="14864277119252.html" 
+          title="Next Post: 开发这个Chrome插件，更高效地翻译社区文档">开发这个Chrome插件，更高效地翻译社区文档 &raquo;</a>
       
       </p>
         </div>
