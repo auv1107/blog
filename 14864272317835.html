@@ -131,13 +131,28 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p>记录一下上手项目的各个点，以后再用 nodejs 就不用到处查资料了。</p>
+      <p>前几天随手写的 chrome 插件遇到了防盗链问题，由于插件不能用 js iframe 的方法反防盗链，于是想用服务器做个中转。</p>
 
-<p>前几天随手写的 chrome 插件遇到了防盗链问题，由于插件不能用 js iframe 的方法反防盗链，于是想用服务器做个中转。</p>
+<p>记录一下上手项目的各个点，以后再用 <code>nodejs</code> 就不用到处查资料了。</p>
 
-<p>思路很简单，自用服务器处理防盗链的各种问题，开放接口作为图片中转使用。这样就绕开了 chrome 插件开发的各种限制。</p>
+<p>之前没有一套特别熟悉的 web 开发框架，加上插件存储服务依赖的平台 <code>LeanCloud</code> 刚好支持部署 <code>nodejs</code> 网站，刚好拿这个小项目作为 <code>nodejs</code> 上手项目。</p>
 
-<p>之前没有一套特别熟悉的 web 开发框架，加上插件存储服务依赖的平台 LeanCloud 刚好支持部署 nodejs 网站，刚好拿这个小项目作为 nodejs 上手项目。</p>
+<hr/>
+
+<p><strong>怎么&quot;破解防盗链&quot;呢？</strong><br/>
+想要破解，就得先知道目标——防盗链如何实现。<br/>
+大多数站点的策略很简单: 判断<code>request</code>请求头的<code>refer</code>是否来源于本站。若不是，拒绝访问真实图片。</p>
+
+<p>而我们知道: 请求头是来自于客户端，是可伪造的。</p>
+
+<p><strong>思路</strong><br/>
+那么，我们伪造一个正确的refer来访问不就行了?<br/>
+整个业务逻辑大概像这样:  <br/>
+1. 自己的服务器后台接受带目标图片<code>url</code>参数的请求<br/>
+2. 伪造<code>refer</code>请求目标图片<br/>
+3. 把请求到的数据作为<code>response</code>返回</p>
+
+<p>这就起到了图片中转的作用。</p>
 
 <h3 id="toc_0">1. 项目是什么样子</h3>
 
@@ -159,11 +174,7 @@
 <li>response 原图</li>
 </ul>
 
-<blockquote>
-<h4 id="toc_3">上面的可以不读</h4>
-</blockquote>
-
-<h3 id="toc_4">2. 学习路径(在对目标未知的前提下提出疑问)</h3>
+<h3 id="toc_3">2. 学习路径(在对目标未知的前提下提出疑问)</h3>
 
 <ol>
 <li> 如何开始，建立服务器</li>
@@ -173,7 +184,7 @@
 <li> 优化</li>
 </ol>
 
-<h4 id="toc_5">2.1 如何开始，建立服务器</h4>
+<h4 id="toc_4">2.1 如何开始，建立服务器</h4>
 
 <p>主要是  <code>http.createServer().listen(port)</code> 这组方法，建立服务器、监听端口一键搞定。</p>
 
@@ -186,7 +197,7 @@ http.createServer(function (request, response) {
 console.log(&#39;Server running at: 8888&#39;);
 </code></pre>
 
-<h4 id="toc_6">2.2 如何处理基本请求 GET POST</h4>
+<h4 id="toc_5">2.2 如何处理基本请求 GET POST</h4>
 
 <p><code>createServer</code> 回调方法的两个参数 <code>req</code> <code>res</code> 是 http <code>request</code> 和 <code>response</code> 的内容，打印一下他们的内容。</p>
 
@@ -223,7 +234,7 @@ http.createServer(function(req, res){
 
 <p><code>query</code> 字段刚好是我们想要的内容，下载这个字段对应的图片。</p>
 
-<h4 id="toc_7">2.3 如何下载图片并转发</h4>
+<h4 id="toc_6">2.3 如何下载图片并转发</h4>
 
 <p><code>request</code> 模块支持管道方法，可以和 <code>shell</code> 的管道一样理解。</p>
 
@@ -241,7 +252,7 @@ http.createServer(function(req, res){
     request(options).pipe(res);
 </pre>
 
-<h4 id="toc_8">2.4 完成基本功能，上线</h4>
+<h4 id="toc_7">2.4 完成基本功能，上线</h4>
 
 <p><a href="https://github.com/auv1107/FileTransferServer/blob/master/routes/image.js">项目地址</a></p>
 
@@ -297,7 +308,7 @@ http.createServer(function(req, res){
     module.exports = router;
 </code></pre>
 
-<h4 id="toc_9">2.5 优化</h4>
+<h4 id="toc_8">2.5 优化</h4>
 
 <p>这部分主要是防盗链部分的优化。</p>
 
