@@ -4,13 +4,57 @@
   <title><![CDATA[博客未命名]]></title>
   <link href="lixindong.top/atom.xml" rel="self"/>
   <link href="lixindong.top/"/>
-  <updated>2017-02-14T22:10:53+08:00</updated>
+  <updated>2017-02-19T19:27:01+08:00</updated>
   <id>lixindong.top/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[金克丝动态线稿]]></title>
+    <link href="lixindong.top/14875026448350.html"/>
+    <updated>2017-02-19T19:10:44+08:00</updated>
+    <id>lixindong.top/14875026448350.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://i.imgur.com/AEkSJpB.jpg" alt=""/></p>
+
+<p>大屁股金克丝。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[真人改漫画]]></title>
+    <link href="lixindong.top/14875024153456.html"/>
+    <updated>2017-02-19T19:06:55+08:00</updated>
+    <id>lixindong.top/14875024153456.html</id>
+    <content type="html"><![CDATA[
+<p>阴影，衣褶，头的比例，头发分组。</p>
+
+<p>### 赵丽颖</p>
+
+<p> <img src="http://i.imgur.com/pBFYfRu.jpg" alt=""/> <br/>
+ <img src="http://i.imgur.com/Lumpjpb.jpg" alt=""/><br/>
+ <img src="http://i.imgur.com/4QaD9Re.jpg" alt=""/></p>
+
+<p>画师说我以前用色偏暗，这个特地用了粉嫩嫩的颜色。</p>
+
+<h3 id="toc_0">鹿晗？</h3>
+
+<p><img src="http://i.imgur.com/XqeS9EU.jpg" alt=""/><br/>
+话说一只分不清鹿晗和张艺兴来着</p>
+
+<p><img src="http://i.imgur.com/fvLlmfZ.jpg" alt=""/><br/>
+手稿</p>
+
+<p><img src="http://i.imgur.com/x3Br7rH.jpg" alt=""/></p>
+
+<p>衣服上exo字母颜色上残，后来直接自暴自弃了。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[]]></title>
@@ -1637,86 +1681,6 @@ System.out.println(coll.contains(pAnon)); // 打印 true
 <li>两者都可使用，并且层数不受影响的前提下，尽量使用LinearLayout.</li>
 <li>若是层数受影响，优先考虑层数少的。(这点会在以后的文章中谈到)</li>
 </ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[带阴影的TextView 淡入淡出动画异常，显示多余的阴影]]></title>
-    <link href="lixindong.top/14720508913010.html"/>
-    <updated>2016-08-24T23:01:31+08:00</updated>
-    <id>lixindong.top/14720508913010.html</id>
-    <content type="html"><![CDATA[
-<h4 id="toc_0">1. 问题</h4>
-
-<p>带阴影的TextView 淡入淡出动画异常，有多余的阴影</p>
-
-<h4 id="toc_1">2. 复现步骤</h4>
-
-<ol>
-<li>TextView 设置阴影</li>
-<li>对TextView设置的alpha值设置 ObjectAnimator</li>
-<li>观察</li>
-</ol>
-
-<h4 id="toc_2">3. 上图</h4>
-
-<table>
-<thead>
-<tr>
-<th>TextView底部有多余阴影</th>
-<th>动画正常</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><img src="http://upload-images.jianshu.io/upload_images/25769-6ba639edeab70edb.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
-<td><img src="http://upload-images.jianshu.io/upload_images/25769-57053d376b7c5fd8.jpg?imageMogr2/auto-orient/strip" alt=""/></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="toc_3">4. 原因</h4>
-
-<ol>
-<li>硬件加速并非对所有2D图形的支持都很好，处理alpha相关的事件时需尤为注意。</li>
-<li>并非所有方法都有做应对处理。</li>
-</ol>
-
-<h4 id="toc_4">5. 解决方案</h4>
-
-<ol>
-<li>对相应的View或Activity或Application关闭硬件加速。</li>
-<li>使用其他替代方法实现动画。这就要看具体方法的实现了。</li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[微博自动发贴，简单却不容易被注意到的反爬方式]]></title>
-    <link href="lixindong.top/14705728845498.html"/>
-    <updated>2016-08-07T20:28:04+08:00</updated>
-    <id>lixindong.top/14705728845498.html</id>
-    <content type="html"><![CDATA[
-<p>移动端登录后移步 <a href="http://m.weibo.cn/mblog">http://m.weibo.cn/mblog</a> 页面发贴，正常思路是：填写消息-&gt;其它选项-&gt;点击发送。</p>
-
-<pre><code>tv_msg.send_keys(&quot;msg&quot;)
-btn_send.click()
-</code></pre>
-
-<p>仔细看下细节，会发现，发送按钮一开始是disable的，输入消息后才会变成enable。<br/>
-所以按理说，代码确实没有问题。可是执行结果是最终停留在这个页面，而且send按钮<strong>并没有</strong>变成可用的橙色。</p>
-
-<p>测试最后发现，msg输入后，send并不会立即改变状态，而是有一个很小的延迟时间。而因为机器的执行速度极快，导致在send状态改变前，已经执行了click动作。所以发送动作没有如期进行。</p>
-
-<p>在其中加入一点delay解决问题。</p>
-
-<pre><code>tv_msg.send_keys(&quot;msg&quot;)
-time.sleep(0.1)
-btn_send.click()
-</code></pre>
 
 ]]></content>
   </entry>
