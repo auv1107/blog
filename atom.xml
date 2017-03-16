@@ -4,13 +4,60 @@
   <title><![CDATA[博客未命名]]></title>
   <link href="lixindong.top/atom.xml" rel="self"/>
   <link href="lixindong.top/"/>
-  <updated>2017-02-19T19:27:01+08:00</updated>
+  <updated>2017-03-16T23:23:30+08:00</updated>
   <id>lixindong.top/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[每天早上的小剧场]]></title>
+    <link href="lixindong.top/14896760685794.html"/>
+    <updated>2017-03-16T22:54:28+08:00</updated>
+    <id>lixindong.top/14896760685794.html</id>
+    <content type="html"><![CDATA[
+<p>每天早上起来看书画画，攒了几天的，一块发上来。</p>
+
+<h3 id="toc_0">新垣结衣的今日子形象</h3>
+
+<p><img src="http://i.imgur.com/QrGWDKH.jpg" alt=""/></p>
+
+<h3 id="toc_1">介个，咳咳</h3>
+
+<p><img src="http://i.imgur.com/WPFhALf.jpg" alt=""/></p>
+
+<h3 id="toc_2">原型也是 Gakki 啊！！！</h3>
+
+<p><img src="http://i.imgur.com/9YUYaH2.jpg" alt=""/></p>
+
+<h3 id="toc_3">让人绝望的简笔画。认得出是 Gakki ？才怪！</h3>
+
+<p><img src="http://i.imgur.com/EGLgrQ3.jpg" alt=""/></p>
+
+<h3 id="toc_4">又一个大屁股金克丝</h3>
+
+<p><img src="http://i.imgur.com/hohLehj.jpg" alt=""/></p>
+
+<h3 id="toc_5">窗台涂鸦 墨海马</h3>
+
+<p><img src="http://i.imgur.com/VjjtwkC.jpg" alt=""/></p>
+
+<h3 id="toc_6">发条魔灵</h3>
+
+<p><img src="http://i.imgur.com/3W5gzyp.jpg" alt=""/></p>
+
+<h3 id="toc_7">第一幅漫画形式的画</h3>
+
+<p><img src="http://i.imgur.com/DS4UBvv.jpg" alt=""/></p>
+
+<h3 id="toc_8">盲仔。不是很爱画 man 啊。</h3>
+
+<p><img src="http://i.imgur.com/FAyTld1.jpg" alt=""/></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[金克丝动态线稿]]></title>
@@ -1605,82 +1652,6 @@ System.out.println(coll.contains(pAnon)); // 打印 true
 <p>3类4种欺骗方式，各位看官收好。</p>
 
 <p>以上。</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[android - LinearLayout RelativeLayout在布局时优先选择谁？有何区别？]]></title>
-    <link href="lixindong.top/14720509627845.html"/>
-    <updated>2016-08-24T23:02:42+08:00</updated>
-    <id>lixindong.top/14720509627845.html</id>
-    <content type="html"><![CDATA[
-<p>很多初接触android的同学在布局时都会有这样一个疑问：</p>
-
-<blockquote>
-<p>这个布局的父亲用LinearLayout和RelativeLayout都可以，我用哪个更合适呢？</p>
-</blockquote>
-
-<p>有些同学可能就开始权量了，RelativeLayout更灵活，用这个吧。但是感觉LinearLayout更方便啊，自动帮我把这几个View分布开了，不会一开始就挤在一块。</p>
-
-<p>其实呢，随着项目的进展，布局会发生调整，这是再自然不过的事情。</p>
-
-<blockquote>
-<p>不要让自己这些『主观』的思考拖慢进度。</p>
-</blockquote>
-
-<p>今天我从数据上来说下在面临这种情况（两者都可选择）时，应如何选择。</p>
-
-<p><strong>注: 当然，很多情况会有其它更好的选择，我这里仅就这两者进行对比。</strong></p>
-
-<blockquote>
-<p>从效率的角度考虑，选取渲染速度更快的那个。</p>
-</blockquote>
-
-<p>我们知道一个View的绘制包括三个步骤：<br/>
-1. 测量 measure<br/>
-2. 布局 layout<br/>
-3. 绘制 draw</p>
-
-<p>这三个哪个拖后腿都会影响渲染效率，我们就来看看使用不同的布局时，这三者之间的差距。</p>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>子View</th>
-<th>父View</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>父View使用LinearLayout</td>
-<td><img src="http://upload-images.jianshu.io/upload_images/25769-ad4a99485588a741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linear_child.png"/></td>
-<td><img src="http://upload-images.jianshu.io/upload_images/25769-c2a9998a2d24bc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linear_parent.png"/></td>
-</tr>
-<tr>
-<td>父View使用RelativeLayout</td>
-<td><img src="http://upload-images.jianshu.io/upload_images/25769-0d2ff6157d6133e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_child.png"/></td>
-<td><img src="http://upload-images.jianshu.io/upload_images/25769-4c1f5807cd35172d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="relative_parent.png"/></td>
-</tr>
-</tbody>
-</table>
-
-<p>这里我们主要关注 <strong>Measure</strong> 时间。<br/>
-通过对比我们可以看到，父View使用LinearLayout时，父亲和孩子的Measure时间是相差无几的。<br/>
-而父View使用RelativeLayout时，父亲几乎是孩子的两倍。</p>
-
-<blockquote>
-<p>RelativeLayout 的子View经常会被measure两次。</p>
-</blockquote>
-
-<h3 id="toc_0">结论</h3>
-
-<ol>
-<li>两者都可使用，并且层数不受影响的前提下，尽量使用LinearLayout.</li>
-<li>若是层数受影响，优先考虑层数少的。(这点会在以后的文章中谈到)</li>
-</ol>
 
 ]]></content>
   </entry>
