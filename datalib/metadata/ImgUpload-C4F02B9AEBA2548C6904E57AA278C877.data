@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>7AEA59A021104609E529C2BD4EB60518</key>
+	<array>
+		<dict>
+			<key>localURL</key>
+			<string>media/14875024153456/14875024673868.jpg</string>
+			<key>remoteURL</key>
+			<string>http://i.imgur.com/pBFYfRu.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/14875024153456/14875024396941.jpg</string>
+			<key>remoteURL</key>
+			<string>http://i.imgur.com/Lumpjpb.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/14875024153456/14875024827204.jpg</string>
+			<key>remoteURL</key>
+			<string>http://i.imgur.com/4QaD9Re.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/14875024153456/14875025459219.jpg</string>
+			<key>remoteURL</key>
+			<string>http://i.imgur.com/XqeS9EU.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/14875024153456/14875025668950.jpg</string>
+			<key>remoteURL</key>
+			<string>http://i.imgur.com/fvLlmfZ.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/14875024153456/14875025779614.jpg</string>
+			<key>remoteURL</key>
+			<string>http://i.imgur.com/x3Br7rH.jpg</string>
+		</dict>
+	</array>
+	<key>selectedItem</key>
+	<string>7AEA59A021104609E529C2BD4EB60518</string>
+</dict>
+</plist>
