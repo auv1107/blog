@@ -757,7 +757,7 @@ secret: &#39;myHashSecret&#39;, 要求和上图的Secret字段一样，不然服
 一般不了解的人，第一反应都是：卧槽，我指用个10G流量只能翻墙的VPN就几十块一个月。那租一个可以干很多事情、不限流量的服务器，岂不要几百几千？其实不用998、不用98，绝对用你想不到的价格，买到最不可思议的产品！</p>
 
 <p><strong>2019新年限时特惠！Vultr 虚拟服务器注册即得50美元奖励金！</strong><br/>
-<a href="https://www.vultr.com/?ref=7773240-4F">点击注册得50美金</a><br/>
+<a href="http://r.antiless.com/vultr">点击注册得50美金</a><br/>
 仅此一个月！</p>
 
 <p><strong>推荐：</strong></p>
@@ -768,8 +768,8 @@ secret: &#39;myHashSecret&#39;, 要求和上图的Secret字段一样，不然服
 <strong>支持支付宝交易！</strong><br/>
 <strong>支持30天内退款</strong> 一般一个工作日内就能回复，支付宝收到2～3天。<br/>
 <strong>一键配置shadowsocks！</strong>如果使用搬瓦工，那后面的内容都不用看了，点下面的链接注册即可。<br/>
-官方网址：<a href="https://bandwagonhost.com/aff.php?aff=39151">https://bandwagonhost.com/</a><br/>
-如果被墙也可使用: <a href="https://bwh8.net/aff.php?aff=39151">https://bwh8.net</a><br/>
+官方网址：<a href="http://r.antiless.com/bwg">https://bandwagonhost.com/</a><br/>
+如果被墙也可使用: <a href="http://r.antiless.com/bwg">https://bwh8.net</a><br/>
 两个都是官方地址</p>
 
 <p>数据中心：美国西雅图、佛罗里达、洛杉矶、荷兰 套餐价格：64MB内存年3.99美元 / 96MB内存年4.99美元/128MB内存年5.99美元/512MB内存年9.99美元 简单介绍：IT7官方旗下的低价VPS主机产品，拥有速度较好的西岸亚利桑那州机房，最低年付仅需3.99美元，我们可以用来学习、工作项目演示，以及需要支持PPP/TUN搭建工具使用需求。拥有4个数据中心，而且可以自由切换IP，更换不同的IP，解决IP被封问题。</p>
@@ -780,24 +780,24 @@ secret: &#39;myHashSecret&#39;, 要求和上图的Secret字段一样，不然服
 <h4 id="toc_4">2. Vultr （低价推荐，我自己目前在用）</h4>
 
 <p><strong>2019新年限时特惠！注册即得50美元奖励金！</strong><br/>
-<a href="https://www.vultr.com/?ref=7773240-4F">点击注册得50美金</a><br/>
+<a href="http://r.antiless.com/vultr">点击注册得50美金</a><br/>
 仅此一个月！</p>
 
 <hr/>
 
-<p><a href="https://www.vultr.com/?ref=7595390">注册网址</a><br/>
+<p><a href="http://r.antiless.com/vultr">注册网址</a><br/>
 <strong>优点</strong> <br/>
 1. 注册赠送20美金。使用最低标准服务5刀/月，相当于可以免费使用4个月。(活动已经失效，但最低标准服务价格<strong>下调到2.5刀/月</strong>，可以说是相当实惠了！)<br/>
 2. 服务稳定。至少我还没碰到过当机情况。<br/>
 3. <del>第三点是缺点，想获得20美金，必须使用信用卡支付，并且扣除2.5美元的验证费。（以后会返还）</del><br/>
 4. 现在已全面支持<strong>支付宝/微信付款</strong>，非常方便，也不需要绑定信用卡了。<br/>
-<a href="https://www.vultr.com/?ref=7595390">点击注册并获取20美金</a></p>
+<a href="http://r.antiless.com/vultr">点击注册并获取20美金</a></p>
 
 <p>数据中心：日本、洛杉矶、英国、法国、德国、荷兰、澳大利亚等14个机房<br/>
 套餐价格：KVM 768MB 15GB SSD 1TB月流量 <strong>$5/月</strong><br/>
 简单介绍：Vultr作为全球最大的游戏主机提供商背景之一，上线之后以高质的性价比、12个数据中心，以及新注册账户赠送5美金的账户使用金优惠促销，吸引广大的用户。作为我们用户，日本、洛杉矶等数据中心速度较好，如果有需要海外其他机房也可以在其12个数据中心中选择到适合自己的。</p>
 
-<p>官方网站：<a href="https://www.vultr.com/?ref=7595390">https://www.vultr.com</a></p>
+<p>官方网站：<a href="http://r.antiless.com/vultr">https://www.vultr.com</a></p>
 
 <h4 id="toc_5">3. 其它</h4>
 
@@ -835,14 +835,15 @@ pip install shadowsocks
         &quot;local_port&quot;:1080,                  #本地连接端口
         &quot;password&quot;:&quot;barfoo&quot;,               #加密传输使用到的密码
         &quot;timeout&quot;:600,                      #连接超时时间
-        &quot;method&quot;:&quot;aes-256-cfb&quot;,             #加密算法
+        &quot;method&quot;:&quot;aes-256-cfb&quot;             #加密算法
 }
 </code></pre>
 
 <p>3 . 启动、停止<br/>
 运行下面的命令来启动和停止后台服务：</p>
 
-<pre><code class="language-ssserver">ssserver -c /etc/shadowsocks.json -d stop
+<pre><code>ssserver -c /etc/shadowsocks.json -d start
+ssserver -c /etc/shadowsocks.json -d stop
 </code></pre>
 
 <h4 id="toc_10">然后你就可以使用上面的配置连接shadowsocks了。</h4>
@@ -857,13 +858,6 @@ pip install shadowsocks
 － 协议类型: aes-256-cfb 一般默认就这个，不用换。但还是要看一眼。<br/>
 － 密码(password): barfoo<br/>
 连接，欢呼。</p>
-
-<h2 id="toc_11">3. 拓展</h2>
-
-<p>可以点赞了。</p>
-
-<p>欢迎关注微博进行技术交流 <a href="http://weibo.com/2293237681">斯科特</a><br/>
-**</p>
 
                         
                       </div>
